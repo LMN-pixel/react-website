@@ -123,7 +123,7 @@ class ProductProvider extends React.Component {
         let tempProducts = [...this.state.products];
         let tempCart = [...this.state.cart];
 
-        tempCart = tempCart.filter(item => item.id != id);
+        tempCart = tempCart.filter(item => item.id !== id);
 
         const index = tempProducts.indexOf(this.getItem(id));
         let removedProduct = tempProducts[index];
@@ -155,7 +155,7 @@ class ProductProvider extends React.Component {
     };
     addTotals = () => {
         let subTotal = 0;
-        this.state.cart.map(item => {subTotal += item.total});
+        this.state.cart.map(item => {return subTotal += item.total});
         const tempTax = subTotal * 0.1;
         const tax = parseFloat(tempTax.toFixed(2));
         const total = subTotal + tax;
