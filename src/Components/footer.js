@@ -11,6 +11,7 @@ export default class Footer extends React.Component {
                         <div className='row row1'>
                             <img 
                             src='img/footer-logo.jpg'
+                            alt=''
                             className='logo'
                             />
                         </div>
