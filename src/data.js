@@ -2,7 +2,7 @@ export const storeProducts = [
     {
         id: 1,
         title: "Chanel 1 - red",
-        img: 'img/redbag.jpg',
+        img: 'img/product.jpg',
         price: 2000,
         company: "Chanel",
         info:
@@ -16,7 +16,7 @@ export const storeProducts = [
     {
         id: 2,
         title: "Gucci - brown",
-        img: 'img/brownbag.jpg',
+        img: 'img/product.jpg',
         price: 3000,
         company: "Gucci",
         info:
@@ -29,7 +29,7 @@ export const storeProducts = [
     {
         id: 3,
         title: "Gucci - pink",
-        img: 'img/pinkbag.jpg',
+        img: 'img/product.jpg',
         price: 2500,
         company: "Gucci",
         info:
@@ -41,7 +41,7 @@ export const storeProducts = [
     {
         id: 4,
         title: "Chanel 1 - red",
-        img: 'img/redbag.jpg',
+        img: 'img/product.jpg',
         price: 2000,
         company: "Chanel",
         info:
@@ -55,7 +55,7 @@ export const storeProducts = [
     {
         id: 5,
         title: "Gucci - brown",
-        img: 'img/brownbag.jpg',
+        img: 'img/product.jpg',
         price: 3000,
         company: "Gucci",
         info:
@@ -68,7 +68,7 @@ export const storeProducts = [
     {
         id: 6,
         title: "Gucci - pink",
-        img: 'img/pinkbag.jpg',
+        img: 'img/product.jpg',
         price: 2500,
         company: "Gucci",
         info:
@@ -80,7 +80,7 @@ export const storeProducts = [
     {
         id: 7,
         title: "Chanel 1 - red",
-        img: 'img/redbag.jpg',
+        img: 'img/product.jpg',
         price: 2000,
         company: "Chanel",
         info:
@@ -94,7 +94,7 @@ export const storeProducts = [
     {
         id: 8,
         title: "Gucci - brown",
-        img: 'img/brownbag.jpg',
+        img: 'img/product.jpg',
         price: 3000,
         company: "Gucci",
         info:
@@ -107,7 +107,7 @@ export const storeProducts = [
     {
         id: 9,
         title: "Gucci - pink",
-        img: 'img/pinkbag.jpg',
+        img: 'img/product.jpg',
         price: 2500,
         company: "Gucci",
         info:
@@ -122,7 +122,7 @@ export const storeProducts = [
 export const detailProduct = {
     id:1,
     title: "Chanel 1 - Red",
-    img: 'img/redbag.jpg',
+    img: 'img/product.jpg',
     price: 2000,
     company:'Chanel',
     info: 

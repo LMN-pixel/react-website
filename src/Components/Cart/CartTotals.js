@@ -27,7 +27,7 @@ export default function CartTotals({value}) {
                         </h5>
                         <h5>
                             <span className='text-title'>
-                                tax : 
+                                shipping : 
                             </span>
                             <strong>Ksh {cartTax} </strong>
                         </h5>

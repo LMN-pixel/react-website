@@ -2,6 +2,7 @@ import React from 'react';
 import {Product} from './Product';
 import Title from './Title';
 import {ProductConsumer} from '../context';
+import styled from 'styled-components';
 
 export class ProductList extends React.Component {
     render() {
@@ -10,7 +11,11 @@ export class ProductList extends React.Component {
             <React.Fragment>
                 <div className="py-5">
                     <div className="container">
-                        <Title name="our" title="products"/>
+                        <Titlebackground>
+                            <div>
+                                <Title name="our" title="products"/>
+                            </div>
+                        </Titlebackground>
                         <div className="row">
                             <ProductConsumer>
                                 {value => {
@@ -29,3 +34,10 @@ export class ProductList extends React.Component {
         );
     }
 }
+
+const Titlebackground = styled.div `
+background: url(img/wallpaper.jpg);
+width: 50%;
+margin: 2% auto;
+max-height: 500px;
+`;

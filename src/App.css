@@ -1,9 +1,9 @@
 :root {
-  --mainBlue: #2a2a72;
-  --lightBlue: #009ffd;
+  --mainBlue: black;
+  --lightBlue: white;
   --mainWhite: white;
-  --offWhite: #f3f3f3;
-  --mainDark: #1f447c;
+  --offWhite: white;
+  --mainDark: black;
   --mainYellow: #ffa400;
 }
 
@@ -24,7 +24,7 @@ body {
 }
 
 .text-bright {
- color: var(--lightBlue);
+ color: var(--mainBlue);
 }
 
 .btn-black {
@@ -46,3 +46,15 @@ body {
   font-size: 1.2rem;
   color: var(--mainYellow);
 }
+
+.cart-text {
+  font-family: 'Sansita Swashed', cursive;
+  font-size: .7em;
+  font-weight: 200;
+  color:grey;
+}
+  
+  
+
+  
+
