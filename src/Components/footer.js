@@ -11,7 +11,7 @@ export default class Footer extends React.Component {
                         <div className='row row1'>
                             <img 
                             src='img/footer-logo.jpg'
-                            alt=''
+                            alt=' '
                             className='logo'
                             />
                         </div>
@@ -40,7 +40,9 @@ export default class Footer extends React.Component {
 
 const FooterWrapper = styled.div `
 
+margin-top: 5px;
 margin-bottom: 0;
+
 color: white;
 font-size: .7em;
 
@@ -50,7 +52,7 @@ font-size: .7em;
 }
 
 .logo {
-    width: 10%;
+    width: 12em;
     height: auto;
     margin: 0 auto;
     margin-bottom: 1%;
@@ -63,7 +65,7 @@ font-size: .7em;
 
 .col {
    
-    width: 80%;
+    width: 12em;
     margin: 2% auto;
     
 }
@@ -75,7 +77,7 @@ font-size: .7em;
 
 i {
     color: white;
-    font-size: 300%;
+    font-size: 2em;
     margin: 1% 3%;
     align-items: center;
 }

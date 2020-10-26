@@ -26,7 +26,7 @@ export class Modal extends React.Component{
                                         alt='product' />
                                         <h5>{title}</h5>
                                         <h5 className='text-muted'>price: Ksh {price}</h5>
-                                        <Link to='/'>
+                                        <Link to='/products'>
                                             <ButtonContainer 
                                             onClick={() => closeModal()}>
                                                 Store
@@ -65,7 +65,7 @@ display: flex;
 align-items: center;
 justify-content: center;
 #modal {
-    background: var(--offWhite);
+    background: white;
 
 }
 

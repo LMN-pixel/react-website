@@ -9,7 +9,7 @@ export class ProductList extends React.Component {
   
         return (
             <React.Fragment>
-                <div className="py-5">
+                <div className="py-5 my-5">
                     <div className="container">
                         <Titlebackground>
                             <div>
@@ -38,6 +38,6 @@ export class ProductList extends React.Component {
 const Titlebackground = styled.div `
 background: url(img/wallpaper.jpg);
 width: 50%;
-margin: 2% auto;
-max-height: 500px;
+margin: auto;
+max-height: 300px;
 `;

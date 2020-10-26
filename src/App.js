@@ -9,7 +9,7 @@ import {Cart} from './Components/Cart';
 import {Default} from './Components/Default';
 import {Modal} from './Components/Modal';
 import Footer from './Components/footer';
-
+import Landing from './Components/LandingPage.js/landing'
 
 class App extends React.Component {
 
@@ -18,7 +18,8 @@ class App extends React.Component {
     <React.Fragment>
      <Navbar />
      <Switch>
-       <Route exact path="/" component={ProductList}></Route>
+       <Route exact path='/' component={Landing}></Route>
+       <Route exact path="/products" component={ProductList}></Route>
        <Route path="/details" component={Details}></Route>
        <Route path="/cart" component={Cart}></Route>
        <Route component={Default}></Route>

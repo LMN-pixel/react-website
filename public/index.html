@@ -25,6 +25,12 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Nunito+Sans&family=PT+Sans+Caption:wght@400;700&family=Sansita+Swashed:wght@500&display=swap" rel="stylesheet">
+    <link
+  rel="stylesheet"
+  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+  integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+  crossorigin="anonymous"
+/>
     <!--font awesome-->
     <script src="https://kit.fontawesome.com/8b0eb6db6d.js" crossorigin="anonymous"></script>
     <title>kefira</title>
@@ -42,5 +48,30 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <!--firebase-->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyDTYA7Vwxwt9RqEUmXti5cZuxnSpzg12wc",
+    authDomain: "kefira-webapp.firebaseapp.com",
+    databaseURL: "https://kefira-webapp.firebaseio.com",
+    projectId: "kefira-webapp",
+    storageBucket: "kefira-webapp.appspot.com",
+    messagingSenderId: "112979525141",
+    appId: "1:112979525141:web:f035b288f5e4c7ab01181c",
+    measurementId: "G-1WJP4ZCL00"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
   </body>
 </html>

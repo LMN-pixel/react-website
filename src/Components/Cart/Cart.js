@@ -17,7 +17,9 @@ export class Cart extends React.Component {
                         if (cart.length > 0){
                             return (
                                 <React.Fragment>
-                                    <Title name='your' title='cart' />
+                                    <div className='mt-5 pt-5'>
+                                    <Title name='your' title='Shopping basket' />
+                                    </div>
                                     <CartColumns />
                                     <CartList value={value}/>
                                     <CartTotals value={value} />
