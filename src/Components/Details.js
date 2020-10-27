@@ -22,8 +22,8 @@ export class Details extends React.Component {
                        <div className='container py-5 text-center'>
                            {/*title*/}
                            <div className='row'>
-                               <div className='col-10 mx-auto text-center text-slanted text-blue my-5'>
-                                   <h1>{title}</h1>
+                               <div className='col-10 mx-auto text-center text-title text-slanted text-blue my-5'>
+                                   <h2>{title}</h2>
                                </div>
                            </div>
                            {/*title end*/}
@@ -37,17 +37,14 @@ export class Details extends React.Component {
                                <div className='col-10 mx-auto col-md-6 
                                my-3 text-capitalize'>
                                    <h3>{title}</h3>
-                                   <h4 className='text-title text-uppercase 
-                                   text-muted mt-3 mb-2'>
+                                   <h4 className='text-muted mt-3 mb-2'>
                                        Made by: <span>
                                            {company}</span>
                                    </h4>
-                                   <h4 className='text-blue'>
-                                       <strong>
+                                   <h5 >
                                            price: <span>Ksh</span>
                                            {price}
-                                       </strong>
-                                   </h4>
+                                   </h5>
                                    <p className='text-capitalize font-weight-bold mt-3 mb-0'>
                                        About:
                                    </p>

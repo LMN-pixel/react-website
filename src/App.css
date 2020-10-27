@@ -6,26 +6,25 @@
   --mainDark: black;
   --mainYellow: #ffa400;
 }
+* {
+  font-family: 'Poppins', sans-serif;
+}
 
 body {
- font-family: 'Noto Sans JP', sans-serif !important;
+ 
  background: var(--offWhite) !important;
  color: black !important;
 }
 
 .text-title {
- font-family: 'PT Sans Caption', sans-serif;
- letter-spacing: 0.3rem;
- text-transform: uppercase;
+font-family: 'Assistant', sans-serif;
+font-weight: 500;
+font-size:1.5rem;
+ 
  }
 
-.text-blue {
- color: var(--mainBlue);
-}
 
-.text-bright {
- color: var(--mainBlue);
-}
+
 
 .btn-black {
   background: transparent;
@@ -53,8 +52,8 @@ body {
   font-weight: 200;
   color:grey;
 }
-  
-  
 
-  
+a {
+  color: black !important;
 
+}

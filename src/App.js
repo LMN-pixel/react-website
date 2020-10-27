@@ -10,6 +10,8 @@ import {Default} from './Components/Default';
 import {Modal} from './Components/Modal';
 import Footer from './Components/footer';
 import Landing from './Components/LandingPage.js/landing'
+import SignUp from './Components/SignUp';
+import SignIn from './Components/SignIn';
 
 class App extends React.Component {
 
@@ -19,9 +21,11 @@ class App extends React.Component {
      <Navbar />
      <Switch>
        <Route exact path='/' component={Landing}></Route>
-       <Route exact path="/products" component={ProductList}></Route>
+       <Route path="/products" component={ProductList}></Route>
        <Route path="/details" component={Details}></Route>
        <Route path="/cart" component={Cart}></Route>
+       <Route path='/signup' component={SignUp}></Route>
+       <Route path='/signin' component={SignIn}></Route>
        <Route component={Default}></Route>
      </Switch>
      <Footer />

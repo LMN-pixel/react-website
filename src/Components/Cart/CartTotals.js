@@ -23,19 +23,19 @@ export default function CartTotals({value}) {
                             <span className='text-title'>
                                 subtotal : 
                             </span>
-                            <strong>Ksh {cartSubTotal} </strong>
+                            Ksh {cartSubTotal} 
                         </h5>
                         <h5>
                             <span className='text-title'>
                                 shipping : 
                             </span>
-                            <strong>Ksh {cartTax} </strong>
+                            Ksh {cartTax} 
                         </h5>
                         <h5>
                             <span className='text-title'>
                                 total : 
                             </span>
-                            <strong>Ksh {cartTotal} </strong>
+                            Ksh {cartTotal}
                         </h5>
                     </div>
                 </div>

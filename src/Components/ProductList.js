@@ -13,7 +13,7 @@ export class ProductList extends React.Component {
                     <div className="container">
                         <Titlebackground>
                             <div>
-                                <Title name="our" title="products"/>
+                                <Title name=''title="Shop"/>
                             </div>
                         </Titlebackground>
                         <div className="row">
@@ -39,5 +39,15 @@ const Titlebackground = styled.div `
 background: url(img/wallpaper.jpg);
 width: 50%;
 margin: auto;
-max-height: 300px;
+max-height: 250px;
+@media (max-width: 770px){
+    h3 {
+        margin-top: 0!important;
+        padding-top: 0!important;
+        padding-bottom: 5px !important;
+        font-size: 1.5rem;
+        line-height: 40px;
+    }
+    
+}
 `;

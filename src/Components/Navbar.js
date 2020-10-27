@@ -27,7 +27,7 @@ export class Navbar extends React.Component {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to='/' className='link'>            
+                                    <Link to='/signup' className='link'>            
                                         <span>
                                             <i className='far fa-user-circle fa-fw'/>
                                         </span>
@@ -38,7 +38,7 @@ export class Navbar extends React.Component {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="/cart" className='link'>
+                                    <Link to="/cart" className='link mr-3'>
                                             <span>
                                                 <i className="fas fa-shopping-basket fa-fw"/>
                                             </span>
@@ -51,35 +51,44 @@ export class Navbar extends React.Component {
                         <div className='container'>   
                             <div className='row row2 flex-nowrap'>
                             <input type="checkbox" id="check"/>
-		                            <label for="check" className="checkbtn">
+		                            <label for="check" className="checkbtn ml-3">
 		                                <i className="fas fa-bars"></i>
 		                            </label>
-                                <ul className=' navlist navbar navbar-expand-md navbar-expand-xl bg-inverse col-12 nav navbar-nav'>
-                                        <li className='nav-item link'>
+                                <ul className=' navlist navbar navbar-expand-md col-12 bg-light nav navbar-nav'>
+                                        <li id='side' 
+                                        className='nav-item link'>
                                             <Link to='/'>
                                                 All bags
                                                 </Link></li>
-                                        <li className='nav-item link'>
+                                        <li id='side' 
+                                        className='nav-item link'>
                                         <Link to='/products'>New Arrivals</Link></li>
-                                        <li className='nav-item link'>
+                                        <li id='side' 
+                                        className='nav-item link'>
                                             <Link to='/products'>Crossbody Bags
                                                 </Link></li>
-                                        <li className='nav-item link'>
+                                        <li id='side' 
+                                        className='nav-item link'>
                                             <Link to='/products'>Handbags
                                                 </Link></li>
-                                        <li className='nav-item link'>
+                                        <li id='side' 
+                                        className='nav-item link'>
                                             <Link to='/products'>Shoulder Bags
                                                 </Link></li>
-                                        <li className='nav-item link'>
+                                        <li id='side' 
+                                        className='nav-item link'>
                                             <Link to='/products'>Tote Bags
                                                 </Link></li>
-                                        <li className='nav-item link'>
+                                        <li id='side' 
+                                        className='nav-item link'>
                                             <Link to='/products'>Mini Bags
                                                 </Link></li>
-                                        <li className='nav-item link'>
+                                        <li id='side' 
+                                        className='nav-item link'>
                                             <Link to='/products'>Clutches
                                                 </Link></li>
-                                        <li className='nav-item link'>
+                                        <li id='side' 
+                                        className='nav-item link'>
                                             <Link to='/products'>Bucket Bags
                                                 </Link></li>
                                     </ul>
@@ -98,7 +107,6 @@ const NavWrapper = styled.nav `
 .page_header{
     position: fixed !important;
     top:0;
-    left:2px;
     width: 100%;
     z-index: 1020;
     border-bottom: 1px solid #ccc;
@@ -162,19 +170,16 @@ color: black;
     position: absolute;
     font-size: 20px;
     top: 0;
-    left: 0;
+    left: 2px;
     margin-right: 10px;
     color: black;
     line-height: 80px;
     cursor: pointer;
     display: none;
 }
-.navbar .navbar-nav {
-    display: inline-block;
-    float: none !important;
-    vertical-align: top;
-    text-align: center!important;
-    
+
+.navbar-expand-md {
+    justify-content: center !important;
 }
 
 
@@ -195,8 +200,9 @@ color: black;
         font-size: .9em;
     }
     
-
-
+.nav-item {
+    color: black;
+}
 #check{
     display: none;
 }
@@ -231,7 +237,7 @@ color: black;
 }
 
 
-@media (max-width: 700px){
+@media (max-width: 770px){
     .checkbtn{
         display: block;
     }
@@ -250,7 +256,7 @@ color: black;
         list-style-type: none;
         z-index: 1;
         width: 75%;
-        height: calc(100vh - 107px);
+        height: 100vh;
         background-color: black;
         top: 80px;
         left: -100%;
@@ -263,23 +269,30 @@ color: black;
 
     .row2 ul li{
         display: block;
-        width: 100%;
-        margin: 10px 0;
+        width: 50%;
+        margin: 10px auto;
         line-height: 30px;
+        padding-bottom: 5px;
+        border-bottom: 0.005px solid black;
         
         
+    }
+    .logo {
+        position: absolute;
+        width: 100px;
+        margin: 0 auto 0 30%;
     }
 
     .nav-item{
         font-size: 18px !important;
-        color: white !important;
-      
     }
+    
 
-    .nav-item:hover, .nav-item:click {
+    row2 ul li:hover, row2 ul li:click {
         background: #333;
         text-decoration: underline;
     }
+    
 
     #check:checked ~ ul{
         left:0;
