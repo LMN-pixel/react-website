@@ -38,9 +38,10 @@ export class Navbar extends React.Component {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="/cart" className='link mr-3'>
-                                            <span>
+                                    <Link to="/cart" className='link mr-3 position-relative'>
                                                 <i className="fas fa-shopping-basket fa-fw"/>
+                                            <span className='cart-basket d-flex align-items-center justify-content-center'>
+                                                0
                                             </span>
                                     </Link>
                                 </li>
@@ -54,7 +55,7 @@ export class Navbar extends React.Component {
 		                            <label for="check" className="checkbtn ml-3">
 		                                <i className="fas fa-bars"></i>
 		                            </label>
-                                <ul className=' navlist navbar navbar-expand-md col-12 bg-light nav navbar-nav'>
+                                <ul className=' navlist navbar navbar-expand-md col-12 bg-inverse nav navbar-nav'>
                                         <li id='side' 
                                         className='nav-item link'>
                                             <Link to='/'>
@@ -105,8 +106,10 @@ export class Navbar extends React.Component {
 
 const NavWrapper = styled.nav `
 .page_header{
-    position: fixed !important;
+    position: absolute !important;
     top:0;
+    left: 0;
+    right: -15px;
     width: 100%;
     z-index: 1020;
     border-bottom: 1px solid #ccc;
@@ -118,6 +121,10 @@ header {
 }
 div {
     display: block;
+}
+.row{
+    margin-right: 0 !important;
+    margin-left: 0 !important;
 }
 
 .row1 {
@@ -146,6 +153,17 @@ color: black;
 
 }
 
+ul li .cart-basket {
+    font-size: .6rem;
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 15px;
+    height: 15px;
+    color: black;
+    background-color: #f0f0f0;
+    border-radius: 50%;
+}
 .logo {
     margin-left: 7px;
     padding: 0 100px 5px 0;
@@ -248,6 +266,9 @@ color: black;
     .link {
         padding: 0;
         font-size: 1.5rem;
+    }
+    .bg-inverse{
+        background-color: #f3f3f3 !important;
     }
 
     .row2 ul {

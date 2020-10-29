@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import styled from 'styled-components';
+import { ButtonContainer } from "./Button";
 export default class Login extends Component {
     render() {
         return (
             <SignInWrapper>
             <form>
-                <h3>Sign In</h3>
+                <h3 className='text-center mb-3'>Sign In</h3>
 
                 <div className="form-group">
                     <label>Email address</label>
@@ -24,7 +25,7 @@ export default class Login extends Component {
                     </div>
                 </div>
 
-                <button type="submit" className="btn btn-primary btn-block">Submit</button>
+                <ButtonContainer type="submit" className="sign_btn btn btn-primary btn-block">Submit</ButtonContainer>
                 <p className="forgot-password text-right">
                     Forgot <a href="#">password?</a>
                 </p>
@@ -36,9 +37,17 @@ export default class Login extends Component {
 
 const SignInWrapper = styled.form `
 position: relative;
-background: white;
-z-index: 4000;
-width: 100%;
-height: 100%;
-padding: 30%;
+background-color: white;
+max-width: 500px;
+min-width:200px;
+margin: 200px auto 50px auto;
+padding: 40px 10px;
+border: 0.05px solid #ccc;
+.sign_btn {
+    width: 30%;
+    margin: 0 auto;
+}
+.form-group{
+    padding: 0 25px;
+}
 `;

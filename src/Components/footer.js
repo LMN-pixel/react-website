@@ -6,15 +6,8 @@ export default class Footer extends React.Component {
     render() {
         return (
             <FooterWrapper>
-                <div className='footer'>
+
                     <footer>
-                        <div className='row row1'>
-                            <img 
-                            src='img/footer-logo.jpg'
-                            alt=' '
-                            className='logo'
-                            />
-                        </div>
                         
                         <div className='row row2'>
                             <div className='col contact'>
@@ -32,7 +25,7 @@ export default class Footer extends React.Component {
                         </div>
 
                     </footer>
-                </div>
+                
             </FooterWrapper>
         );
     }
@@ -40,23 +33,16 @@ export default class Footer extends React.Component {
 
 const FooterWrapper = styled.div `
 
-margin-top: 5px;
-margin-bottom: 0;
+position: relative;
+bottom:0;
+margin-top:auto;
 width: 100%;
 color: white;
 font-size: .7em;
 
-.row1 {
-    background: #333;
-    padding-top: 1%;
-}
-
-.logo {
-    width: 12em;
-    height: auto;
-    margin: 0 auto;
-    margin-bottom: 1%;
-
+.row{
+    margin-right: 0 !important;
+    margin-left: 0 !important;
 }
 
 .row2 {

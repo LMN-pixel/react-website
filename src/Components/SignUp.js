@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
+import {ButtonContainer} from './Button';
 
 export default class SignUp extends Component {
     render() {
         return (
             <SignUpWrapper>
             <form>
-                <h3>Sign Up</h3>
+                <h3 className='text-center mb-3'>Sign Up</h3>
 
                 <div className="form-group">
                     <label>First name</label>
@@ -29,9 +30,10 @@ export default class SignUp extends Component {
                     <input type="password" className="form-control" placeholder="Enter password" />
                 </div>
 
-                <button type="submit" className="btn btn-primary btn-block">Sign Up</button>
-                <p className="forgot-password text-right">
-                    Already registered <Link to='/signin'>sign in?</Link>
+                <ButtonContainer type="submit" className="sign_btn text-center btn btn-primary btn-block">Sign Up</ButtonContainer>
+                <p className="forgot-password text-center mt-3 ">
+                    Already registered? <br></br>
+                    <Link to='/signin'><ButtonContainer>Sign in</ButtonContainer></Link>
                 </p>
             </form>
             </SignUpWrapper>
@@ -41,11 +43,17 @@ export default class SignUp extends Component {
 
 const SignUpWrapper = styled.form `
 position: relative;
-margin-top: 0;
-padding-top: 0;
-background: white;
-z-index: 4000;
-width: 100%;
-height: 100%;
-padding: 30%;
+background-color: white;
+max-width: 500px;
+min-width:200px;
+margin: 200px auto;
+padding: 40px 10px;
+border: 0.05px solid #ccc;
+.sign_btn {
+    width: 30%;
+    margin: 0 auto;
+}
+.form-group{
+    padding: 0 25px;
+}
 `;
