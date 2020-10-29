@@ -12,6 +12,7 @@ import Footer from './Components/footer';
 import Landing from './Components/LandingPage.js/landing'
 import SignUp from './Components/SignUp';
 import SignIn from './Components/SignIn';
+import Checkout from './Components/Checkout';
 
 class App extends React.Component {
 
@@ -26,6 +27,7 @@ class App extends React.Component {
        <Route path="/cart" component={Cart}></Route>
        <Route path='/signup' component={SignUp}></Route>
        <Route path='/signin' component={SignIn}></Route>
+       <Route path='/checkout' component={Checkout}></Route>
        <Route component={Default}></Route>
      </Switch>
      <Footer />

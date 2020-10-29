@@ -1,6 +1,5 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {ButtonContainer} from '../Button';
 import styled from 'styled-components';
 
 export default function CartTotals({value}) {
@@ -47,7 +46,7 @@ export default function CartTotals({value}) {
                                 </div>
                             </div>
                             <div className='text-center btn btn-dark btn-block checkout_btn'>
-                                    <Link to='/'>
+                                    <Link to='/checkout'>
                                       <span className='checkout_text'>
                                           Proceed to Checkout
                                          </span>
@@ -66,8 +65,8 @@ export default function CartTotals({value}) {
 
 const TotalWrapper = styled.div `
 .cart_summary{
-    position: relative;
-    margin: 13px -20px 0;
+    
+    margin: 13px auto;
     color: #000;
     
     
@@ -77,7 +76,7 @@ const TotalWrapper = styled.div `
    
 }
 .total_box {
-    background-color: #f0f0f0;
+    
     padding: 0 20px 30px;
 }
 .summary_title {
@@ -135,6 +134,7 @@ const TotalWrapper = styled.div `
     .total_box {
         width: inherit;
         border-radius: 5px;
+        background-color: #f0f0f0;
     }
     .shipping_cost {
         margin-bottom: 13px;
