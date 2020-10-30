@@ -1,7 +1,6 @@
 import { render } from '@testing-library/react';
 import React from 'react';
-import CartTotals from './Cart/CartTotals';
-import {ProductConsumer} from '../context';
+import {ButtonContainer} from './Button';
 
 
 
@@ -221,7 +220,10 @@ export default class Checkout extends React.Component{
                                         </div>
                                         
                                         <hr class="mb-4"></hr>
-                                        <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
+                                        <ButtonContainer type="submit" className='w-100'>
+                                                Continue to checkout
+                                            
+                                        </ButtonContainer>
         
                                     </form>
         

@@ -9,16 +9,16 @@ export default class Footer extends React.Component {
 
                     <footer>
                         
-                        <div className='row row2'>
+                        <div className='row row2 py-2'>
                             <div className='col contact'>
-                                <h5>Contact us:</h5>
+                                <h6>Contact us:</h6>
                                 <br></br>
                                 <p>Email: filler@email.com</p>
                                 <p>Telephone: +254 123 456</p>
                                 <p> Nairobi, Kenya </p>
                             </div>
                             <div className='col'>
-                                <h5>Follow us on:</h5>
+                                <h6>Follow us on:</h6>
                                 <i className='fab fa-facebook-f'></i>
                                 <i className='fab fa-instagram'></i>
                             </div>

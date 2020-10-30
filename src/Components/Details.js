@@ -66,7 +66,7 @@ export class Details extends React.Component {
                                            value.openModal(id);
                                        }}
                                        >
-                                           {inCart?'in Cart': 'Add to cart'}
+                                           {inCart?'Added to Cart': 'Add to cart'}
                                        </ButtonContainer>
 
                                    </div>

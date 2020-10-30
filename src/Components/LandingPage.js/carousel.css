@@ -1,0 +1,117 @@
+
+.heading {
+    color: white !important;
+    font-size: 2.5em;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 0px;
+  }
+  .slide {
+    display: none;
+    max-width: 900px;
+    
+  }
+  .cont {
+    position: relative;
+    
+    
+  }
+  .wrapper_img {
+    
+    width: 100%;
+    max-height: 750px;
+    
+  }
+  .img_text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    padding: 20%;
+    font-size: .7em;
+  }
+  
+  .slider_text {
+    font-family: 'Open Sans', 'Sans-Serif';
+    color: white;
+    font-size: 102%;
+  }
+  
+  
+  
+  .active {
+    display: block;
+  }
+  
+  .slider {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    padding: 100px 0px 0px 0px;
+    margin-bottom: 10px;
+  }
+  
+  .slider-items {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+  }
+  
+  .noButton {
+    display: none;
+  }
+  
+  .button {
+      border-radius: 30px;
+      border: none;
+      color: white;
+      background-color: Transparent;
+      font-family:'Open Sans', 'Sans-Serif';
+      font-weight: bold;
+      font-size: 80%;
+      text-transform: uppercase;
+      padding: 6px 40px 6px 40px;
+  }
+  
+  .secondButton {
+    border-radius: 30px;
+    border-color: white;
+    background-color: Transparent;
+    border-style: solid;
+    color: white;
+    font-family:'Open Sans', 'Sans-Serif';
+    font-weight: bold;
+    font-size: 80%;
+    text-transform: uppercase;
+    padding: 5px 40px 5px 40px;
+    margin:  0px 0px 0px 10px;
+  }
+  
+  button:hover {
+    text-decoration: none;
+    background-color: black;
+  }
+  
+  button:focus {
+    outline: 0;
+  }
+  
+  .secondButton:hover {
+    text-decoration: none;
+    background-color: black;
+    border-color: white ;
+    color: white;
+  }
+  
+  .slider-text {
+    width: 100%;
+  }
+  
+  .fa {
+    color: #707070;
+  }

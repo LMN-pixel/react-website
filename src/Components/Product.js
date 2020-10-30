@@ -11,7 +11,7 @@ export class Product extends React.Component {
         const {id, title, img, price, inCart} = this.props.product;
 
         return (
-            <ProductWrapper className='col-9 mx-auto col-md-6 col-lg-3 my-2'>
+            <ProductWrapper className='col-6 mx-auto col-lg-3 my-2'>
                 <div className='card'>
                     <ProductConsumer>
                         {(value) => (
@@ -80,10 +80,12 @@ const ProductWrapper = styled.div `
     transition: all 0.5s linear;
 }
 
+
 .card-footer {
     background: transparent;
     border-top: transparent;
     text-align: center;
+    font-size: .8em;
     transition: all 0.5s linear;
 }
 &:hover {

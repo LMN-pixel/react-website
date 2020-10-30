@@ -20,7 +20,7 @@ export class ProductList extends React.Component {
                                 <div className='refinements_wrapper'>
                                     <div className='refinements'>
                                         <div className='refinement-card'>
-                                            <div className='refinement-heading'>
+                                            <div className='refinement-heading collapsed'>
                                                 <span className='refinements_modal-arrow'>
                                                     <span className='icon nav-arrow-icon refinements_modal-arrow_icon'>
                                                         <i className='fa fa-chevron-right'></i>
@@ -167,17 +167,17 @@ export class ProductList extends React.Component {
                                             <div className='refinement-scroll_body refinement_wrapper-size'>
                                                     <div className='refinement-item refinement-card'>
                                                         <div className='custom-control custom-checkbox custom-checkbox--dark'>
-                                                            <input type='checkbox' id='size_m' className='custom-control-input refinement-input' autocomplete='off'/>
-                                                            <label class='custom-control-label refinement-label' for='size_m'>
-                                                                <span className='size'>M</span>
+                                                            <input type='checkbox' id='size_l' className='custom-control-input refinement-input' autocomplete='off'/>
+                                                            <label class='custom-control-label refinement-label' for='size_'l>
+                                                                <span className='size'>Large</span>
                                                             </label>
                                                         </div>
                                                     </div>
                                                     <div className='refinement-item refinement-card'>
                                                         <div className='custom-control custom-checkbox custom-checkbox--dark'>
-                                                            <input type='checkbox' id='size_r' className='custom-control-input refinement-input' autocomplete='off'/>
-                                                            <label class='custom-control-label refinement-label' for='size_r'>
-                                                                <span className='size'>R</span>
+                                                            <input type='checkbox' id='size_m' className='custom-control-input refinement-input' autocomplete='off'/>
+                                                            <label class='custom-control-label refinement-label' for='size_m'>
+                                                                <span className='size'>Medium</span>
                                                             </label>
                                                         </div>
                                                     </div>
@@ -185,7 +185,15 @@ export class ProductList extends React.Component {
                                                         <div className='custom-control custom-checkbox custom-checkbox--dark'>
                                                             <input type='checkbox' id='size_s' className='custom-control-input refinement-input' autocomplete='off'/>
                                                             <label class='custom-control-label refinement-label' for='size_s'>
-                                                                <span className='size'>S</span>
+                                                                <span className='size'>Small</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div className='refinement-item refinement-card'>
+                                                        <div className='custom-control custom-checkbox custom-checkbox--dark'>
+                                                            <input type='checkbox' id='size_xs' className='custom-control-input refinement-input' autocomplete='off'/>
+                                                            <label class='custom-control-label refinement-label' for='size_xs'>
+                                                                <span className='size'>XS</span>
                                                             </label>
                                                         </div>
                                                     </div>
@@ -255,7 +263,7 @@ export class ProductList extends React.Component {
                                     <Title name=''title="Shop"/>
                                 </div>
                             </Titlebackground>
-                            <div className="row product_list-sortby_filter">
+                            <div className="row product_list-sortby_filter mt-3">
                                 <div className='col-6 d-xl-none product_list-filter_wrapper'>
                                     <button type='button' className='btn btn-outline-light filter-results col-12
                                     product_list-filter_button text-capitalize'>
@@ -270,7 +278,7 @@ export class ProductList extends React.Component {
                                 </div>
                                 <form className='col-6 col-xl-4 product_list-sortby_wrapper' autocomplete='off'>
                                     <div className='product_list-sortby_title d-none d-xl-block'>
-                                        SORT BY:
+                                        Sort By:
                                     </div>
                                     <select name='sort-order' className='custom-select product_list-sortby_dropdown'>
                                         <option>Featured</option>
@@ -374,11 +382,6 @@ button {
     border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
     border-image: initial;
 }
-.product_list-filter_icon {
-    position: absolute;
-    right: 10px;
-    height: 21px;
-}
 .icon {
     -ms-flex-negative: 0;
     flex-shrink: 0;
@@ -387,6 +390,12 @@ button {
     pointer-events: none;
     fill: currentColor;
 }
+.product_list-filter_icon {
+    position: absolute;
+    right: 10px;
+    height: 21px;
+}
+
 .product_list-sortby_wrapper {
     padding-left: 5px;
 }
@@ -395,6 +404,7 @@ button {
 }
 .product_list-sortby_dropdown {
     max-width: 200px;
+    font-size:.8em;
 }
 .product_list-container_header {
     margin-top: 14px;
@@ -402,6 +412,7 @@ button {
 .product_list-result_count {
     padding-top: 5px;
     text-align: center;
+
 }
 .product_list-grid {
     margin: 28px -20px 0;

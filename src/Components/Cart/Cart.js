@@ -20,9 +20,9 @@ export class Cart extends React.Component {
                             return (
                                 <React.Fragment>
                                     
-                                    <div className='d-block'>
+                                    <div className='d-block mt-3 pt-5'>
                                     <div className='mt-5 pt-5'>
-                                    <Title name='your' title='Shopping basket' />
+                                        <Title className='text-center' name='shopping' title='basket' />
                                     </div>
                                     <CartWrapper>
                                     <div className='container-fluid container_center_desktop cart cart-page shopping_cart'>
@@ -59,7 +59,7 @@ overflow: auto;
     padding: 0 20px;
 }
 
-@media (min-width: 1366px)
+@media (min-width: 1366px){
 .shopping_cart {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -79,5 +79,6 @@ overflow: auto;
     float: left;
     width: 807px;
     margin-right: 20px;
+}
 }
 `;

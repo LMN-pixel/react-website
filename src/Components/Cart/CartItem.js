@@ -18,7 +18,7 @@ return  (
         <div className='product_card-attributes'>
             <div className='product_card-content'>
                 <div className='product_card-title'>
-                    <div className='product_card-name'>
+                    <div className='product_card-name pt-5'>
                         {title}
                     </div>
                     <div className='product_card-remove order_recap-hide'>
@@ -32,7 +32,7 @@ return  (
                     <div className='product_card-attr_section'>
                         <span className='product_card-attr_item line-item-attributes mt-5'>
 
-                            {color} 
+                            Color: {color} 
                             
                         </span>
                     </div>
