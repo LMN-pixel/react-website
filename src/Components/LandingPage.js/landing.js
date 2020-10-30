@@ -9,14 +9,28 @@ export default class Landing extends React.Component{
         return(
             <LandingWrapper>
                 <div  className='page-flex'>
-                    <div className='top-image'>
-                        <img className='main-img' src='img/landing.jpg' alt='offers'></img>
-                        <div className='main-img-text'>
-                            <Link to='/products'>
-                                <p>Shop Now!</p>
-                            </Link>
+                    <div id="SimpleCarouselExample" class="carousel slide" data-ride="carousel">
+                        <div className='carousel-inner'>
+                            <div className='carousel-item active'>
+                                <img src="img/landing.jpg" class="d-block w-100" alt=" "/>
+                            </div>
+                            <div className='carousel-item'>
+                                <img src="img/wallpaper.jpg" class="d-block w-100" alt=" "/>
+                            </div>
+                            <div className='carousel-item'>
+                                <img src="img/landing.jpg" class="d-block w-100" alt=" "/>
+                            </div>
                         </div>
-        </div> 
+                        <a class="carousel-control-prev" href="#SimpleCarouselExample" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-prev" href="#SimpleCarouselExample" role="button" data-slide="prev">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+
                         
                     
                         <div className='row'>

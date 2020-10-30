@@ -17,6 +17,12 @@ import Checkout from './Components/Checkout';
 class App extends React.Component {
 
   render () {
+    const spinner = document.getElementById('spinner');
+
+if (spinner && !spinner.hasAttribute('hidden')) {
+  spinner.setAttribute('hidden', 'true');
+}
+
   return (
     <React.Fragment>
      <Navbar />

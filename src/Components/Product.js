@@ -58,6 +58,7 @@ export class Product extends React.Component {
                         </p>
                     </div>
                 </div>
+            
             </ProductWrapper>
         );
     }
@@ -122,5 +123,11 @@ const ProductWrapper = styled.div `
 .cart-btn:hover {
     color: black;
     cursor: pointer;
+}
+
+@media (min-width: 1366px)
+
+.card-img-top {
+    min-height: 378px;
 }
 `;
