@@ -19,7 +19,7 @@ export default class Checkout extends React.Component{
                 <div class="container wow fadeIn">
         
               
-                    <h2 class="my-5 h2 text-center">Checkout</h2>
+                    <h2 class="my-5 mt-5 pt-5 h2 text-center">Checkout</h2>
         
               
                         <div class="row">

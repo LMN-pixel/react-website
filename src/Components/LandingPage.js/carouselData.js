@@ -4,21 +4,21 @@ export default [{
     title: 'New Arrivals',
     description: 'Get the latest, trendiest bags',
     buttons: 'Lets Go!',
-    buttons2: ''
+    
   },
   {
-    img: 'img/landing.jpg',
+    img: 'img/occasion.jpg',
     title: 'Bags for every occasion',
     description: '',
     buttons: 'Explore!',
-    buttons2: 'Shop Now'
+    
   },
   {
-    img: 'img/landing.jpg',
+    img: 'img/sale.jpg',
     title: 'SALE!',
     description: '20% off on selected bags',
     buttons: 'Shop Now!',
-    buttons2: ''
+    
   },
   
 ];

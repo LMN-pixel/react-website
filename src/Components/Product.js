@@ -4,6 +4,8 @@ import {Link} from 'react-router-dom';
 import {ProductConsumer} from '../context';
 import PropTypes from 'prop-types';
 
+
+
 export class Product extends React.Component {
 
     render() {
@@ -31,14 +33,16 @@ export class Product extends React.Component {
                             onClick={() => {
                                 value.addToCart(id);
                                 value.openModal(id);
+                                
+                                
                             }} >
 
                             {inCart ? (
                                <p className='text-capitalize mb-0 cart-text' disabled>
                                   {' '}
-                                  Added to cart!</p>
+                                  Added!</p>                                  
                                   ) : (
-                               <i className='fas fa-cart-plus' />
+                               <i className='fas fa-shopping-basket' />
                                )}
 
                           </button>

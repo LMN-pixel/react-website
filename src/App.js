@@ -14,6 +14,7 @@ import SignUp from './Components/SignUp';
 import SignIn from './Components/SignIn';
 import Checkout from './Components/Checkout';
 
+
 class App extends React.Component {
 
   render () {

@@ -1,6 +1,6 @@
 import React from 'react';
 import {storeProducts, detailProduct} from './data';
-
+import notify from './Components/Notification';
 
 const ProductContext = React.createContext();
 //Provider
@@ -46,6 +46,7 @@ class ProductProvider extends React.Component {
     };
 
     addToCart = (id) => {
+        
         let tempProducts = [...this.state.products];
         const index = tempProducts.indexOf(this.getItem(id));
         const product = tempProducts[index];
@@ -62,6 +63,7 @@ class ProductProvider extends React.Component {
         },()=> {
             this.addTotals();
         });
+        notify();
     };
 
     openModal = id => {
@@ -168,6 +170,13 @@ class ProductProvider extends React.Component {
         })
 
     };
+	 
+	
+
+
+
+
+   
 
     render() {
         return (

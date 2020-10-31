@@ -6,6 +6,7 @@
     text-transform: uppercase;
     margin-bottom: 0px;
   }
+  
   .slide {
     display: none;
     max-width: 900px;
@@ -28,14 +29,13 @@
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
-    padding: 20%;
     font-size: .7em;
   }
   
   .slider_text {
-    font-family: 'Open Sans', 'Sans-Serif';
     color: white;
     font-size: 102%;
+    
   }
   
   
@@ -49,7 +49,7 @@
     flex-direction: column;
     align-content: center;
     align-items: center;
-    text-align: center;
+
     width: 100%;
     padding: 100px 0px 0px 0px;
     margin-bottom: 10px;
@@ -58,7 +58,7 @@
   .slider-items {
     display: flex;
     flex-direction: row;
-    align-content: center;
+    text-align: center;
     align-items: center;
   }
   
@@ -68,45 +68,30 @@
   
   .button {
       border-radius: 30px;
-      border: none;
+      border-color: white;
       color: white;
+      border-style: solid;
       background-color: Transparent;
-      font-family:'Open Sans', 'Sans-Serif';
       font-weight: bold;
       font-size: 80%;
       text-transform: uppercase;
       padding: 6px 40px 6px 40px;
+
   }
   
-  .secondButton {
-    border-radius: 30px;
-    border-color: white;
-    background-color: Transparent;
-    border-style: solid;
-    color: white;
-    font-family:'Open Sans', 'Sans-Serif';
-    font-weight: bold;
-    font-size: 80%;
-    text-transform: uppercase;
-    padding: 5px 40px 5px 40px;
-    margin:  0px 0px 0px 10px;
-  }
+
   
   button:hover {
     text-decoration: none;
     background-color: black;
+    color: white;
+    border-color: white;
   }
   
   button:focus {
     outline: 0;
   }
   
-  .secondButton:hover {
-    text-decoration: none;
-    background-color: black;
-    border-color: white ;
-    color: white;
-  }
   
   .slider-text {
     width: 100%;
@@ -114,4 +99,10 @@
   
   .fa {
     color: #707070;
+  }
+  @media (min-width: 1366px){
+    .heading, .img_text {
+      font-size : 1.8em;
+    }
+    
   }

@@ -1,11 +1,14 @@
 import React from 'react';
+import ReactDOM from 'react-router-dom';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 
 
 
 export class Navbar extends React.Component {
+  
     render(){
+        
 
         return (
             <NavWrapper>
@@ -55,9 +58,11 @@ export class Navbar extends React.Component {
 		                            <label for="check" className="checkbtn ml-3">
 		                                <i className="fas fa-bars"></i>
 		                            </label>
-                                <ul className=' navlist navbar navbar-expand-md col-12 bg-inverse nav navbar-nav'>
+                                    
+                                <ul className='side_nav_st navlist navbar navbar-expand-md col-12 bg-inverse nav navbar-nav'>
                                         <li id='side' 
-                                        className='nav-item link'>
+                                        className='nav-item link'
+                                          >
                                             <Link to='/'>
                                                 All bags
                                                 </Link></li>
@@ -65,7 +70,8 @@ export class Navbar extends React.Component {
                                         className='nav-item link'>
                                         <Link to='/products'>New Arrivals</Link></li>
                                         <li id='side' 
-                                        className='nav-item link'>
+                                        className='nav-item link'
+                                        >
                                             <Link to='/products'>Crossbody Bags
                                                 </Link></li>
                                         <li id='side' 
@@ -313,6 +319,7 @@ ul li .cart-basket {
         background: #333;
         text-decoration: underline;
     }
+    
     
 
     #check:checked ~ ul{

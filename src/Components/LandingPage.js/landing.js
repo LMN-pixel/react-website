@@ -43,25 +43,35 @@ export default class Landing extends React.Component{
                             </div>
                         </div>
                         <div className='row new text-align-center'>
-                            <div className='col-6 col-xl'>
+                                <div className='col-6 col-xl'>
+                            <Link to='/products'>
                                 <img src='img/product.jpg'></img>
                                 <p>Shoulder Bags</p>
+                            </Link>
                             </div>
-                            <div className='col-6 col-xl'>
+                                <div className='col-6 col-xl'>
+                            <Link to='/products'>
                                 <img src='img/product.jpg'></img>
-                                <p>Shoulder Bags</p>
+                                <p>Crossbody Bags</p>
+                            </Link>
                             </div>
-                            <div className='col-6 col-xl'>
+                                <div className='col-6 col-xl'>
+                            <Link to='/products'>
                                 <img src='img/product.jpg'></img>
-                                <p>Shoulder Bags</p>
+                                <p>Handbags</p>
+                            </Link>
                             </div>
-                            <div className='col-6 col-xl'>
+                                <div className='col-6 col-xl'>
+                            <Link to='/products'>
                                 <img src='img/product.jpg'></img>
-                                <p>Shoulder Bags</p>
+                                <p>Clutch bags</p>
+                            </Link>
                             </div>
-                            <div className='col-6 col-xl'>
+                                <div className='col-6 col-xl'>
+                            <Link to='/products'>
                                 <img src='img/product.jpg'></img>
-                                <p>Shoulder Bags</p>
+                                <p>All bags</p>
+                            </Link>
                             </div>
                         </div>
                 </div>
