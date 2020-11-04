@@ -20,26 +20,27 @@ export default class Landing extends React.Component{
                         
                     
                         <div className='row mx-auto'>
-                            <div className='card_static col-10 col-xl-4 mx-auto'>
+                            <div className='card_static col-10 col-xl-6 mx-auto'>
                                 <Link to='/products'>
                                     <img className='img-fluid' src='img/landing-secondary1.jpg' alt=' '></img>
-                                    <p>Shop Now!</p>
+                                    <h6>Be Bold</h6>
+                                    <p className='landing_text'>Spruce up your collection with bold new colors</p>
+                                    <p className='landing_text'>SHOP NOW</p>
                                 </Link>
                             </div>
-                            <div className='card_static col-10 col-xl-4 mx-auto'>
+                            <div className='card_static col-10 col-xl-6 mx-auto'>
                                 <Link to='/products'>
                                     <img className='img-fluid' src='img/landing-secondary2.jpg' alt=' '></img>
-                                    <p>Shop Now!</p>
+                                    <h6>Functional</h6>
+                                    <p className='landing_text'>Looks good, works great!</p>
+                                    <p className='landing_text'>SHOP NOW</p>
                                 </Link>
                             </div>
                         </div>
 
                         <div className='row'>
                             <div className='col-12 col-lg-12 new-text'>
-                                <h3>NEW!</h3>
-                                <Link to='/products'>
-                                    <p>Shop Now!</p>
-                                </Link>
+                                <h6 className='mb-4'>NEW THIS WEEK</h6>
                             </div>
                         </div>
                         <div className='row new text-align-center'>
@@ -89,23 +90,15 @@ const LandingWrapper = styled.div `
     padding: 0;
 
 }
-.main-img {
-    position: relative;
-    width: 100%;
-    height: 100%;
+h6{
+    margin-top: 3px;
+    font-weight: 600;
+    font-size: 1.1em;
 }
-.main-img-text{
-    position: absolute;
-    text-align: center;
-    top: 25%;
-    left: 50%;
-    color: white;
-    text-decoration: underline;
-    font-size: 2em;
-    padding: 2%;
-    
+.landing_text {
+    font-family: 'Assistant', sans-serif;
+    font-weight: 500;
 }
-
 
 .card_static {
     position: relative;
@@ -114,14 +107,13 @@ const LandingWrapper = styled.div `
     
 }
 .card_static p{
-    font-size: 1.2em;
+    font-size: 1em;
     font-weight: 400;
-    margin-top: 10px;
-    padding: 2%;
+    
 }
 
 .card_static p:hover {
-    text-decoration: underline;
+    
     padding: 1%;
     transition: all .5s;
     cursor: pointer;
@@ -131,13 +123,11 @@ const LandingWrapper = styled.div `
 .new-text{
     text-align: center;
     cursor: pointer;
+    font-size: 1em;
 }
-.new-text h3{
-    font-weight: 700;
-    text-decoration: underline;
-}
+
 .new-text p:hover{
-    text-decoration: underline;
+    font-weight: bold;
 }
 
 .new {
@@ -175,7 +165,6 @@ const LandingWrapper = styled.div `
         top: 75%;
         left: 65%;
         color: white;
-        text-decoration: underline;
         font-size: 2em;
         padding: 2%;
         cursor: pointer;

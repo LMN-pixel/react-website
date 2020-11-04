@@ -23,12 +23,13 @@ export default class Login extends Component {
                         <input type="checkbox" className="custom-control-input" id="customCheck1" />
                         <label className="custom-control-label" htmlFor="customCheck1">Remember me</label>
                     </div>
+                    <p className="forgot-password">
+                     <a href="#">Forgot password?</a>
+                    </p>
                 </div>
 
-                <ButtonContainer type="submit" className="sign_btn btn btn-primary btn-block">Submit</ButtonContainer>
-                <p className="forgot-password text-right">
-                    Forgot <a href="#">password?</a>
-                </p>
+                <ButtonContainer type="submit" className="sign_btn btn btn-block">Submit</ButtonContainer>
+                
             </form>
             </SignInWrapper>
         );
@@ -50,4 +51,10 @@ border: 0.05px solid #ccc;
 .form-group{
     padding: 0 25px;
 }
+custom-control-input {
+    color: black !important;
+
+}
+
+
 `;

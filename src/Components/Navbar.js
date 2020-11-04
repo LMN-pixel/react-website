@@ -2,8 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-router-dom';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
-
-
+import SearchBar from './Searchbar';
 
 export class Navbar extends React.Component {
   
@@ -15,6 +14,7 @@ export class Navbar extends React.Component {
                 <header className='page_header'>
                 <div className='container mb-0'>
                     <div className='row row1 navbar-header'>
+                       
                         
                             <Link to='/'>
                                 <img
@@ -24,11 +24,10 @@ export class Navbar extends React.Component {
                                 />
                             </Link>
                             <ul>
-                                <li>
-                                    <Link to='/' className='link'>
-                                        <span className='dis'>Home</span>
-                                    </Link>
+                                <li className = 'd-none d-xl-inline-block'>
+                                    <SearchBar/>
                                 </li>
+                                
                                 <li>
                                     <Link to='/signup' className='link'>            
                                         <span>
@@ -38,6 +37,13 @@ export class Navbar extends React.Component {
                                         Sign In
                                         </span>
                                         
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link to='/wishlist' className='link'>
+                                        <span>
+                                            <i className='far fa-heart'></i>
+                                        </span>
                                     </Link>
                                 </li>
                                 <li>
@@ -60,6 +66,10 @@ export class Navbar extends React.Component {
 		                            </label>
                                     
                                 <ul className='side_nav_st navlist navbar navbar-expand-md col-12 bg-inverse nav navbar-nav'>
+                                    <li id='side' className='d-block d-xl-none w-100'>
+                                        <SearchBar/>
+
+                                    </li>
                                         <li id='side' 
                                         className='nav-item link'
                                           >
@@ -119,6 +129,7 @@ const NavWrapper = styled.nav `
     width: 100%;
     z-index: 1020;
     border-bottom: 1px solid #ccc;
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
     background-color: #fff;
     font-size: 14px;
 }
@@ -139,10 +150,11 @@ margin: 0;
 box-sizing: border-box;
 display: block;
 width: 100%;
-height: 70px;
+height: auto;
 background: white;
 color: black;
 }
+
 
 .row1 ul {
     
@@ -174,8 +186,8 @@ ul li .cart-basket {
     margin-left: 7px;
     padding: 0 100px 5px 0;
     height: 80px;
-    
-    
+}
+
 }
 
 .link {
@@ -184,10 +196,10 @@ ul li .cart-basket {
     display: inline-flex;
 }
 
-.link:hover, .link:click {
-    text-decoration: underline;
+.link:hover {
     padding: 6px 9px;
     transition: .5s
+    
 }
 
 .checkbtn {
@@ -304,20 +316,15 @@ ul li .cart-basket {
         
         
     }
-    .logo {
-        position: absolute;
-        width: 100px;
-        margin: 0 auto 0 30%;
-    }
-
+    
     .nav-item{
         font-size: 18px !important;
     }
     
 
-    row2 ul li:hover, row2 ul li:click {
+    row2 ul li:hover, {
         background: #333;
-        text-decoration: underline;
+        
     }
     
     

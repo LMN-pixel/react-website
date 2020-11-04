@@ -1,6 +1,7 @@
 import React from 'react';
 import CartItem from './CartItem';
 import {Link} from 'react-router-dom';
+import { ButtonContainer } from '../Button';
 
 export default function CartList({value}) {
 
@@ -24,13 +25,13 @@ export default function CartList({value}) {
                 <div className='row'>
                     <div className='col-10 mt-2 ml-sm-5 ml-md-auto col-sm-8 text-right'>
                         <Link to='/'>
-                            <button 
-                                className='btn btn-outline-danger mb-3 px-5'
+                            <ButtonContainer 
+                                
                                 type='button'
                                 onClick={() => clearCart()}
                             >
                                 clear cart
-                            </button>
+                            </ButtonContainer>
                         </Link>
                     </div>
                 </div>

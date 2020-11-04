@@ -30,10 +30,10 @@ export default class SignUp extends Component {
                     <input type="password" className="form-control" placeholder="Enter password" />
                 </div>
 
-                <ButtonContainer type="submit" className="sign_btn text-center btn btn-primary btn-block">Sign Up</ButtonContainer>
+                <ButtonContainer type="submit" className="sign_btn text-center btn btn-block">Sign Up</ButtonContainer>
                 <p className="forgot-password text-center mt-3 ">
                     Already registered? <br></br>
-                    <Link to='/signin'><ButtonContainer>Sign in</ButtonContainer></Link>
+                    <Link to='/signin'><ButtonContainer className='sign_btn text-center btn btn-block'>Sign in</ButtonContainer></Link>
                 </p>
             </form>
             </SignUpWrapper>

@@ -8,8 +8,8 @@ export default [{
   },
   {
     img: 'img/occasion.jpg',
-    title: 'Bags for every occasion',
-    description: '',
+    title: 'Variety',
+    description: 'Bags for every occasion',
     buttons: 'Explore!',
     
   },

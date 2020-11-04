@@ -339,7 +339,7 @@ max-height: 250px;
     
 }
 @media (min-width: 1366px){
-    width: 70%;
+    width: 100%;
 }
 `;
 
@@ -657,5 +657,9 @@ button {
 }
 .refinement-label, .refinement-label.price {
     padding-left: 8px;
+}
+.container {
+    max-width: 100% !important;
+    padding: 20px 0 20px 20px;
 }
 `;

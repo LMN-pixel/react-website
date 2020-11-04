@@ -23,7 +23,7 @@ class Slide extends Component {
                   <h2 className={index === 0 ? 'mainSlide heading' : 'slider-item heading'}>{s.title}</h2>
                   <p className='slider_text'>{s.description}</p>
                   <Link to='/products'><button className='button'>{s.buttons}</button></Link>
-                  <button className={index === 0 ? 'secondButton' : 'noButton'} onClick={this.props.goToNextSlide}>{s.buttons2}</button>
+                  
                 </div>
               </div>
               

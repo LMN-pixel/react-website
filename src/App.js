@@ -7,12 +7,12 @@ import {ProductList} from './Components/ProductList';
 import {Details} from './Components/Details';
 import {Cart} from './Components/Cart';
 import {Default} from './Components/Default';
-import {Modal} from './Components/Modal';
 import Footer from './Components/footer';
 import Landing from './Components/LandingPage.js/landing'
 import SignUp from './Components/SignUp';
 import SignIn from './Components/SignIn';
 import Checkout from './Components/Checkout';
+import ImageGallaryComponent from './Components/Description/ItemImages';
 
 
 class App extends React.Component {
@@ -35,10 +35,10 @@ if (spinner && !spinner.hasAttribute('hidden')) {
        <Route path='/signup' component={SignUp}></Route>
        <Route path='/signin' component={SignIn}></Route>
        <Route path='/checkout' component={Checkout}></Route>
+      
        <Route component={Default}></Route>
      </Switch>
      <Footer />
-     <Modal />
      
     </React.Fragment>
   );

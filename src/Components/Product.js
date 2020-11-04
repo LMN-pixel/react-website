@@ -13,12 +13,12 @@ export class Product extends React.Component {
         const {id, title, img, price, inCart} = this.props.product;
 
         return (
-            <ProductWrapper className='col-6 mx-auto col-lg-3 my-2'>
+            <ProductWrapper className='product_card col-6 px-1 col-lg-4 my-2'>
                 <div className='card'>
                     <ProductConsumer>
                         {(value) => (
                       <div 
-                      className='image-container p-2' 
+                      className='image-container' 
                       onClick={() => {
                         value.handleDetail(id);
                       }}>
@@ -32,7 +32,7 @@ export class Product extends React.Component {
                             disabled={inCart ? true : false} 
                             onClick={() => {
                                 value.addToCart(id);
-                                value.openModal(id);
+                                
                                 
                                 
                             }} >
@@ -51,15 +51,25 @@ export class Product extends React.Component {
 
                     {/*card footer*/}
                     <div className='card-footer'>
-                        <p className='mb-2'>
+                        <div className=' card_text text-center'>
+                        <p className='mb-0'>
                             {title}
                         </p>
-                        <p className='font-italic mb-0'>
+                        <p className='mb-0'>
                             <span className='mr-1'>
                                 Ksh
                             </span>
                             {price}
                         </p>
+                        </div>
+                        <div className='wishlist_icon icon'>
+                                <button className='btn wishlist_btn'>
+                                    
+                                    <i className='far fa-heart'></i>
+                                </button>
+                            
+                            
+                        </div>
                     </div>
                 </div>
             
@@ -79,9 +89,11 @@ Product.propTypes = {
 }
 
 const ProductWrapper = styled.div `
+
 .card{
     border-color: transparent;
     transition: all 0.5s linear;
+    border-radius: 0 !important;
 }
 
 
@@ -91,6 +103,23 @@ const ProductWrapper = styled.div `
     text-align: center;
     font-size: .8em;
     transition: all 0.5s linear;
+    
+}
+.card_text{
+    display: inline-block;
+}
+
+.wishlist_icon {
+    display: inline-block;
+    float: right;
+    font-size: 1.4em;
+}
+.wishlist_icon:hover {
+    fill: black;
+}
+.wishlist_btn:hover {
+color: black;
+background-color: black;
 }
 &:hover {
     .card {
@@ -136,4 +165,5 @@ const ProductWrapper = styled.div `
 .card-img-top {
     min-height: 378px;
 }
+
 `;
