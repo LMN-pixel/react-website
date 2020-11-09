@@ -22,7 +22,7 @@ export class Navbar extends React.Component {
                         
                             <Link to='/'>
                                 <img
-                                className='logo link'
+                                className='logo'
                                 src='img/logo.jpg' 
                                 alt = ' '
                                 />
@@ -83,7 +83,11 @@ export class Navbar extends React.Component {
 		                            </label>
                                     
                                 <ul className='side_nav_st navlist navbar navbar-expand-md col-12 bg-inverse nav navbar-nav'>
-                                    <li id='side' className='d-block d-xl-none w-100'>
+                                    <li className='d-block d-md-none w-100'>
+
+                                        <CountrySelect/>
+                                    </li>
+                                    <li id='side' className='d-block d-md-none w-100'>
                                         <SearchBar/>
 
                                     </li>
@@ -310,7 +314,7 @@ ul li .cart-basket {
     }
     .link {
         padding: 0;
-        font-size: 1.5rem;
+        font-size: .9em;
     }
     .bg-inverse{
         background-color: #f3f3f3 !important;

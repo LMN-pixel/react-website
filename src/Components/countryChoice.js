@@ -23,7 +23,7 @@ export default class CountrySelect extends React.Component {
     render() {
         return (
             <countryWrap>
-            <select style={{marginTop:'50px', border:'none'}}>
+            <select style={{marginTop:'50px', border:'none',fontSize: '.8em'}}>
                 <option value=''>Kenya, KES</option>
                 <option value={this.state.country}>Tanzania, TZS</option>
                 <option value={this.state.country}>Uganda, UGX</option>

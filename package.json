@@ -9,6 +9,7 @@
     "bootstrap": "^4.5.2",
     "react": "^16.13.1",
     "react-awesome-slider": "^4.1.0",
+    "react-carousel-with-thumbnail": "^1.4.0",
     "react-dom": "^16.13.1",
     "react-image-gallery": "^1.0.8",
     "react-redux": "^7.2.2",

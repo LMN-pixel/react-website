@@ -4,8 +4,10 @@ import styled  from 'styled-components';
 
 
 export default function WishlistItem ({item,value}) {
+
 const {id,title,img,price,color} = item;
-const {removeItem} = value;
+const {removeItemWishlist, addToCart} = value;
+
         return(
 
             <WishItemWrapper>
@@ -32,8 +34,8 @@ const {removeItem} = value;
                             </div>
                             <div className='product_card-remove order_recap-hide'>
                                 <div 
-                                className='cart-icon btn product_card-remove_btn'
-                                onClick={() => {removeItem(id)}}
+                                className='btn product_card-remove_btn'
+                                onClick={() => {removeItemWishlist(id)}}
                                 >
                                     <i className='fas fa-trash' aria-hidden='true'></i>
                                 </div>
@@ -46,7 +48,13 @@ const {removeItem} = value;
                             Ksh {price}
                         </div>
                         <div className='ml-5'>
-                            <ButtonContainer> Add to Basket </ButtonContainer>
+                            <ButtonContainer
+                            onClick={() => {
+                                addToCart(id);
+                                removeItemWishlist(id);
+
+                            }} 
+                            > Add to Basket </ButtonContainer>
                         </div>
                     </div>
                 </div>

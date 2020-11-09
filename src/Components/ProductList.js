@@ -7,7 +7,7 @@ import styled from 'styled-components';
 export class ProductList extends React.Component {
     render() {
   const filterResult = 0;
-  const category = category;
+
         return (
             <React.Fragment>
                 <ProductListWrapper>
@@ -258,10 +258,10 @@ export class ProductList extends React.Component {
                         </div>
                     </div>
                     {/*product listing */}
-                    <div className='col-sm-12 col-xl-8 product_list-container'>
+                    <div className='col-sm-12 col-xl-8 mx-auto product_list-container'>
                             <Titlebackground>
                                 <div>
-                                    <Title name=''title={category}/>
+                                    <Title name='' title='category'/>
                                 </div>
                             </Titlebackground>
                             <div className="row product_list-sortby_filter mt-3">
@@ -661,6 +661,6 @@ button {
 }
 .container {
     max-width: 100% !important;
-    padding: 20px 0 20px 20px;
+    padding: 20px 0 20px 0;
 }
 `;

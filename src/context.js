@@ -21,7 +21,7 @@ class ProductProvider extends React.Component {
 
     };
     componentDidMount() {
-        this.setProducts();;
+        this.setProducts(); 
     }
     setProducts = () => {
         let tempProducts = [];
@@ -82,8 +82,8 @@ class ProductProvider extends React.Component {
                 products: tempProducts,
                 wishlist: [...this.state.wishlist, product]
             };
-        }
-        );
+        });
+       
     };
 
     openModal = id => {
@@ -167,21 +167,21 @@ class ProductProvider extends React.Component {
     };
 
     removeItemWishlist = (id) => {
-        let tempProducts = [...this.state.products];
+        let tempwishProducts = [...this.state.products];
         let tempWishlist = [...this.state.wishlist];
 
         tempWishlist = tempWishlist.filter(item => item.id !== id);
 
-        const index = tempProducts.indexOf(this.getItem(id));
-        let removedProduct = tempProducts[index];
-        removedProduct.inWishlist = false;
-        removedProduct.count = 0;
-        removedProduct.total = 0;
+        const index = tempwishProducts.indexOf(this.getItem(id));
+        let removedwishProduct = tempwishProducts[index];
+        removedwishProduct.inWishlist = false;
+        removedwishProduct.count = 0;
+        removedwishProduct.total = 0;
 
         this.setState(() => {
             return {
                 wishlist:[...tempWishlist],
-                products: [...tempProducts]
+                products: [...tempwishProducts]
 
             }
         })
@@ -206,7 +206,6 @@ class ProductProvider extends React.Component {
             };
         },() => {
             this.setProducts();
-            this.addTotals();
         })
     };
     addTotals = () => {
