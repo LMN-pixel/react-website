@@ -3,15 +3,16 @@ import { ButtonContainer } from '../Button';
 import styled  from 'styled-components';
 
 
-export default function WishlistItem ({item}) {
+export default function WishlistItem ({item,value}) {
 const {id,title,img,price,color} = item;
+const {removeItem} = value;
         return(
 
             <WishItemWrapper>
             <div className='product_card d-flex flex-row'>
                 <div className='product_card-img'>
                     <img 
-                    src={img} 
+                    src={img[0]} 
                    className='product_card-photo'
                     alt={title} 
                     />
@@ -21,6 +22,13 @@ const {id,title,img,price,color} = item;
                         <div className='product_card-title'>
                             <div className='product_card-name pt-5'>
                                 {title}
+                            </div>
+                            <div className='product_card-attr_section'>
+                                <span className='product_card-attr_item line-item-attributes mt-5'>
+
+                             {color} 
+                        
+                                </span>
                             </div>
                             <div className='product_card-remove order_recap-hide'>
                                 <div 
@@ -32,23 +40,17 @@ const {id,title,img,price,color} = item;
                             </div>
                         </div>
                     </div>
-                    <div className='product_card-attr_section'>
-                        <span className='product_card-attr_item line-item-attributes mt-5'>
-
-                             {color} 
-                        
-                        </span>
-                    </div>
+                    
                     <div className='product_card-footer'>
                         <div className='product_card-total'>
                             Ksh {price}
                         </div>
+                        <div className='ml-5'>
+                            <ButtonContainer> Add to Basket </ButtonContainer>
+                        </div>
                     </div>
                 </div>
-                <div>
-
-                <ButtonContainer> Move to Basket </ButtonContainer>
-                </div>
+                
 
             </div>
             </WishItemWrapper>
@@ -56,7 +58,10 @@ const {id,title,img,price,color} = item;
         );
     
         }
+
+        
 const WishItemWrapper = styled.div `
+
 .product_card {
     padding: 20px 0 27px;
     border-top: 1px solid #f0f0f0;

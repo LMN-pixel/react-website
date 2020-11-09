@@ -7,7 +7,6 @@ import CartList from './CartList';
 import CartTotals from './CartTotals';
 import styled from 'styled-components';
 
-
 export class Cart extends React.Component {
     render() {
 

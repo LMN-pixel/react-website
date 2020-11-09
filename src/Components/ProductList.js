@@ -6,7 +6,8 @@ import styled from 'styled-components';
 
 export class ProductList extends React.Component {
     render() {
-  
+  const filterResult = 0;
+  const category = category;
         return (
             <React.Fragment>
                 <ProductListWrapper>
@@ -14,7 +15,7 @@ export class ProductList extends React.Component {
         <div className='container'>
             <div className='product_list'>   
                 <div className='row mt-5'>
-
+                {/*filters */}
                     <div className='d-none d-xl-block col-xl-1 product_list-refinement'>
                         <div className='refinement-bar'>
                                 <div className='refinements_wrapper'>
@@ -256,16 +257,16 @@ export class ProductList extends React.Component {
                                 </div>
                         </div>
                     </div>
-                    
+                    {/*product listing */}
                     <div className='col-sm-12 col-xl-8 product_list-container'>
                             <Titlebackground>
                                 <div>
-                                    <Title name=''title="Shop"/>
+                                    <Title name=''title={category}/>
                                 </div>
                             </Titlebackground>
                             <div className="row product_list-sortby_filter mt-3">
                                 <div className='col-6 d-xl-none product_list-filter_wrapper'>
-                                    <button type='button' className='btn btn-outline-light filter-results col-12
+                                    <button type='button' className='btn btn-outline-light d-none filter-results col-12
                                     product_list-filter_button text-capitalize'>
                                         "
                                         Filter
@@ -290,7 +291,7 @@ export class ProductList extends React.Component {
                                 <div className='col-12 col-xl-4 product_list-container_header'>
                                     <div className='result-count product_list-result_count col-12 col-sm-12'>
                                         <span>
-                                            0 Product(s)
+                                            {filterResult} Product(s)
                                         </span>
                                     </div>
                                 </div>
@@ -344,7 +345,7 @@ max-height: 250px;
 `;
 
 const ProductListWrapper = styled.div `
-margin:0 !important;
+margin:0 auto!important;
 padding:0 !important;
 
 .product_list {

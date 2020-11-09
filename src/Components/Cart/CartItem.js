@@ -10,7 +10,7 @@ return  (
     <div className='product_card d-flex flex-row'>
         <div className='product_card-img'>
             <img 
-               src={img} 
+               src={img[0]} 
                className='product_card-photo'
                alt={title} 
             />
@@ -43,7 +43,10 @@ return  (
                    Ksh {total}
                 </div>
                 <div className='product_card-qty line-item-quantity'>
+                    <span className='d-xl-none'>
+
                     Qty:
+                    </span>
                     <div>
                         
                             <span 

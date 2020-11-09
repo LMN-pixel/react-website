@@ -2,6 +2,7 @@ import React from 'react';
 import {ProductConsumer} from '../context';
 import {Link} from 'react-router-dom';
 import {ButtonContainer} from './Button';
+import ImageGallery from 'react-image-gallery';
 
 export class Details extends React.Component {
     render() {
@@ -29,12 +30,13 @@ export class Details extends React.Component {
                            {/*title end*/}
                            {/*Productinfo*/}
                            <div className='row'>
-                               <div className='col-10 mx-auto col-md-6 
+                               <div className='col-10 mx-auto col-md-7 
                                my-3'>
-                                   <img src={img} className='img-fluid' alt='product' />
+                                   <ImageGallery items={img} />
+                                   
                                </div>
                                {/*Product text */}
-                               <div className='col-10 mx-auto col-md-6 
+                               <div className='col-10 mx-auto col-md-4 
                                my-3 text-capitalize'>
                                    <h3>{title}</h3>
                                    <h4 className='text-muted mt-3 mb-2'>
@@ -46,7 +48,7 @@ export class Details extends React.Component {
                                            {price}
                                    </h5>
                                    <p className='text-capitalize font-weight-bold mt-3 mb-0'>
-                                       About:
+                                       Description:
                                    </p>
                                    <p className='text-muted lead '>
                                        {info}

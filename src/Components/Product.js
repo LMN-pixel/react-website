@@ -6,11 +6,12 @@ import PropTypes from 'prop-types';
 
 
 
+
 export class Product extends React.Component {
 
     render() {
 
-        const {id, title, img, price, inCart} = this.props.product;
+        const {id, title, img, price, inCart, inWishlist} = this.props.product;
 
         return (
             <ProductWrapper className='product_card col-6 px-1 col-lg-4 my-2'>
@@ -24,16 +25,31 @@ export class Product extends React.Component {
                       }}>
 
                           <Link to='/details'>
-                              <img src={img} alt='product' className='card-img-top' />
+                              <img src={img[0]} alt='product' className='card-img-top' />
                           </Link>
 
+                      {/* wishlist button */}
+                            <button 
+                                className='wishlist_btn'
+                                disabled={inWishlist ? true : false}
+                                onClick={() => {
+                                    value.addToWishlist(id);
+                                       
+                                }}>
+                                    
+                                {inWishlist ? (
+                               <i className='fas fa-heart' disabled/>                                 
+                                  ) : (
+                               <i className='far fa-heart' />
+                               )}           
+                            </button>                        
+                        
+                        {/* cart button */}
                           <button 
                             className='cart-btn' 
                             disabled={inCart ? true : false} 
                             onClick={() => {
-                                value.addToCart(id);
-                                
-                                
+                                value.addToCart(id); 
                                 
                             }} >
 
@@ -47,9 +63,8 @@ export class Product extends React.Component {
 
                           </button>
                       </div>)}
-                    </ProductConsumer>
-
-                    {/*card footer*/}
+                      </ProductConsumer>
+                   
                     <div className='card-footer'>
                         <div className=' card_text text-center'>
                         <p className='mb-0'>
@@ -62,15 +77,10 @@ export class Product extends React.Component {
                             {price}
                         </p>
                         </div>
-                        <div className='wishlist_icon icon'>
-                                <button className='btn wishlist_btn'>
-                                    
-                                    <i className='far fa-heart'></i>
-                                </button>
-                            
-                            
-                        </div>
+                        
+                        
                     </div>
+                
                 </div>
             
             </ProductWrapper>
@@ -84,7 +94,8 @@ Product.propTypes = {
         img:PropTypes.string,
         title:PropTypes.string,
         price:PropTypes.number,
-        inCart:PropTypes.bool
+        inCart:PropTypes.bool,
+        inWishlist:PropTypes.bool
     }).isRequired
 }
 
@@ -109,18 +120,6 @@ const ProductWrapper = styled.div `
     display: inline-block;
 }
 
-.wishlist_icon {
-    display: inline-block;
-    float: right;
-    font-size: 1.4em;
-}
-.wishlist_icon:hover {
-    fill: black;
-}
-.wishlist_btn:hover {
-color: black;
-background-color: black;
-}
 &:hover {
     .card {
         border : 0.02rem solid rgba(0,0,0,0.6);
@@ -151,11 +150,27 @@ background-color: black;
     border-radius: 0.5rem 0 0 0;
     transform: translate(100%, 100%);
 }
+.wishlist_btn {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 0.2rem 0.4rem;
+    background: var(--lightBlue);
+    border: none;
+    color: grey;
+    font-size: 1.4rem;
+    border-radius: 0.5rem 0 0 0;
+    transform: translate(100%, 100%);
+}
 .image-container:hover .cart-btn {
     transform: translate(0,0);
     transition: all 0.5s linear;
 }
-.cart-btn:hover {
+.image-container:hover .wishlist_btn {
+    transform: translate(0,0);
+    transition: all 0.5s linear;
+}
+.cart-btn:hover, .wishlist_btn:hover {
     color: black;
     cursor: pointer;
 }

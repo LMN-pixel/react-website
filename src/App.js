@@ -13,7 +13,7 @@ import SignUp from './Components/SignUp';
 import SignIn from './Components/SignIn';
 import Checkout from './Components/Checkout';
 import ImageGallaryComponent from './Components/Description/ItemImages';
-
+import {WishList} from './Components/WishList/WishList';
 
 class App extends React.Component {
 
@@ -35,7 +35,7 @@ if (spinner && !spinner.hasAttribute('hidden')) {
        <Route path='/signup' component={SignUp}></Route>
        <Route path='/signin' component={SignIn}></Route>
        <Route path='/checkout' component={Checkout}></Route>
-      
+       <Route path='/wishlist' component={WishList}></Route>
        <Route component={Default}></Route>
      </Switch>
      <Footer />

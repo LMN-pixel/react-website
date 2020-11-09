@@ -12,10 +12,11 @@ class ProductProvider extends React.Component {
         products: [], 
         detailProduct:detailProduct,
         cart: [],
+        wishlist:[],
         modalOpen:false,
         modalProduct:detailProduct,
         cartSubTotal: 0,
-        cartTax: 0,
+        cartShipping: 0,
         cartTotal: 0
 
     };
@@ -64,6 +65,25 @@ class ProductProvider extends React.Component {
             this.addTotals();
         });
         notify();
+    };
+
+    addToWishlist = (id) => {
+        
+        let tempProducts = [...this.state.products];
+        const index = tempProducts.indexOf(this.getItem(id));
+        const product = tempProducts[index];
+        product.inWishlist = true;
+        product.count = 1;
+        const price = product.price;
+        product.total = price;
+
+        this.setState(() => {
+            return {
+                products: tempProducts,
+                wishlist: [...this.state.wishlist, product]
+            };
+        }
+        );
     };
 
     openModal = id => {
@@ -145,6 +165,29 @@ class ProductProvider extends React.Component {
 
 
     };
+
+    removeItemWishlist = (id) => {
+        let tempProducts = [...this.state.products];
+        let tempWishlist = [...this.state.wishlist];
+
+        tempWishlist = tempWishlist.filter(item => item.id !== id);
+
+        const index = tempProducts.indexOf(this.getItem(id));
+        let removedProduct = tempProducts[index];
+        removedProduct.inWishlist = false;
+        removedProduct.count = 0;
+        removedProduct.total = 0;
+
+        this.setState(() => {
+            return {
+                wishlist:[...tempWishlist],
+                products: [...tempProducts]
+
+            }
+        })
+
+
+    };
     clearCart = () => {
         this.setState(() => {
             return {
@@ -155,16 +198,27 @@ class ProductProvider extends React.Component {
             this.addTotals();
         })
     };
+
+    clearWishlist = () => {
+        this.setState(() => {
+            return {
+                wishlist:[]
+            };
+        },() => {
+            this.setProducts();
+            this.addTotals();
+        })
+    };
     addTotals = () => {
         let subTotal = 0;
         this.state.cart.map(item => {return subTotal += item.total});
-        const tempTax = subTotal * 0.1;
-        const tax = parseFloat(tempTax.toFixed(2));
-        const total = subTotal + tax;
+        const tempShipping = 300;
+        const shipping = tempShipping;
+        const total = subTotal + shipping;
         this.setState(() => {
             return {
                 cartSubTotal: subTotal,
-                cartTax: tax,
+                cartShipping: shipping,
                 cartTotal: total
             }
         })
@@ -185,12 +239,15 @@ class ProductProvider extends React.Component {
                 ...this.state,
                 handleDetail: this.handleDetail,
                 addToCart: this.addToCart,
+                addToWishlist: this.addToWishlist,
                 openModal: this.openModal,
                 closeModal: this.closeModal,
                 increment: this.increment,
                 decrement: this.decrement,
                 removeItem: this.removeItem,
-                clearCart: this.clearCart
+                clearCart: this.clearCart,
+                clearWishlist: this.clearWishlist,
+                removeItemWishlist: this.removeItemWishlist
             }}>
                 {this.props.children}
             </ProductContext.Provider>

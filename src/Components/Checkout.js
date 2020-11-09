@@ -102,9 +102,9 @@ export default class Checkout extends React.Component{
                                                 <label for="country">Country</label>
                                                 <select class="custom-select d-block w-100" id="country" required>
                                                     <option value="">Choose...</option>
-                                                    <option>Kenya</option>
-                                                    <option>Uganda</option>
-                                                    <option>Tanzania</option>
+                                                    <option value='Kenya'>Kenya</option>
+                                                    <option value='Uganda'>Uganda</option>
+                                                    <option value='Tanzania'>Tanzania</option>
 
                                                 </select>
                                                 <div class="invalid-feedback">
@@ -116,7 +116,7 @@ export default class Checkout extends React.Component{
         
                                                 <label for="state">County/region</label>
                                                 <select class="custom-select d-block w-100" id="state" required>
-                                                    <option value="">Nairobi</option>                                                    
+                                                    <option value="Nairobi">Nairobi</option>                                                    
                                                     <option>Baringo</option>
                                                     <option>Bomet</option>
                                                     <option>Bungoma</option>

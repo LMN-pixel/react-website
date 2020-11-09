@@ -1,8 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-router-dom';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 import SearchBar from './Searchbar';
+import CountrySelect from './countryChoice';
+import {ProductConsumer} from '../context';
 
 export class Navbar extends React.Component {
   
@@ -14,7 +15,10 @@ export class Navbar extends React.Component {
                 <header className='page_header'>
                 <div className='container mb-0'>
                     <div className='row row1 navbar-header'>
-                       
+                        <div className='d-none d-xl-inline-block'>
+
+                       <CountrySelect className='dis'/>
+                        </div>
                         
                             <Link to='/'>
                                 <img
@@ -49,9 +53,22 @@ export class Navbar extends React.Component {
                                 <li>
                                     <Link to="/cart" className='link mr-3 position-relative'>
                                                 <i className="fas fa-shopping-basket fa-fw"/>
+                                                
+                                            <ProductConsumer>
+                                               {value => {
+                                                const {cart} = value;
+                                                return(
                                             <span className='cart-basket d-flex align-items-center justify-content-center'>
-                                                0
-                                            </span>
+                                            
+                                            {cart.length}
+                                               
+                                               
+                                                                                                                                                                                           
+                                          </span>)
+                                               }
+                                            }
+                                            </ProductConsumer>
+                                            
                                     </Link>
                                 </li>
                             </ul>
@@ -73,12 +90,12 @@ export class Navbar extends React.Component {
                                         <li id='side' 
                                         className='nav-item link'
                                           >
-                                            <Link to='/'>
+                                            <Link to='/products'>
                                                 All bags
                                                 </Link></li>
                                         <li id='side' 
                                         className='nav-item link'>
-                                        <Link to='/products'>New Arrivals</Link></li>
+                                        <Link to='/products' category='New Arrivals'>New Arrivals</Link></li>
                                         <li id='side' 
                                         className='nav-item link'
                                         >
@@ -183,8 +200,10 @@ ul li .cart-basket {
     border-radius: 50%;
 }
 .logo {
-    margin-left: 7px;
-    padding: 0 100px 5px 0;
+    position: absolute;
+    left:0;
+    top: 0;
+    margin: 0 33%;
     height: 80px;
 }
 
@@ -252,6 +271,14 @@ ul li .cart-basket {
     .container {
         max-width: 1250px;
     }
+    .logo {
+        position: absolute;
+        left:0;
+        top: 0;
+        margin: 0 auto 0 15%;
+        
+    }
+  
 }
 @media (max-width: 500px) {
     .logo {

@@ -1,21 +1,81 @@
 import React, { Component } from "react";
 import styled from 'styled-components';
 import { ButtonContainer } from "./Button";
-export default class Login extends Component {
+
+import * as authActions from './actions/authActions';
+import { connect } from 'react-redux';
+import { Redirect } from "react-router-dom";
+
+class Login extends Component {
+
+    
+    state = {
+        redirectToReferrer: false,
+        email: '',
+        password: ''
+    }
+
+    textHandler = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }
+
+    loginHandler = (e) => {
+        e.preventDefault();
+        this.props.authenticate(this.state.email, this.state.password)
+        .then(response => {
+            console.log(response);
+            if(response.hasOwnProperty('token')){
+                window.localStorage.setItem('auth', JSON.stringify(response))
+                this.setState({
+                    redirectToReferrer: true
+                });
+            }
+        })
+        .catch(error => {
+            console.log(error);
+        })
+    }
+
+    componentDidMount() {
+        if(!this.props.auth.isAuthenticated){
+            this.props.getToken()
+            .then(result => {
+                
+                if(result){
+                    this.setState({
+                        redirectToReferrer: true
+                    });
+                }
+
+            })
+            .catch(er => {
+                console.log(er);
+            });
+        }
+    }
+
+
+
     render() {
+
+        if (this.state.redirectToReferrer){
+            return <Redirect to='/' />
+        }
         return (
             <SignInWrapper>
-            <form>
+            <form onSubmit={this.loginHandler} autocomplete='off'>
                 <h3 className='text-center mb-3'>Sign In</h3>
 
                 <div className="form-group">
                     <label>Email address</label>
-                    <input type="email" className="form-control" placeholder="Enter email" />
+                    <input type="email" value={this.state.email} className="form-control" placeholder="Enter email" name='email' />
                 </div>
 
                 <div className="form-group">
                     <label>Password</label>
-                    <input type="password" className="form-control" placeholder="Enter password" />
+                    <input type="password" value={this.state.password} className="form-control" placeholder="Enter password" name='password'/>
                 </div>
 
                 <div className="form-group">
@@ -28,13 +88,14 @@ export default class Login extends Component {
                     </p>
                 </div>
 
-                <ButtonContainer type="submit" className="sign_btn btn btn-block">Submit</ButtonContainer>
+                <ButtonContainer type="submit" className="sign_btn btn btn-block">Sign In</ButtonContainer>
                 
             </form>
             </SignInWrapper>
         );
     }
 }
+
 
 const SignInWrapper = styled.form `
 position: relative;
@@ -58,3 +119,18 @@ custom-control-input {
 
 
 `;
+
+const mapDispatchToProps = dispatch => {
+    return {
+        authenticate: (email, password) => dispatch(authActions.authenticate(email, password)),
+        getToken: () => dispatch(authActions).getToken()
+    }
+}
+
+const mapStateToProps = state => {
+    return {
+        auth: state.auth
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
