@@ -1,0 +1,112 @@
+
+.heading {
+    color: white !important;
+    font-size: 2.5em;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 0px;
+  }
+  
+  .slide {
+    display: none;
+    max-width: 900px;
+    
+  }
+  .cont {
+    position: relative;
+    width: 100%;
+    
+    
+  }
+  .wrapper_img {
+    
+    width: 100%;
+    max-height: 750px;
+    
+  }
+  
+  
+  .slider_text {
+    color: white;
+    font-size: 102%;
+    
+  }
+  
+  
+  
+  .active {
+    display: block;
+  }
+  
+  .slider {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+
+    width: 100%;
+    padding: 100px 0px 0px 0px;
+    margin-bottom: 10px;
+  }
+  
+  .slider-items {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+  }
+  
+  .noButton {
+    display: none;
+  }
+  
+  .button {
+      border-radius: 30px;
+      border-color: white;
+      color: white;
+      border-style: solid;
+      background-color: Transparent;
+      font-weight: bold;
+      font-size: 80%;
+      text-transform: uppercase;
+      padding: 6px 40px 6px 40px;
+
+  }
+  
+
+  
+  button:hover {
+    text-decoration: none;
+    background-color: white;
+    color:black;
+    border-color: white;
+  }
+  
+  button:focus {
+    outline: 0;
+  }
+  
+  
+  .slider-text {
+    width: 100%;
+  }
+  .img_text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: .7em;
+    font-family: 'Montaga', serif !important;
+  }
+  
+  .fa {
+    color: #707070;
+  }
+  @media (min-width: 1366px){
+    .heading, .img_text {
+      font-size : 1.8em;
+    }
+    
+  }
