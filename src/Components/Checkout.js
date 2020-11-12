@@ -1,55 +1,39 @@
-import { render } from '@testing-library/react';
 import React from 'react';
 import {ButtonContainer} from './Button';
 
 
 
+
 export default class Checkout extends React.Component{
-
-    
     render() {
-
-
         return (
-            
+                    
+            <main className="mt-5 pt-4">
+                <div className="container wow fadeIn">              
+                    <h2 className="my-5 mt-5 pt-5 h2 text-center">Checkout</h2>
+                        <div className="row">
+                            <div className="mx-auto mb-4">
+                                <div className="card">
 
-                      
-            
-            <main class="mt-5 pt-4">
-                <div class="container wow fadeIn">
-        
-              
-                    <h2 class="my-5 mt-5 pt-5 h2 text-center">Checkout</h2>
-        
-              
-                        <div class="row">
-        
-                
-                             <div class="col-md-8 mb-4">
-        
-                 
-                                <div class="card">
-        
-                   
-                                    <form class="card-body">
-                                        <p className='text-uppercase font-weight-bold mb-5'>
+                                    <form className="card-body">
+                                        <p classNameName='text-uppercase font-weight-bold mb-5'>
                                             Delivery Address
                                         </p>
                             
-                                        <div class="row">                                                
+                                        <div className="row">                                                
                         
-                                            <div class="col-md-6 mb-2">                                  
-                                                <div class="md-form ">
-                                                    <label for="firstName" class="">First name</label>
-                                                    <input type="text" id="firstName" class="form-control"/>
+                                            <div className="col-md-6 mb-2">                                  
+                                                <div className="md-form ">
+                                                    <label for="firstName" className="">First name</label>
+                                                    <input type="text" id="firstName" className="form-control"/>
                                                     
                                                 </div>        
                                             </div>                             
                         
-                                            <div class="col-md-6 mb-2">                                  
-                                                <div class="md-form">
-                                                    <label for="lastName" class="">Last name</label>
-                                                    <input type="text" id="lastName" class="form-control"/>
+                                            <div className="col-md-6 mb-2">                                  
+                                                <div className="md-form">
+                                                    <label for="lastName" className="">Last name</label>
+                                                    <input type="text" id="lastName" className="form-control"/>
                                                     
                                                 </div>        
                                             </div>
@@ -57,18 +41,18 @@ export default class Checkout extends React.Component{
                                         </div>                          
                                              
                       
-                                        <div class="md-form mb-4">
-                                            <label for="email" class="">Email</label>
-                                            <input type="text" id="email" class="form-control" placeholder="youremail@example.com"/>
+                                        <div className="md-form mb-4">
+                                            <label for="email" className="">Email</label>
+                                            <input type="text" id="email" className="form-control" placeholder="youremail@example.com"/>
                                             
                                         </div>
 
-                                        <div className='mb-5'>
+                                        <div classNameName='mb-5'>
                                         Phone Number
                                         <br></br>
-                                        <div class="col-2 d-inline-block mx-0 mt-2">        
+                                        <div className="col-2 d-inline-block mx-0 mt-2">        
                                                 <label for="code"></label>
-                                                <select class="custom-select" id="code" required>
+                                                <select className="custom-select" id="code" required>
                                                     <option value="">Choose...</option>
                                                     <option>254</option>
                                                     <option>255</option>
@@ -76,46 +60,46 @@ export default class Checkout extends React.Component{
 
                                                 </select>
                                         </div> 
-                                        <div class="md-form d-inline-block mx-0">
-                                            <input type="tel" id="tel-no" class="form-control" placeholder="712345678"/>
+                                        <div className="md-form d-inline-block mx-0">
+                                            <input type="tel" id="tel-no" className="form-control" placeholder="712345678"/>
                                         </div>
                                         </div>
         
                       
-                                        <div class="md-form mb-5">
-                                            <label for="address" class="">Address</label>
-                                            <input type="text" id="address" class="form-control" placeholder="1234 Main St"/>
+                                        <div className="md-form mb-5">
+                                            <label for="address" className="">Address</label>
+                                            <input type="text" id="address" className="form-control" placeholder="1234 Main St"/>
                                             
                                         </div>
         
                       
-                                        <div class="md-form mb-5">
-                                            <label for="address-2" class="">Address 2 (optional)</label>
-                                            <input type="text" id="address-2" class="form-control" placeholder="Apartment or suite"/>
+                                        <div className="md-form mb-5">
+                                            <label for="address-2" className="">Address 2 (optional)</label>
+                                            <input type="text" id="address-2" className="form-control" placeholder="Apartment or suite"/>
                                             
                                         </div>
         
                      
-                                        <div class="row">
+                                        <div className="row">
                               
-                                            <div class="col-lg-4 col-md-12 mb-4">        
+                                            <div className="col-lg-4 col-md-12 mb-4">        
                                                 <label for="country">Country</label>
-                                                <select class="custom-select d-block w-100" id="country" required>
+                                                <select className="custom-select d-block w-100" id="country" required>
                                                     <option value="">Choose...</option>
                                                     <option value='Kenya'>Kenya</option>
                                                     <option value='Uganda'>Uganda</option>
                                                     <option value='Tanzania'>Tanzania</option>
 
                                                 </select>
-                                                <div class="invalid-feedback">
+                                                <div className="invalid-feedback">
                                                     Please select a valid country.
                                                 </div>        
                                             </div>
                         
-                                            <div class="col-lg-4 col-md-6 mb-4">
+                                            <div className="col-lg-4 col-md-6 mb-4">
         
                                                 <label for="state">County/region</label>
-                                                <select class="custom-select d-block w-100" id="state" required>
+                                                <select className="custom-select d-block w-100" id="state" required>
                                                     <option value="Nairobi">Nairobi</option>                                                    
                                                     <option>Baringo</option>
                                                     <option>Bomet</option>
@@ -166,21 +150,21 @@ export default class Checkout extends React.Component{
                                                     <option>West Pokot</option>
 
                                                 </select>
-                                            <div class="invalid-feedback">
+                                            <div className="invalid-feedback">
                                                 Please provide a valid region.
                                             </div>
         
                                             </div>
                         
-                                            <div class="col-lg-4 col-md-6 mb-4">
+                                            <div className="col-lg-4 col-md-6 mb-4">
         
                                                 <label for="city">City</label>
-                                                <select class="custom-select d-block w-100" id="city" required>
+                                                <select className="custom-select d-block w-100" id="city" required>
                                                     <option value=''>Choose city</option>
                                                     <option>A</option>
                                                     
                                                 </select>
-                                                <div class="invalid-feedback">
+                                                <div className="invalid-feedback">
                                                     City required.
                                                 </div>
         
@@ -188,39 +172,39 @@ export default class Checkout extends React.Component{
                             
                                         </div>
 
-                                        <div class="md-form mb-5">
-                                            <label for="address-2" class="">Additional information</label>
-                                            <textarea cols='50' rows='6' id="address-2" class="form-control" placeholder="Additional information"/>
+                                        <div className="md-form mb-5">
+                                            <label for="address-2" className="">Additional information</label>
+                                            <textarea cols='50' rows='6' id="address-2" className="form-control" placeholder="Additional information"/>
                                         </div>
                      
         
                                         <hr></hr>
         
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="save-info"/>
-                                            <label class="custom-control-label" for="save-info">Save this information for next time</label>
+                                        <div className="custom-control custom-checkbox">
+                                            <input type="checkbox" className="custom-control-input" id="save-info"/>
+                                            <label className="custom-control-label" for="save-info">Save this information for next time</label>
                                         </div>
         
                                         <hr></hr>
         
-                                        <div class="d-block my-3">
-                                            <h4 className='text-center font-weight-bold mb-5'>Payment Method</h4>
-                                            <div class="custom-control custom-radio">
-                                                <input id="mpesa" name="paymentMethod" type="radio" class="custom-control-input" required/>
-                                                <label class="custom-control-label" for="mpesa">Mpesa</label>
+                                        <div className="d-block my-3">
+                                            <h4 classNameName='text-center font-weight-bold mb-5'>Payment Method</h4>
+                                            <div className="custom-control custom-radio">
+                                                <input id="mpesa" name="paymentMethod" type="radio" className="custom-control-input" required/>
+                                                <label className="custom-control-label" for="mpesa">Mpesa</label>
                                             </div>
-                                            <div class="custom-control custom-radio">
-                                                <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" required/>
-                                                <label class="custom-control-label" for="credit">Credit card/Debit card</label>
+                                            <div className="custom-control custom-radio">
+                                                <input id="credit" name="paymentMethod" type="radio" className="custom-control-input" required/>
+                                                <label className="custom-control-label" for="credit">Credit card/Debit card</label>
                                             </div>
-                                            <div class="custom-control custom-radio">
-                                                <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required/>
-                                                <label class="custom-control-label" for="paypal">Paypal</label>
+                                            <div className="custom-control custom-radio">
+                                                <input id="paypal" name="paymentMethod" type="radio" className="custom-control-input" required/>
+                                                <label className="custom-control-label" for="paypal">Paypal</label>
                                             </div>
                                         </div>
                                         
-                                        <hr class="mb-4"></hr>
-                                        <ButtonContainer type="submit" className='w-100'>
+                                        <hr className="mb-4"></hr>
+                                        <ButtonContainer type="submit" classNameName='w-100'>
                                                 Continue to checkout
                                             
                                         </ButtonContainer>
@@ -230,8 +214,7 @@ export default class Checkout extends React.Component{
                                 </div>
                   
         
-                            </div>
-                        
+                            </div>                       
                                                                       
                             </div>
               

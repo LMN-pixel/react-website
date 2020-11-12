@@ -3,7 +3,7 @@ import {ProductConsumer} from '../../context';
 import WishList_list from './WishList_list';
 import WishlistColumns from './WishlistColumns';
 import Title from '../Title';
-import EmptyCart from '../Cart/EmptyCart';
+import EmptyWishlist from './EmptyWishlist';
 import styled from 'styled-components';
 
 
@@ -38,7 +38,7 @@ export class WishList extends React.Component {
                         }
                         else {
                             return (
-                                <EmptyCart />
+                                <EmptyWishlist />
                             );
                         }
                     }

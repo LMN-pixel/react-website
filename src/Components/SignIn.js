@@ -6,7 +6,7 @@ import * as authActions from './actions/authActions';
 import { connect } from 'react-redux';
 import { Redirect } from "react-router-dom";
 
-class Login extends Component {
+export default class Login extends Component {
 
     
    /*} state = {
@@ -70,12 +70,12 @@ class Login extends Component {
 
                 <div className="form-group">
                     <label>Email address</label>
-                    <input type="email" value={this.state.email} className="form-control" placeholder="Enter email" name='email' />
+                    <input type="email" className="form-control" placeholder="Enter email" name='email' />
                 </div>
 
                 <div className="form-group">
                     <label>Password</label>
-                    <input type="password" value={this.state.password} className="form-control" placeholder="Enter password" name='password'/>
+                    <input type="password" className="form-control" placeholder="Enter password" name='password'/>
                 </div>
 
                 <div className="form-group">
@@ -120,7 +120,7 @@ custom-control-input {
 
 `;
 
-const mapDispatchToProps = dispatch => {
+/*const mapDispatchToProps = dispatch => {
     return {
         authenticate: (email, password) => dispatch(authActions.authenticate(email, password)),
         getToken: () => dispatch(authActions).getToken()
@@ -133,4 +133,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(Login); */

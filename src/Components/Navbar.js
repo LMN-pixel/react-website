@@ -7,12 +7,15 @@ import {ProductConsumer} from '../context';
 
 export class Navbar extends React.Component {
   
-    render(){
+    render() {
         
 
         return (
             <NavWrapper>
+                <ProductConsumer>
+                {value => (
                 <header className='page_header'>
+                
                 <div className='container mb-0'>
                     <div className='row row1 navbar-header'>
                         <div className='d-none d-xl-inline-block'>
@@ -54,20 +57,12 @@ export class Navbar extends React.Component {
                                     <Link to="/cart" className='link mr-3 position-relative'>
                                                 <i className="fas fa-shopping-basket fa-fw"/>
                                                 
-                                            <ProductConsumer>
-                                               {value => {
-                                                const {cart} = value;
-                                                return(
+                                            
                                             <span className='cart-basket d-flex align-items-center justify-content-center'>
                                             
-                                            {cart.length}
-                                               
-                                               
+                                            {value.cart.length}                                                                                         
                                                                                                                                                                                            
-                                          </span>)
-                                               }
-                                            }
-                                            </ProductConsumer>
+                                          </span>
                                             
                                     </Link>
                                 </li>
@@ -91,50 +86,81 @@ export class Navbar extends React.Component {
                                         <SearchBar/>
 
                                     </li>
-                                        <li id='side' 
+                                        <li 
+                                        id='side' 
+                                         
+                                        onClick={(e) => { value.changeCategory(e); }}
                                         className='nav-item link'
                                           >
                                             <Link to='/products'>
                                                 All bags
                                                 </Link></li>
-                                        <li id='side' 
+                                        <li 
+                                        id='side'
+                                        
+                                        onClick={(e) => { value.changeCategory(e); }} 
                                         className='nav-item link'>
                                         <Link to='/products' category='New Arrivals'>New Arrivals</Link></li>
-                                        <li id='side' 
+                                        <li 
+                                        id='side'
+                                         
+                                        onClick={(e) => { value.changeCategory(e); }} 
                                         className='nav-item link'
                                         >
                                             <Link to='/products'>Crossbody Bags
                                                 </Link></li>
-                                        <li id='side' 
+                                        <li 
+                                        id='side'
+                                         
+                                        onClick={(e) => { value.changeCategory(e); }} 
                                         className='nav-item link'>
                                             <Link to='/products'>Handbags
                                                 </Link></li>
-                                        <li id='side' 
+                                        <li 
+                                        id='side'
+                                        
+                                        onClick={(e) => { value.changeCategory(e); }} 
                                         className='nav-item link'>
                                             <Link to='/products'>Shoulder Bags
                                                 </Link></li>
-                                        <li id='side' 
+                                        <li 
+                                        id='side'
+                                        
+                                        onClick={(e) => { value.changeCategory(e); }} 
                                         className='nav-item link'>
                                             <Link to='/products'>Tote Bags
                                                 </Link></li>
-                                        <li id='side' 
+                                        <li 
+                                        id='side'
+                                       
+                                        onClick={(e) => { value.changeCategory(e); }} 
                                         className='nav-item link'>
                                             <Link to='/products'>Mini Bags
                                                 </Link></li>
-                                        <li id='side' 
+                                        <li 
+                                        id='side'
+                                         
+                                        onClick={(e) => { value.changeCategory(e); }} 
                                         className='nav-item link'>
                                             <Link to='/products'>Clutches
                                                 </Link></li>
-                                        <li id='side' 
+                                        <li 
+                                        id='side'
+                                         
+                                        onClick={(e) => { value.changeCategory(e); }} 
                                         className='nav-item link'>
                                             <Link to='/products'>Bucket Bags
                                                 </Link></li>
                                     </ul>
-                                
+                                   
                             </div> 
                         </div> 
-                    </nav>    
-                </header>         
+                       
+                    </nav>
+                                     
+                     </header>
+                )}         
+                 </ProductConsumer>   
                 </NavWrapper>
             
         );

@@ -9,8 +9,9 @@ const ProductContext = React.createContext();
 
 class ProductProvider extends React.Component {
     state = {
-        products: [], 
+        products: [],
         detailProduct:detailProduct,
+        categoryPage: 'Shop',
         cart: [],
         wishlist:[],
         modalOpen:false,
@@ -39,6 +40,15 @@ class ProductProvider extends React.Component {
         const product = this.state.products.find(item => item.id === id );
             return product;
     };
+
+    changeCategory = (e) => {
+        const categoryTitle = e.target.innerText;
+        this.setState(() => {
+            return {
+                categoryPage: categoryTitle
+            }
+        });
+    }
 
     handleDetail = (id) => {
        const product = this.getItem(id);
@@ -238,6 +248,7 @@ class ProductProvider extends React.Component {
             value={{
                 ...this.state,
                 handleDetail: this.handleDetail,
+                changeCategory: this.changeCategory,
                 addToCart: this.addToCart,
                 addToWishlist: this.addToWishlist,
                 openModal: this.openModal,
