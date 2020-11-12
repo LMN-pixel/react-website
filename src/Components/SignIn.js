@@ -2,67 +2,14 @@ import React, { Component } from "react";
 import styled from 'styled-components';
 import { ButtonContainer } from "./Button";
 
-import * as authActions from './actions/authActions';
-import { connect } from 'react-redux';
-import { Redirect } from "react-router-dom";
-
 export default class Login extends Component {
 
     
-   /*} state = {
-        redirectToReferrer: false,
-        email: '',
-        password: ''
-    }
-
-    textHandler = (e) => {
-        this.setState({
-            [e.target.name]: e.target.value
-        })
-    }
-
-    loginHandler = (e) => {
-        e.preventDefault();
-        this.props.authenticate(this.state.email, this.state.password)
-        .then(response => {
-            console.log(response);
-            if(response.hasOwnProperty('token')){
-                window.localStorage.setItem('auth', JSON.stringify(response))
-                this.setState({
-                    redirectToReferrer: true
-                });
-            }
-        })
-        .catch(error => {
-            console.log(error);
-        })
-    }
-
-    componentDidMount() {
-        if(!this.props.auth.isAuthenticated){
-            this.props.getToken()
-            .then(result => {
-                
-                if(result){
-                    this.setState({
-                        redirectToReferrer: true
-                    });
-                }
-
-            })
-            .catch(er => {
-                console.log(er);
-            });
-        }
-    }
-*/
 
 
     render() {
 
-       /* if (this.state.redirectToReferrer){
-            return <Redirect to='/' />
-        }*/
+       
         return ( 
             <SignInWrapper>
             <form onSubmit={this.loginHandler} autocomplete='off'>
@@ -120,17 +67,3 @@ custom-control-input {
 
 `;
 
-/*const mapDispatchToProps = dispatch => {
-    return {
-        authenticate: (email, password) => dispatch(authActions.authenticate(email, password)),
-        getToken: () => dispatch(authActions).getToken()
-    }
-}
-
-const mapStateToProps = state => {
-    return {
-        auth: state.auth
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Login); */

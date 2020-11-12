@@ -233,7 +233,7 @@ ul li .cart-basket {
     position: absolute;
     left:0;
     top: 0;
-    margin: 0 33%;
+    margin: 0 auto;
     height: 80px;
 }
 
@@ -347,12 +347,11 @@ ul li .cart-basket {
     }
 
     .row2 ul {
-        position: fixed;
+        position: absolute;
         text-decoration: none;
         list-style-type: none;
         z-index: 1;
         width: 75%;
-        height: 100vh;
         background-color: black;
         top: 80px;
         left: -100%;

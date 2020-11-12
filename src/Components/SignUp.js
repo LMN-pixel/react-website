@@ -1,94 +1,13 @@
 import React, { Component } from "react";
 import styled from 'styled-components';
-import {Link, Redirect} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import {ButtonContainer} from './Button';
-
-import * as authActions from './actions/authActions';
-import { connect } from 'react-redux';
-
 
 export default class SignUp extends Component {
 
-  /*  state = {
-        redirectToreferrer: false,
-        signupForm: {
-            firstName: '',
-            lastName: '',
-            email: '',
-            password: ''
-        }
-    }
-
-    textHandler = (e) => {
-        const signupForm = this.state.signupForm;
-        const updateSignupForm = {
-            ...signupForm,
-            [e.target.name]: e.target.value
-        }
-        this.setState({
-            signupForm: updateSignupForm
-        })
-    }
-
-    signupHandler = (e) => {
-        e.preventDefault();
-        const { signupForm } = this.state;
-        if (signupForm.firstName === ''){
-            this.setError(true, 'Enter First Name');
-            return;
-        }
-        if (signupForm.lastName === ''){
-            this.setError(true, 'Enter Last Name');
-            return;
-        }
-        const emailPattern = new RegExp(/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/);
-        if(!emailPattern.test(signupForm.email)){
-            this.setError(true, 'Invalid Email Address'); 
-            return;
-        }
-        if(signupForm.email === ''){
-            this.setError(true, 'Enter Email');
-            return;
-        }
-        if(signupForm.password === ''){
-            this.setError(true, 'Enter Password');
-            return;
-        }
-    
-
-        const user = {
-            firstName: signupForm.firstName,
-            lastName: signupForm.lastName,
-            email: signupForm.email,
-            password: signupForm.password
-        }
-    }
-
-
-        componentDidMount() {
-            if(!this.props.auth.isAuthenticated){
-                this.props.getToken()
-                .then(result => {
-                    if(result) {
-                        this.setState({
-                            redirectToreferrer: true
-                        });
-                    }
-                })
-                .catch(er => {
-                    console.log(er);
-                })
-            }
-        }
-    */
 
     render() {
 
-       // const { signupForm, redirectToreferrer } = this.state;
-
-        //if(redirectToreferrer){
-         //   return <Redirect to='/' />
-       // }
 
         return (
             <SignUpWrapper>
@@ -144,16 +63,3 @@ border: 0.05px solid #ccc;
 }
 `;
 
-/*const mapDispatchToProps = dispatch => {
-    return {
-        signup: (user)  => dispatch(authActions.signup(user)),
-        getToken: () => dispatch(authActions.getToken())
-    }
-}
-
-const mapStateToProps = state =>{
-    return {
-        auth: state.auth
-    }
-}
-export default connect(mapStateToProps, mapDispatchToProps)(SignUp);*/
