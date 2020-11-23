@@ -1,16 +1,18 @@
 import React from 'react';
-import styled, { withTheme } from 'styled-components';
+import styled from 'styled-components';
 
 export default class SearchBar extends React.Component {
+
+    
 
     render() {
 
         return (
             <SearchWrapper>
                 <div className='search search_bar'>
-                <form role='search' action='' method='get'>
+                <form>
                     <div className='icon header_search-icon'><i className='fa fa-search'></i></div>
-                    <input className='header_search-field search-field' type='text' placeholder='Search' autocomplete='off'/>
+                    <input className='header_search-field search-field' type='text' placeholder='Search' autoComplete='off'/>
                     <span className='site_nav_search-clear'>
                         <svg className='icon site_nav_search-clear_icon'>
                             <i className='fas fa-times'></i>
@@ -24,7 +26,7 @@ export default class SearchBar extends React.Component {
     }
 }
 
-const SearchWrapper = styled.form `
+const SearchWrapper = styled.div `
 
 
 .search_bar {

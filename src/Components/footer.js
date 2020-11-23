@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import {ButtonContainer} from './Button';
 
 export default class Footer extends React.Component {
 
@@ -13,9 +12,9 @@ export default class Footer extends React.Component {
                             <div className='container'>
                                 <div className='row email_signup'>
                                     <div className='col-md-9'>
-                                        <form role='form' method='POST' className='simple-subscription'>
+                                        <form className='simple-subscription'>
                                             <div className='input-group form-group footer_newsletter-wrapper'>
-                                                <input type='email' required className='form-control footer_newsletter-input' name='email' placeholder='email' aria-label='Sign up for our newsletter'/>
+                                                <input type='email' required className='form-control footer_newsletter-input' name='email' placeholder='Sign up for our newsletter' aria-label='Sign up for our newsletter'/>
                                                 <div className='input-group-append footer_newsletter-append'>
                                                     <button type='submit' className='btn btn-primary footer_newsletter-btn'>Subscribe</button>
                                                 </div>
@@ -43,6 +42,24 @@ export default class Footer extends React.Component {
                         </div>
                         <div className='container'>
                             <div className='row page_footer-container'>
+                                <div className='page_footer-item col-md-3'>
+                                    <div className='content-asset'>
+                                        <h3 className='page_footer-heading collapsed'>
+                                            <svg className='icon d-md-none'>
+                                                <i className='fas fa-chevron-down'></i>
+                                            </svg>
+                                               Contact Us
+                                        </h3>
+                                        <ul className='page_footer-menu content d-none d-md-block list-unstyled' style={{fontSize:'.8em'}}>
+                                            
+                                                <li>Phone Number: +2547123456</li>
+                                                <li>Email: email@email.com</li>
+                                                <li>Hours: 8:00am-6:00pm EAT</li>
+                                            
+                                            
+                                        </ul>
+                                    </div>
+                                </div>
                                 <div className='page_footer-item col-md-3 store'>
                                     <div className='content-asset'>
                                         <h3 className='page_footer-heading collapsed' data-target='#footer-main' data-toggle='collapse'>
@@ -53,99 +70,16 @@ export default class Footer extends React.Component {
                                         </h3>
                                         <ul className='page_footer-menu content d-none d-md-block collapse list-unstyled' data-parent='#footer-main'>
                                             <li>
-                                                <a href='#' title="My Account">My Account</a>
-                                            </li>
-                                            <li>
-                                                <a href='#' title="Shipping and Tracking">Shipping and Tracking</a>
-                                            </li>
-                                            <li>
-                                                <a href='#' title="Returns and Exchanges">Returns and Exchanges</a>
-                                            </li>
-                                            <li>
-                                                <a href='#' title="Promotions">Promotions</a>
-                                            </li>
-                                            <li>
-                                                <a href='#' title="Size Guide">Size Guide</a>
-                                            </li>
-                                            <li>
-                                                <a href='#' title="Refer a Friend">Refer a Friend</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div className='page_footer-item col-md-3'>
-                                    <div className='content-asset'>
-                                        <h3 className='page_footer-heading collapsed'>
-                                            <svg className='icon d-md-none'>
-                                                <i className='fas fa-chevron-down'></i>
-                                            </svg>
-                                                Customer Care
-                                        </h3>
-                                        <ul className='page_footer-menu content d-none d-md-block list-unstyled'>
-                                            <li>
-                                                <a href='#' title='Order Status'>Order Status</a>
-                                            </li>
-                                            <li>
-                                                <a href='#' title='FAQ'>FAQ</a>
-                                            </li>
-                                            <li>
-                                                <a href='#' title='Contact Us'>Contact Us</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div className='page_footer-item col-md-3'>
-                                    <div className='content-asset'>
-                      
-                                        <h3 className='page_footer-heading collapsed'>
-                                            <svg className='icon d-md-none'>
-                                                <i className='fas fa-chevron-down'></i>
-                                            </svg>
-                                            About Us
-                                        </h3>
-                                        <ul className='page_footer-menu content d-none d-md-block list-unstyled'>
-                                            <li>
-                                                <a href='#' title='Store Locator'>Store Locator</a>
-                                            </li>
-                                            <li>
-                                                <a href='#' title='Brand Profile'>Brand Profile</a>
-                                            </li>
-                                            <li>
-                                                <a href='#' title='Sustainability'>Sustainability</a>
-                                            </li>
-                                            <li>
-                                                <a href='#' title='Opportunities'>Opportunities</a>
-                                            </li>
-                                            <li>
-                                                <a href='#' title='Affiliates'>Affiliates</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div className='page_footer-item col-md-3 d-block d-md-none policy'>
-                                    <div className='content-asset'>
-                                        <h3 className='page_footer-copyright_heading page_footer-heading collapsed'>
-                                            <svg className='icon d-md-none'>
-                                                <i className='fas fa-chevron-down'></i>
-                                            </svg>
-                                            Policies
-                                        </h3>
-                                        <ul className='page_footer-menu page_footer-menu_copyright content d-none d-md-block list-unstyled'>
-                                            <li className='page_footer-copyright_text'>
-                                                &copyright Kefira, all rights reserved
-                                            </li>
-                                            <li>
-                                                <a href='#' title='Terms of Use'>Terms of Use</a>
+                                                <a href='#' title="My Account">Delivery</a>
                                             </li>
                                             <li>
                                                 <a href='#' title='Privacy Policy'>Privacy Policy</a>
                                             </li>
-                                            <li>
-                                                <a href='#' title='Cookies Policy'>Cookies Policy</a>
-                                            </li>
+        
                                         </ul>
                                     </div>
                                 </div>
+                               
                                 <div className='col-md-3 social d-block d-md-none'>
                                     <div className='content-asset'>
                                         <ul className='social-links list-unstyled'>
@@ -176,12 +110,20 @@ export default class Footer extends React.Component {
                                                 <img alt='Mastercard' className='payment_icon' src='img/Mastercard.jpg' style={{maxWidth:'30px'}}/>
                                                 <img alt='Mpesa' className='payment_icon' src='img/MPesa.jpg' style={{maxWidth:'30px'}}/>
                                                 <img alt='Visa' className='payment_icon' src='img/Visa.jpg' style={{maxWidth:'30px'}}/>
-                                                <img alt='Paypal' className='payment_icon' src='img/Paypal.jpg' style={{maxWidth:'30px'}}/>
+                                                <img alt='Paypal' className='payment_icon' src='img/Paypal.png' style={{maxWidth:'30px'}}/>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <div className='row'>
+                                <ul className=' w-100  mx-auto page_footer-menu page_footer-menu_copyright content d-none d-md-block list-unstyled'>
+                                            <li className='page_footer-copyright_text '>
+                                            
+                                                <small>copyright Kefira, all rights reserved</small>
+                                            </li>
+                                        </ul>
+                                </div>
                         </div>
                   
                         
@@ -254,29 +196,7 @@ margin-top: 20px;
     position: relative;
     z-index: 2;
 }
-.btn:not(:disabled):not(.disabled) {
-    cursor: pointer;
-}
-.btn {
-    display: inline-block;
-    font-weight: 400;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    border: 1px solid transparent;
-    padding: .625rem .9375rem;
-    font-size: .875rem;
-    line-height: 1.3;
-    border-radius: 5px;
-    -webkit-transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
-    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
-    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
-}
+
 .social {
     padding: 0 20px;
 }

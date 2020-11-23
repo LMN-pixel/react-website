@@ -3,13 +3,14 @@ import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 import SearchBar from './Searchbar';
 import CountrySelect from './countryChoice';
-import {ProductConsumer} from '../context';
+import {ProductConsumer} from '../context.js/context';
+import AuthOptions from './auth/AuthOptions';
+
 
 export class Navbar extends React.Component {
   
     render() {
-        
-
+       
         return (
             <NavWrapper>
                 <ProductConsumer>
@@ -18,11 +19,8 @@ export class Navbar extends React.Component {
                 
                 <div className='container mb-0'>
                     <div className='row row1 navbar-header'>
-                        <div className='d-none d-xl-inline-block'>
+                        <div style={{position:'relative'}}>
 
-                       <CountrySelect className='dis'/>
-                        </div>
-                        
                             <Link to='/'>
                                 <img
                                 className='logo'
@@ -30,21 +28,31 @@ export class Navbar extends React.Component {
                                 alt = ' '
                                 />
                             </Link>
+
+                            <div className='d-none d-xl-inline-block'>
+                                <CountrySelect className='dis'/>
+                            </div>
+                        </div>
+
                             <ul>
                                 <li className = 'd-none d-xl-inline-block'>
                                     <SearchBar/>
                                 </li>
                                 
                                 <li>
-                                    <Link to='/signup' className='link'>            
+                                    <div style={{position:'relative'}}className='link dropdown'>            
                                         <span>
                                             <i className='far fa-user-circle fa-fw'/>
                                         </span>
+                                        <a href='#'>
                                         <span className='dis'>
-                                        Sign In
+                                            <p 
+                                            onClick={()=>{value.openModal()}}
+                                            >Sign In</p>
                                         </span>
+                                        </a>
                                         
-                                    </Link>
+                                    </div>
                                 </li>
                                 <li>
                                     <Link to='/wishlist' className='link'>
@@ -72,12 +80,13 @@ export class Navbar extends React.Component {
                     <nav>   
                         <div className='container'>   
                             <div className='row row2 flex-nowrap'>
-                            <input type="checkbox" id="check"/>
-		                            <label for="check" className="checkbtn ml-3">
+                                <input type="checkbox" id="check"/>
+		                            <label htmlFor="check" className="checkbtn ml-3">
 		                                <i className="fas fa-bars"></i>
 		                            </label>
-                                    
-                                <ul className='side_nav_st navlist navbar navbar-expand-md col-12 bg-inverse nav navbar-nav'>
+                                
+                                <ul className='side_nav_st navlist navbar navbar-expand-md col-12 bg-inverse nav navbar-nav'
+                                onClick={()=>{value.unCheck()}}>
                                     <li className='d-block d-md-none w-100'>
 
                                         <CountrySelect/>
@@ -86,25 +95,20 @@ export class Navbar extends React.Component {
                                         <SearchBar/>
 
                                     </li>
-                                        <li 
-                                        id='side' 
-                                         
-                                        onClick={(e) => { value.changeCategory(e); }}
-                                        className='nav-item link'
-                                          >
-                                            <Link to='/products'>
-                                                All bags
-                                                </Link></li>
+                                    
+                                    
                                         <li 
                                         id='side'
                                         
-                                        onClick={(e) => { value.changeCategory(e); }} 
+                                        onClick={(e) => { value.changeCategory(e); value.categoryFilter()  }} 
                                         className='nav-item link'>
-                                        <Link to='/products' category='New Arrivals'>New Arrivals</Link></li>
+                                        <Link to='/products'>New Arrivals</Link>
+                                        </li>
+
                                         <li 
                                         id='side'
                                          
-                                        onClick={(e) => { value.changeCategory(e); }} 
+                                        onClick={(e) => { value.changeCategory(e); value.categoryFilter() }} 
                                         className='nav-item link'
                                         >
                                             <Link to='/products'>Crossbody Bags
@@ -112,46 +116,68 @@ export class Navbar extends React.Component {
                                         <li 
                                         id='side'
                                          
-                                        onClick={(e) => { value.changeCategory(e); }} 
+                                        onClick={(e) => { value.changeCategory(e); value.categoryFilter() }} 
                                         className='nav-item link'>
                                             <Link to='/products'>Handbags
                                                 </Link></li>
                                         <li 
                                         id='side'
                                         
-                                        onClick={(e) => { value.changeCategory(e); }} 
+                                        onClick={(e) => { value.changeCategory(e); value.categoryFilter()  }} 
                                         className='nav-item link'>
                                             <Link to='/products'>Shoulder Bags
                                                 </Link></li>
                                         <li 
                                         id='side'
                                         
-                                        onClick={(e) => { value.changeCategory(e); }} 
+                                        onClick={(e) => { value.changeCategory(e); value.categoryFilter()  }} 
                                         className='nav-item link'>
                                             <Link to='/products'>Tote Bags
                                                 </Link></li>
                                         <li 
                                         id='side'
                                        
-                                        onClick={(e) => { value.changeCategory(e); }} 
+                                        onClick={(e) => { value.changeCategory(e); value.categoryFilter() }} 
                                         className='nav-item link'>
                                             <Link to='/products'>Mini Bags
                                                 </Link></li>
                                         <li 
                                         id='side'
                                          
-                                        onClick={(e) => { value.changeCategory(e); }} 
+                                        onClick={(e) => { value.changeCategory(e); value.categoryFilter() }} 
                                         className='nav-item link'>
                                             <Link to='/products'>Clutches
                                                 </Link></li>
                                         <li 
                                         id='side'
                                          
-                                        onClick={(e) => { value.changeCategory(e); }} 
+                                        onClick={(e) => { value.changeCategory(e); value.categoryFilter()  }} 
                                         className='nav-item link'>
                                             <Link to='/products'>Bucket Bags
-                                                </Link></li>
+                                                </Link>
+                                        </li>
+                                        <li style={{fontSize:'1em'}} className='d-block d-lg-none w-100'>
+                                            {/*if signed in display none*/}
+                                            <AuthOptions />
+                                        </li>
+                                        {/*if not signed in display none/ direct to sign in*/}
+                                        <li style={{fontSize:'1em'}} className='d-block d-lg-none w-100' >
+                                            <Link to='/account'>
+
+                                            My Account
+                                            </Link>
+                                        </li>
+                                        <li style={{fontSize:'1em'}} className='d-block d-lg-none w-100'>
+                                            <Link to='/orders'>
+                                                Orders
+                                            </Link>
+                                                
+                                        </li>
+                                        <li>
+
+                                        </li>
                                     </ul>
+                                
                                    
                             </div> 
                         </div> 
@@ -168,6 +194,7 @@ export class Navbar extends React.Component {
 }
 
 const NavWrapper = styled.nav `
+
 .page_header{
     position: absolute !important;
     top:0;
@@ -195,9 +222,10 @@ div {
 padding: 0;
 margin: 0;
 box-sizing: border-box;
-display: block;
+display: flex;
+justify-content: space-between;
 width: 100%;
-height: auto;
+height: 80px;
 background: white;
 color: black;
 }
@@ -230,7 +258,7 @@ ul li .cart-basket {
     border-radius: 50%;
 }
 .logo {
-    position: absolute;
+    position: relative;
     left:0;
     top: 0;
     margin: 0 auto;
@@ -302,10 +330,10 @@ ul li .cart-basket {
         max-width: 1250px;
     }
     .logo {
-        position: absolute;
+        position: relative;
         left:0;
         top: 0;
-        margin: 0 auto 0 15%;
+        margin: 0 auto 0 5%;
         
     }
   
@@ -330,7 +358,7 @@ ul li .cart-basket {
 }
 
 
-@media (max-width: 770px){
+@media (max-width: 1180px){
     .checkbtn{
         display: block;
     }
@@ -345,6 +373,10 @@ ul li .cart-basket {
     .bg-inverse{
         background-color: #f3f3f3 !important;
     }
+    .navbar-nav{
+        display:block !important;
+
+    }
 
     .row2 ul {
         position: absolute;
@@ -357,8 +389,11 @@ ul li .cart-basket {
         left: -100%;
         text-align: center;
         transition: all .5s;
-        overflow: auto;
+        height: 600px;
+        overflow-y: scroll;
+       
     }
+
 
     
 

@@ -1,95 +1,112 @@
-import React from 'react';
+import React, { useState, useContext } from 'react';
+import UserContext from '../context.js/UserContext';
 import {ButtonContainer} from './Button';
+import API from '../baseapi';
+import { ProductConsumer } from '../context.js/context';
+import CartTotals from './Cart/CartTotals';
 
 
 
 
 export default class Checkout extends React.Component{
+
     render() {
+    
+    const handleClick = () => {
+        document.getElementById('useraddress').style.display = 'none';
+        document.getElementById('changeaddress').style.display = 'block';
+    }
+
+   // const [phoneNum, setPhoneNum] = useState();
+    //const [email, setEmail] = useState();
+    //const [address, setAddress] = useState();
+    //const [name, setName] = useState();
+    //const [addInfo, setAddInfo] = useState();
+
+    //const { setUserData } = useContext(UserContext);
+
+    {/*const submit = async (e) => {
+        e.preventDefault();
+        try {
+
+            const checkoutUser = {name, email, phoneNum, address, addInfo};
+            const checkoutUserRes = await API.post('user/checkout', checkoutUser);
+            console.log(checkoutUserRes.data.name);
+            console.log(checkoutUserRes.data.phoneNum);
+
+           
+        } catch(err){
+            console.log(err);
+        }
+
+    };*/}
         return (
                     
             <main className="mt-5 pt-4">
-                <div className="container wow fadeIn">              
+                <div className="container">              
                     <h2 className="my-5 mt-5 pt-5 h2 text-center">Checkout</h2>
-                        <div className="row">
-                            <div className="mx-auto mb-4">
-                                <div className="card">
 
-                                    <form className="card-body">
+                        <div className='row'>
+                            
+
+                            <div className='col-12 col-md-6 mr-5 mb-4' >
+                                <div  id='useraddress' style={{border:'0.05px solid #ccc', borderRadius:'10px',padding:'2px 0 3px 10px'}}>
+                                            <h6 className='text-uppercase font-weight-bold my-3 pb-2' style={{borderBottom:'0.05px solid #ccc'}} >Default Address</h6>
+                                    <div >
+                                        <article >
+                                            <p>Country, Town</p>
+                                            <p>Estate/Area</p>
+                                        
+                                        </article>
+                                    </div>
+                                    <ButtonContainer onClick={handleClick}>Edit Address</ButtonContainer>
+                                </div>
+
+                                <div id='changeaddress' style={{display:'none'}}className="row">
+                                    <div className="mx-auto mb-4">
+                                
+
+                                    <form className="" //onSubmit={submit}
+                                    >
                                         <p classNameName='text-uppercase font-weight-bold mb-5'>
                                             Delivery Address
                                         </p>
-                            
-                                        <div className="row">                                                
+                                                                           
                         
-                                            <div className="col-md-6 mb-2">                                  
-                                                <div className="md-form ">
-                                                    <label for="firstName" className="">First name</label>
-                                                    <input type="text" id="firstName" className="form-control"/>
-                                                    
-                                                </div>        
-                                            </div>                             
-                        
-                                            <div className="col-md-6 mb-2">                                  
-                                                <div className="md-form">
-                                                    <label for="lastName" className="">Last name</label>
-                                                    <input type="text" id="lastName" className="form-control"/>
-                                                    
-                                                </div>        
-                                            </div>
-                               
-                                        </div>                          
-                                             
+                                        <div className="md-form mb-4">                                  
+                                                <label for="firstName" className="">Full Name</label>
+                                                <input type="text" id="firstName" className="form-control"
+                                                //onChange={(e) => setName(e.target.value)}
+                                                />                        
+                                        </div>                           
+                                                                                         
+                                         
                       
                                         <div className="md-form mb-4">
                                             <label for="email" className="">Email</label>
-                                            <input type="text" id="email" className="form-control" placeholder="youremail@example.com"/>
+                                            <input type="text" id="email" className="form-control" placeholder="youremail@example.com"
+                                            //onChange={(e) => setEmail(e.target.value)}
+                                            />
                                             
                                         </div>
 
-                                        <div classNameName='mb-5'>
-                                        Phone Number
-                                        <br></br>
-                                        <div className="col-2 d-inline-block mx-0 mt-2">        
-                                                <label for="code"></label>
-                                                <select className="custom-select" id="code" required>
-                                                    <option value="">Choose...</option>
-                                                    <option>254</option>
-                                                    <option>255</option>
-                                                    <option>256</option>
-
-                                                </select>
+                                     
+                                        <div className="md-form mb-4">
+                                            <label for="tel-no" className="">Phone Number</label>
+                                            <input type="tel" id="tel-no" className="form-control" placeholder="712345678"
+                                            //onChange={(e) => setPhoneNum(e.target.value)}
+                                            />
                                         </div> 
-                                        <div className="md-form d-inline-block mx-0">
-                                            <input type="tel" id="tel-no" className="form-control" placeholder="712345678"/>
-                                        </div>
-                                        </div>
-        
-                      
-                                        <div className="md-form mb-5">
-                                            <label for="address" className="">Address</label>
-                                            <input type="text" id="address" className="form-control" placeholder="1234 Main St"/>
-                                            
-                                        </div>
-        
-                      
-                                        <div className="md-form mb-5">
-                                            <label for="address-2" className="">Address 2 (optional)</label>
-                                            <input type="text" id="address-2" className="form-control" placeholder="Apartment or suite"/>
-                                            
-                                        </div>
-        
+                             
                      
                                         <div className="row">
                               
                                             <div className="col-lg-4 col-md-12 mb-4">        
                                                 <label for="country">Country</label>
                                                 <select className="custom-select d-block w-100" id="country" required>
-                                                    <option value="">Choose...</option>
                                                     <option value='Kenya'>Kenya</option>
                                                     <option value='Uganda'>Uganda</option>
                                                     <option value='Tanzania'>Tanzania</option>
-
                                                 </select>
                                                 <div className="invalid-feedback">
                                                     Please select a valid country.
@@ -97,75 +114,21 @@ export default class Checkout extends React.Component{
                                             </div>
                         
                                             <div className="col-lg-4 col-md-6 mb-4">
-        
-                                                <label for="state">County/region</label>
-                                                <select className="custom-select d-block w-100" id="state" required>
-                                                    <option value="Nairobi">Nairobi</option>                                                    
-                                                    <option>Baringo</option>
-                                                    <option>Bomet</option>
-                                                    <option>Bungoma</option>
-                                                    <option>Busia</option>
-                                                    <option>Elgeyo-Marakwet</option>
-                                                    <option>Embu</option>
-                                                    <option>Garissa</option>
-                                                    <option>Homa Bay</option>
-                                                    <option>Isiolo</option>
-                                                    <option>Kajiado</option>
-                                                    <option>Kakamega</option>
-                                                    <option>Kericho</option>
-                                                    <option>Kiambu</option>
-                                                    <option>Kilifi</option>
-                                                    <option>Kirinyaga</option>
-                                                    <option>Kisii</option>
-                                                    <option>Kisumu</option>
-                                                    <option>Kitui</option>
-                                                    <option>Kwale</option>
-                                                    <option>Laikipia</option>
-                                                    <option>Lamu</option>
-                                                    <option>Machakos</option>
-                                                    <option>Makueni</option>
-                                                    <option>Mandera</option>
-                                                    <option>Marsabit</option>
-                                                    <option>Meru</option>
-                                                    <option>Migori</option>
-                                                    <option>Mombasa</option>
-                                                    <option>Murang'a</option>
-                                                    <option>Nairobi</option>
-                                                    <option>Nakuru</option>
-                                                    <option>Nandi</option>
-                                                    <option>Narok</option>
-                                                    <option>Nyamira</option>
-                                                    <option>Nyandarua</option>
-                                                    <option>Nyeri</option>
-                                                    <option>Samburu</option>
-                                                    <option>Siaya</option>
-                                                    <option>Taita-Taveta</option>
-                                                    <option>Tana River</option>
-                                                    <option>Tharaka-Nithi</option>
-                                                    <option>Trans-Nzoia</option>
-                                                    <option>Turkana</option>
-                                                    <option>Uasin Gishu</option>
-                                                    <option>Vihiga</option>
-                                                    <option>Wajir</option>
-                                                    <option>West Pokot</option>
 
-                                                </select>
-                                            <div className="invalid-feedback">
-                                                Please provide a valid region.
-                                            </div>
+                                                        <label for="city">Town</label>
+                                                <ProductConsumer>
+                                                    {val => (
+                                                        <select  className="custom-select d-block w-100" id="city" required  onChange={(e) => {val.shipping(e)}}>
+                                                            <option value="200" >Nairobi</option>
+                                                            <option value="300">Outside Nairobi</option>
+                                                            <option value="500">Uganda</option>
+                                                            <option value="500">Tanzania</option>      
+                                                        </select>
+                                                    )}
+                                                </ProductConsumer>
         
-                                            </div>
-                        
-                                            <div className="col-lg-4 col-md-6 mb-4">
-        
-                                                <label for="city">City</label>
-                                                <select className="custom-select d-block w-100" id="city" required>
-                                                    <option value=''>Choose city</option>
-                                                    <option>A</option>
-                                                    
-                                                </select>
                                                 <div className="invalid-feedback">
-                                                    City required.
+                                                    Town required.
                                                 </div>
         
                                             </div>
@@ -173,59 +136,67 @@ export default class Checkout extends React.Component{
                                         </div>
 
                                         <div className="md-form mb-5">
+                                            <label for="address" className="">Estate/Area</label>
+                                            <input type="text" id="address" className="form-control" placeholder="1234 Main St"
+                                             //onChange={(e) => setAddress(e.target.value)}
+                                             />
+                                            
+                                        </div>  
+
+                                        <div className="md-form mb-5">
                                             <label for="address-2" className="">Additional information</label>
-                                            <textarea cols='50' rows='6' id="address-2" className="form-control" placeholder="Additional information"/>
-                                        </div>
-                     
-        
-                                        <hr></hr>
-        
-                                        <div className="custom-control custom-checkbox">
-                                            <input type="checkbox" className="custom-control-input" id="save-info"/>
-                                            <label className="custom-control-label" for="save-info">Save this information for next time</label>
-                                        </div>
-        
-                                        <hr></hr>
-        
-                                        <div className="d-block my-3">
-                                            <h4 classNameName='text-center font-weight-bold mb-5'>Payment Method</h4>
-                                            <div className="custom-control custom-radio">
-                                                <input id="mpesa" name="paymentMethod" type="radio" className="custom-control-input" required/>
-                                                <label className="custom-control-label" for="mpesa">Mpesa</label>
+                                            <textarea cols='50' rows='6' id="address-2" className="form-control" placeholder="Additional information"
+                                            //onChange={(e) => setAddInfo(e.target.value)}
+                                            />
+                                        </div>  
+                                        <ButtonContainer>Update Address</ButtonContainer>      
+                                    </form>
+                                </div>                 
+                                                                                                                  
+                             </div>
+                            
+                    
+                                <div id='useraddress' className="d-block mb-3 mt-5" style={{border:'0.05px solid #ccc', borderRadius:'10px',padding:'2px 0 3px 10px'}}>
+                                            <h6 className='font-weight-bold text-uppercase my-3 pb-2' style={{borderBottom:'0.05px solid #ccc'}}>Payment Method</h6>
+                                            <div>
+                                                <div  className="custom-control custom-radio">
+                                                    <input id="mpesa" name="paymentMethod" type="radio" className="custom-control-input" required/>
+                                                    <label className="custom-control-label" htmlFor="mpesa">Mpesa</label>
+                                                </div>
+                                                <div className="custom-control custom-radio">
+                                                    <input id="pay-on-del" name="paymentMethod" type="radio" className="custom-control-input" required/>
+                                                    <label className="custom-control-label" htmlFor="pay-on-del">Pay on Delivery</label>
+                                                </div>
                                             </div>
-                                            <div className="custom-control custom-radio">
-                                                <input id="credit" name="paymentMethod" type="radio" className="custom-control-input" required/>
-                                                <label className="custom-control-label" for="credit">Credit card/Debit card</label>
-                                            </div>
-                                            <div className="custom-control custom-radio">
-                                                <input id="paypal" name="paymentMethod" type="radio" className="custom-control-input" required/>
-                                                <label className="custom-control-label" for="paypal">Paypal</label>
-                                            </div>
-                                        </div>
+                                        
                                         
                                         <hr className="mb-4"></hr>
-                                        <ButtonContainer type="submit" classNameName='w-100'>
+                                        <ButtonContainer type="submit">
                                                 Continue to checkout
                                             
                                         </ButtonContainer>
-        
-                                    </form>
-        
+                                    </div>
                                 </div>
-                  
-        
-                            </div>                       
-                                                                      
-                            </div>
+
+                               
+                                <div className='col-12 col-md-4'>
+                                    <ProductConsumer>
+                                        {(value) => (
+                                        
+                                            <CartTotals value={value} />
+                                        )}
+                                    </ProductConsumer>
+                                </div>
+                        </div>
+                        
               
         
                 </div>
             </main>
             
             
-            )
-        }
-         
+            )        
         
     
+}
 }

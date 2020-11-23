@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
-import {ProductConsumer} from '../context';
+import {ProductConsumer} from '../context.js/context';
 import PropTypes from 'prop-types';
 
 
@@ -11,14 +11,18 @@ export class Product extends React.Component {
 
     render() {
 
-        const {id, title, img, price, inCart, inWishlist} = this.props.product;
+        const {id, title, img, price, inCart, inWishlist} = this.props.product;      
     
-
         return (
+        
             <ProductWrapper className='product_card col-6 px-1 col-lg-4 my-2'>
+                
                 <div className='card'>
                     <ProductConsumer>
                         {(value) => (
+                            
+                        
+
                       <div 
                       className='image-container' 
                       onClick={() => {
@@ -77,8 +81,8 @@ export class Product extends React.Component {
                             <span className='mr-1'>
                                 {value.currency}
                             </span>
-                                )}
                                 
+                                )}
                             </ProductConsumer>
                             {price}
                         </p>

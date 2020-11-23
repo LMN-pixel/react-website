@@ -15,7 +15,8 @@ export class Modal extends React.Component{
                     if(!modalOpen){
                         return null;
                     } else {
-                        return (<ModalContainer>
+                        return (
+                        <ModalContainer>
                             <div className='container'>
                                 <div className='row'>
                                     <div id='modal' className='col-8 mx-auto col-md-6 col-lg-4 text-center text-capitalize p-5'>

@@ -1,6 +1,8 @@
 import React from 'react';
-import {storeProducts, detailProduct} from './data';
-import notify from './Components/Notification';
+import {storeProducts, detailProduct} from '../data';
+import notify from '../Components/Notification';
+import axios from 'axios';
+import API from '../baseapi';
 
 const ProductContext = React.createContext();
 //Provider
@@ -10,29 +12,46 @@ const ProductContext = React.createContext();
 class ProductProvider extends React.Component {
     state = {
         products: [],
+        filters: [],
         detailProduct:detailProduct,
         categoryPage: 'Shop',
         cart: [],
         wishlist:[],
         modalOpen:false,
-        modalProduct:detailProduct,
         currency: 'Ksh',
         cartSubTotal: 0,
-        cartShipping: 0,
+        cartShipping: 200,
         cartTotal: 0
 
     };
+
     componentDidMount() {
         this.setProducts(); 
+        
     }
-    setProducts = () => {
+
+    setProducts = async () => {
         let tempProducts = [];
+       /* try {
+            let res = await axios.get('http://localhost:3000/storeProducts/');
+            tempProducts = res.data;
+
+                this.setState( () => {
+                    return {products:tempProducts}
+                });
+           
+        }  catch(err) {
+                console.log(err);
+            }*/
         storeProducts.forEach(item => {
             const singleItem = {...item};
             tempProducts = [...tempProducts,singleItem];
         });
         this.setState( () => {
-            return {products:tempProducts}
+            return {
+                products:tempProducts,
+                filters:tempProducts
+            }
         });
     };
 
@@ -48,7 +67,30 @@ class ProductProvider extends React.Component {
                 categoryPage: categoryTitle
             }
         });
-    }
+        this.categoryFilter();
+    };
+
+    categoryFilter = () => {
+        let tempProducts = [...this.state.products];
+        tempProducts = tempProducts.filter(item => 
+            item.category.includes(this.state.categoryPage)
+        );
+        this.setState(() => {
+            return {
+               
+                filters: [...tempProducts]
+
+            }
+        });
+        /*let tempProducts = axios.get('http://localhost:3000/storeProducts/')
+        .then(res => {
+            this.setState( {tempProducts : res.data })
+            this.setState( () => {
+                return { filterList : tempProducts }
+            });
+
+        })*/
+    };
 
     handleDetail = (id) => {
        const product = this.getItem(id);
@@ -97,20 +139,36 @@ class ProductProvider extends React.Component {
        
     };
 
-    openModal = id => {
+    openModal = () => {
+        this.setState(() => {
+           return { modalOpen: true }},() =>{
+               document.addEventListener('click', this.closeModal);
+           })
+           
+            
+        };
+        
+    
+    
+    
+   /* openModal = id => {
         const product = this.getItem(id);
         this.setState(() => {
             return {
                 modalProduct:product,
                 modalOpen : true }
         })
-    }
+    }*/
 
     closeModal = () => {
         this.setState(() => {
-            return { modalOpen: false }
-        });
-    };
+            return { modalOpen: false }}, () =>{
+                document.removeEventListener('click', this.closeModal);
+            });
+        
+            
+        };
+    
 
     increment = (id) => {
         let tempCart = [...this.state.cart]; 
@@ -219,11 +277,22 @@ class ProductProvider extends React.Component {
             this.setProducts();
         })
     };
+
+    shipping = (e) => {
+        const shippingCost = e.target.value;
+        this.setState(() => {
+            return {
+                cartShipping: shippingCost
+            }
+        })
+    }
+    
     addTotals = () => {
         let subTotal = 0;
         this.state.cart.map(item => {return subTotal += item.total});
-        const tempShipping = 300;
-        const shipping = tempShipping;
+        //const tempShipping = 300;
+        //const shipping = tempShipping;
+        const shipping = this.state.cartShipping;
         const total = subTotal + shipping;
         this.setState(() => {
             return {
@@ -234,8 +303,92 @@ class ProductProvider extends React.Component {
         })
 
     };
-	 
-	
+    unCheck = () => {
+        document.getElementById('check').checked = false;
+    };
+
+    changeCurrency = (e) => {
+        const tempCurrency = e.target.value;
+        this.setState(() => {
+            return {
+                currency: tempCurrency
+            }
+        });
+       
+    };
+
+    /*changeCost = (id) => {
+        let tempProducts = [...this.state.products];
+        const index = tempProducts.indexOf(this.getItem(id));
+        const product = tempProducts[index];
+
+        let defaultProductPrice = product.price;
+        let changingProductPrice = defaultProductPrice;
+        let tempProductPrice = changingProductPrice;
+       switch(this.state.currency) {
+
+        case 'Tzs':
+            tempProductPrice=changingProductPrice;
+            let TzPrice = tempProductPrice * 22;
+            product.price = TzPrice;
+            break;
+
+        case 'Ugx':
+            tempProductPrice=changingProductPrice;
+            let UgPrice = tempProductPrice * 34;
+            product.price = UgPrice;
+            break;
+        
+        default:
+            
+            break;
+       }
+
+    } */
+    
+
+     handleCheck = (e) => {
+         
+
+             let filtered = e.target.value;
+             console.log(filtered);
+             this.checkFilterColor(filtered);
+        
+     };
+
+     checkFilterColor = (filtered) => {
+         let TempProducts = [...this.state.products];
+
+        
+        this.setState(() => {
+            return {
+             filters: TempProducts.filter(item => 
+                item.color.includes(filtered)) 
+            }
+                
+         })
+
+     };
+     handleCheckPrice = (e) => {
+         
+
+        let filtered = e.target.value;
+        console.log(filtered);
+        this.checkFilterPrice(filtered);
+   
+};
+    
+     checkFilterPrice = (filtered) => {
+         let TempProducts = [...this.state.products];
+
+         this.setState(() => {
+             return {
+                 filters: TempProducts.filter(item => 
+                    item.price < filtered
+                    )
+             }
+         });
+     };
 
 
 
@@ -249,6 +402,7 @@ class ProductProvider extends React.Component {
                 ...this.state,
                 handleDetail: this.handleDetail,
                 changeCategory: this.changeCategory,
+                categoryFilter: this.categoryFilter,
                 addToCart: this.addToCart,
                 addToWishlist: this.addToWishlist,
                 openModal: this.openModal,
@@ -258,7 +412,15 @@ class ProductProvider extends React.Component {
                 removeItem: this.removeItem,
                 clearCart: this.clearCart,
                 clearWishlist: this.clearWishlist,
-                removeItemWishlist: this.removeItemWishlist
+                removeItemWishlist: this.removeItemWishlist,
+                unCheck: this.unCheck,
+                shipping: this.shipping,
+                changeCurrency: this.changeCurrency,
+                handleCheck: this.handleCheck,
+                handleCheckPrice: this.handleCheckPrice,
+                checkFilterColor: this.checkFilterColor,
+                checkFilterPrice: this.checkFilterPrice,
+                changeCostTzs: this.changeCostTzs
             }}>
                 {this.props.children}
             </ProductContext.Provider>

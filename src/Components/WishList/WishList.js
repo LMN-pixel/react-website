@@ -1,5 +1,5 @@
 import React from 'react';
-import {ProductConsumer} from '../../context';
+import {ProductConsumer} from '../../context.js/context';
 import WishList_list from './WishList_list';
 import WishlistColumns from './WishlistColumns';
 import Title from '../Title';

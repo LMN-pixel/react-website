@@ -1,6 +1,6 @@
 export const storeProducts = [
     {
-        id: 1,
+        id: 15,
         title: "Chanel 1 - red",
         img: [
          'img/product.jpg',
@@ -8,6 +8,7 @@ export const storeProducts = [
          'img/landing-secondary2.jpg'
         ],    
         price: 2000,
+        category: 'Handbags',
         color: "red",
         company: "Chanel",
         info:
@@ -20,7 +21,7 @@ export const storeProducts = [
     },
 
     {
-        id: 2,
+        id: 25,
         title: "Gucci - brown",
         img: [
          'img/product.jpg',
@@ -28,6 +29,7 @@ export const storeProducts = [
          'img/landing-secondary2.jpg'
         ],    
         price: 3000,
+        category: 'Handbags',
         color: "brown",
         company: "Gucci",
         info:
@@ -39,7 +41,7 @@ export const storeProducts = [
     },
 
     {
-        id: 3,
+        id: 35,
         title: "Gucci - pink",
         img: [
          'img/product.jpg',
@@ -47,6 +49,7 @@ export const storeProducts = [
          'img/landing-secondary2.jpg'
         ] ,   
         price: 2500,
+        category: 'Handbags',
         color: "pink",
         company: "Gucci",
         info:
@@ -65,6 +68,7 @@ export const storeProducts = [
          'img/landing-secondary2.jpg'
         ],    
         price: 2000,
+        category: 'Clutches',
         color: "red",
         company: "Chanel",
         info:
@@ -85,6 +89,7 @@ export const storeProducts = [
          'img/landing-secondary2.jpg'
         ],    
         price: 3000,
+        category: 'Clutches',
         color: "brown",
         company: "Gucci",
         info:
@@ -104,6 +109,7 @@ export const storeProducts = [
          'img/landing-secondary2.jpg'
         ],    
         price: 2500,
+        category: 'Clutches',
         color: "pink",
         company: "Gucci",
         info:
@@ -122,6 +128,7 @@ export const storeProducts = [
          'img/landing-secondary2.jpg'
         ],    
         price: 2000,
+        category: 'New Arrivals',
         color: "red",
         company: "Chanel",
         info:
@@ -142,6 +149,7 @@ export const storeProducts = [
          'img/landing-secondary2.jpg'
         ],    
         price: 3000,
+        category: 'New Arrivals',
         color: "brown",
         company: "Gucci",
         info:
@@ -161,6 +169,7 @@ export const storeProducts = [
          'img/landing-secondary2.jpg'
         ],    
         price: 2500,
+        category: 'New Arrivals',
         color: "pink",
         company: "Gucci",
         info:

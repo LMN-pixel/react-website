@@ -1,12 +1,12 @@
 import React from 'react';
 import {Product} from './Product';
 import Title from './Title';
-import {ProductConsumer} from '../context';
+import {ProductConsumer} from '../context.js/context';
 import styled from 'styled-components';
 
 export class ProductList extends React.Component {
     render() {
-  const filterResult = 0;
+  
  
         return (
             <React.Fragment>
@@ -15,8 +15,11 @@ export class ProductList extends React.Component {
         <div className='container'>
             <div className='product_list'>   
                 <div className='row mt-5'>
+                        
                 {/*filters */}
                     <div className='d-none d-xl-block col-xl-1 product_list-refinement'>
+                    <ProductConsumer>
+                    {value => (
                         <div className='refinement-bar'>
                                 <div className='refinements_wrapper'>
                                     <div className='refinements'>
@@ -39,107 +42,107 @@ export class ProductList extends React.Component {
                                             </div>
                                             <div className='refinement-selected_values d-none'>
                                             </div>
-                                            <div className='refinement-scroll_body refinement_wrapper-colorgroup'>
+                                            <div onChange={(e)=> {value.handleCheck(e)}}className='refinement-scroll_body refinement_wrapper-colorgroup'>
                                                 <div className='refinement-color custom-control custom-checkbox custom-checkbox--dark'>
-                                                    <input type='checkbox' id='color-black' className='custom-control-input refinement-input' autocomplete='off'/>
+                                                    <input type='checkbox' value='black' id='color-black' className='custom-control-input refinement-input' autoComplete='off'/>
                                                     <label className='custom-control-label refinement-label--color' htmlFor='color-black'>
                                                     
                                                         <span className='refinement-color_name'>Black</span>
                                                     </label>
                                                 </div>
-                                                <div className='refinement-color custom-control custom-checkbox custom-checkbox--dark'>
-                                                    <input type='checkbox' id='color-blue' className='custom-control-input refinement-input' autocomplete='off'/>
+                                                <div onChange={(e)=> {value.handleCheck(e)}}className='refinement-color custom-control custom-checkbox custom-checkbox--dark'>
+                                                    <input type='checkbox' value='blue' id='color-blue' className='custom-control-input refinement-input' autoComplete='off'/>
                                                     <label className='custom-control-label refinement-label--color' htmlFor='color-blue'>
                                                         
                                                         <span className='refinement-color_name'>Blue</span>
                                                     </label>
                                                 </div>
-                                                <div className='refinement-color custom-control custom-checkbox custom-checkbox--dark'>
-                                                    <input type='checkbox' id='color-brown' className='custom-control-input refinement-input' autocomplete='off'/>
+                                                <div onChange={(e)=> {value.handleCheck(e)}}className='refinement-color custom-control custom-checkbox custom-checkbox--dark'>
+                                                    <input type='checkbox' value='brown' id='color-brown' className='custom-control-input refinement-input' autoComplete='off'/>
                                                     <label className='custom-control-label refinement-label--color' htmlFor='color-brown'>
                                                         
                                                         <span className='refinement-color_name'>Brown</span>
                                                     </label>
                                                 </div>
-                                                <div className='refinement-color custom-control custom-checkbox custom-checkbox--dark'>
-                                                    <input type='checkbox' id='color-green' className='custom-control-input refinement-input' autocomplete='off'/>
+                                                <div onChange={(e)=> {value.handleCheck(e)}}className='refinement-color custom-control custom-checkbox custom-checkbox--dark'>
+                                                    <input type='checkbox' value='green' id='color-green' className='custom-control-input refinement-input' autoComplete='off'/>
                                                     <label className='custom-control-label refinement-label--color' htmlFor='color-green'>
                                                         
                                                         <span className='refinement-color_name'>Green</span>
                                                     </label>
                                                 </div>
-                                                <div className='refinement-color custom-control custom-checkbox custom-checkbox--dark'>
-                                                    <input type='checkbox' id='color-grey' className='custom-control-input refinement-input' autocomplete='off'/>
+                                                <div onChange={(e)=> {value.handleCheck(e)}}className='refinement-color custom-control custom-checkbox custom-checkbox--dark'>
+                                                    <input type='checkbox' value='grey' id='color-grey' className='custom-control-input refinement-input' autoComplete='off'/>
                                                     <label className='custom-control-label refinement-label--color' htmlFor='color-grey'>
                                                         
                                                         <span className='refinement-color_name'>Grey</span>
                                                     </label>
                                                 </div>
-                                                <div className='refinement-color custom-control custom-checkbox custom-checkbox--dark'>
-                                                    <input type='checkbox' id='color-metallic' className='custom-control-input refinement-input' autocomplete='off'/>
+                                                <div onChange={(e)=> {value.handleCheck(e)}}className='refinement-color custom-control custom-checkbox custom-checkbox--dark'>
+                                                    <input type='checkbox' value='metallic' id='color-metallic' className='custom-control-input refinement-input' autoComplete='off'/>
                                                     <label className='custom-control-label refinement-label--color' htmlFor='color-metallic'>
                                                         
                                                         <span className='refinement-color_name'>Metallic</span>
                                                     </label>
                                                 </div>
-                                                <div className='refinement-color custom-control custom-checkbox custom-checkbox--dark'>
-                                                    <input type='checkbox' id='color-multi' className='custom-control-input refinement-input' autocomplete='off'/>
+                                                <div onChange={(e)=> {value.handleCheck(e)}}className='refinement-color custom-control custom-checkbox custom-checkbox--dark'>
+                                                    <input type='checkbox' value='multi' id='color-multi' className='custom-control-input refinement-input' autoComplete='off'/>
                                                     <label className='custom-control-label refinement-label--color' htmlFor='color-multi'>
                                                         
                                                         <span className='refinement-color_name'>Multi</span>
                                                     </label>
                                                 </div>
                                                 <div className='refinement-color custom-control custom-checkbox custom-checkbox--dark'>
-                                                    <input type='checkbox' id='color-neutral' className='custom-control-input refinement-input' autocomplete='off'/>
+                                                    <input type='checkbox' value='neutral' id='color-neutral' className='custom-control-input refinement-input' autoComplete='off'/>
                                                     <label className='custom-control-label refinement-label--color' htmlFor='color-neutral'>
                                                     
                                                         <span className='refinement-color_name'>Neutral</span>
                                                     </label>
                                                 </div>
-                                                <div className='refinement-color custom-control custom-checkbox custom-checkbox--dark'>
-                                                    <input type='checkbox' id='color-orange' className='custom-control-input refinement-input' autocomplete='off'/>
+                                                <div onChange={(e)=> {value.handleCheck(e)}}className='refinement-color custom-control custom-checkbox custom-checkbox--dark'>
+                                                    <input type='checkbox' value='orange' id='color-orange' className='custom-control-input refinement-input' autoComplete='off'/>
                                                     <label className='custom-control-label refinement-label--color' htmlFor='color-orange'>
                                                     
                                                         <span className='refinement-color_name'>Orange</span>
                                                     </label>
                                                 </div>
-                                                <div className='refinement-color custom-control custom-checkbox custom-checkbox--dark'>
-                                                    <input type='checkbox' id='color-pink' className='custom-control-input refinement-input' autocomplete='off'/>
+                                                <div onChange={(e)=> {value.handleCheck(e)}}className='refinement-color custom-control custom-checkbox custom-checkbox--dark'>
+                                                    <input type='checkbox' value='pink' id='color-pink' className='custom-control-input refinement-input' autoComplete='off'/>
                                                     <label className='custom-control-label refinement-label--color' htmlFor='color-pink'>
                                                         
                                                         <span className='refinement-color_name'>Pink</span>
                                                     </label>
                                                 </div>
-                                                <div className='refinement-color custom-control custom-checkbox custom-checkbox--dark'>
-                                                    <input type='checkbox' id='color-purple' className='custom-control-input refinement-input' autocomplete='off'/>
+                                                <div onChange={(e)=> {value.handleCheck(e)}}className='refinement-color custom-control custom-checkbox custom-checkbox--dark'>
+                                                    <input type='checkbox' value='purple' id='color-purple' className='custom-control-input refinement-input' autoComplete='off'/>
                                                     <label className='custom-control-label refinement-label--color' htmlFor='color-purple'>
                                                         
                                                         <span className='refinement-color_name'>Purple</span>
                                                     </label>
                                                 </div>
-                                                <div className='refinement-color custom-control custom-checkbox custom-checkbox--dark'>
-                                                    <input type='checkbox' id='color-red' className='custom-control-input refinement-input' autocomplete='off'/>
+                                                <div onChange={(e)=> {value.handleCheck(e)}} className='refinement-color custom-control custom-checkbox custom-checkbox--dark'>
+                                                    <input type='checkbox' value='red' id='color-red' className='custom-control-input refinement-input' autoComplete='off'/>
                                                     <label className='custom-control-label refinement-label--color' htmlFor='color-red'>
                                                         
                                                         <span className='refinement-color_name'>Red</span>
                                                     </label>
                                                 </div>
-                                                <div className='refinement-color custom-control custom-checkbox custom-checkbox--dark'>
-                                                    <input type='checkbox' id='color-teal' className='custom-control-input refinement-input' autocomplete='off'/>
+                                                <div onChange={(e)=> {value.handleCheck(e)}}className='refinement-color custom-control custom-checkbox custom-checkbox--dark'>
+                                                    <input type='checkbox' value='teal' id='color-teal' className='custom-control-input refinement-input' autoComplete='off'/>
                                                     <label className='custom-control-label refinement-label--color' htmlFor='color-teal'>
                                                         
                                                         <span className='refinement-color_name'>Teal</span>
                                                     </label>
                                                 </div>
-                                                <div className='refinement-color custom-control custom-checkbox custom-checkbox--dark'>
-                                                    <input type='checkbox' id='color-white' className='custom-control-input refinement-input' autocomplete='off'/>
+                                                <div onChange={(e)=> {value.handleCheck(e)}}className='refinement-color custom-control custom-checkbox custom-checkbox--dark'>
+                                                    <input type='checkbox' value='white' id='color-white' className='custom-control-input refinement-input' autoComplete='off'/>
                                                     <label className='custom-control-label refinement-label--color' htmlFor='color-white'>
                                                         
                                                         <span className='refinement-color_name'>White</span>
                                                     </label>
                                                 </div>
-                                                <div className='refinement-color custom-control custom-checkbox custom-checkbox--dark'>
-                                                    <input type='checkbox' id='color-yellow' className='custom-control-input refinement-input' autocomplete='off'/>
+                                                <div onChange={(e)=> {value.handleCheck(e)}}className='refinement-color custom-control custom-checkbox custom-checkbox--dark'>
+                                                    <input type='checkbox' value='yellow' id='color-yellow' className='custom-control-input refinement-input' autoComplete='off'/>
                                                     <label className='custom-control-label refinement-label--color' htmlFor='color-yellow'>
                                                         
                                                         <span className='refinement-color_name'>Yellow</span>
@@ -168,32 +171,32 @@ export class ProductList extends React.Component {
                                             <div className='refinement-scroll_body refinement_wrapper-size'>
                                                     <div className='refinement-item refinement-card'>
                                                         <div className='custom-control custom-checkbox custom-checkbox--dark'>
-                                                            <input type='checkbox' id='size_l' className='custom-control-input refinement-input' autocomplete='off'/>
-                                                            <label class='custom-control-label refinement-label' htmlFor='size_'l>
+                                                            <input type='checkbox' value='L'id='size_l' className='custom-control-input refinement-input' autoComplete='off'/>
+                                                            <label className='custom-control-label refinement-label' htmlFor='size_l'>
                                                                 <span className='size'>Large</span>
                                                             </label>
                                                         </div>
                                                     </div>
                                                     <div className='refinement-item refinement-card'>
                                                         <div className='custom-control custom-checkbox custom-checkbox--dark'>
-                                                            <input type='checkbox' id='size_m' className='custom-control-input refinement-input' autocomplete='off'/>
-                                                            <label class='custom-control-label refinement-label' htmlFor='size_m'>
+                                                            <input type='checkbox' value='M' id='size_m' className='custom-control-input refinement-input' autoComplete='off'/>
+                                                            <label className='custom-control-label refinement-label' htmlFor='size_m'>
                                                                 <span className='size'>Medium</span>
                                                             </label>
                                                         </div>
                                                     </div>
                                                     <div className='refinement-item refinement-card'>
                                                         <div className='custom-control custom-checkbox custom-checkbox--dark'>
-                                                            <input type='checkbox' id='size_s' className='custom-control-input refinement-input' autocomplete='off'/>
-                                                            <label class='custom-control-label refinement-label' htmlFor='size_s'>
+                                                            <input type='checkbox' value='S' id='size_s' className='custom-control-input refinement-input' autoComplete='off'/>
+                                                            <label className='custom-control-label refinement-label' htmlFor='size_s'>
                                                                 <span className='size'>Small</span>
                                                             </label>
                                                         </div>
                                                     </div>
                                                     <div className='refinement-item refinement-card'>
                                                         <div className='custom-control custom-checkbox custom-checkbox--dark'>
-                                                            <input type='checkbox' id='size_xs' className='custom-control-input refinement-input' autocomplete='off'/>
-                                                            <label class='custom-control-label refinement-label' htmlFor='size_xs'>
+                                                            <input type='checkbox' value='XS' id='size_xs' className='custom-control-input refinement-input' autoComplete='off'/>
+                                                            <label className='custom-control-label refinement-label' htmlFor='size_xs'>
                                                                 <span className='size'>XS</span>
                                                             </label>
                                                         </div>
@@ -220,32 +223,32 @@ export class ProductList extends React.Component {
                                                 <div className='refinement-selected_values d-none'></div>
                                                 <div className='refinement-scroll_body refinement_wrapper-price'>
                                                     <div className='refinement-item refinement-card'>
-                                                        <div className='refinement-price custom-control custom-radio custom-radio-large'>
-                                                            <input type='radio' id='price2000' className='custom-control-input refinement-input' autocomplete='off'/>
+                                                        <div onChange={(e)=> {value.handleCheckPrice(e)}} className='refinement-price custom-control custom-radio custom-radio-large'>
+                                                            <input type='checkbox' value='2000'id='price2000' className='custom-control-input refinement-input' autoComplete='off'/>
                                                                 <label className='custom-control-label refinement-label price' htmlFor='price2000'>
                                                                     <span className='price'>Ksh 0 - 2000</span>
                                                                 </label>                                                      
                                                         </div>
                                                     </div>
                                                     <div className='refinement-item refinement-card'>
-                                                        <div className='refinement-price custom-control custom-radio custom-radio-large'>
-                                                            <input type='radio' id='price4500' className='custom-control-input refinement-input' autocomplete='off'/>
+                                                        <div onChange={(e)=> {value.handleCheckPrice(e)}}className='refinement-price custom-control custom-radio custom-radio-large'>
+                                                            <input type='checkbox' value='5000' id='price4500' className='custom-control-input refinement-input' autoComplete='off'/>
                                                                 <label className='custom-control-label refinement-label price' htmlFor='price4500'>
                                                                     <span className='price'>Ksh 2000 - 5000</span>
                                                                 </label>                                                      
                                                         </div>
                                                     </div>
-                                                    <div className='refinement-item refinement-card'>
+                                                    <div onChange={(e)=> {value.handleCheckPrice(e)}}className='refinement-item refinement-card'>
                                                         <div className='refinement-price custom-control custom-radio custom-radio-large'>
-                                                            <input type='radio' id='price8000' className='custom-control-input refinement-input' autocomplete='off'/>
+                                                            <input type='checkbox' value='8000' id='price8000' className='custom-control-input refinement-input' autoComplete='off'/>
                                                                 <label className='custom-control-label refinement-label price' htmlFor='price8000'>
                                                                     <span className='price'>Ksh 5000 - 8000</span>
                                                                 </label>                                                      
                                                         </div>
                                                     </div>
-                                                    <div className='refinement-item refinement-card'>
+                                                    <div onChange={(e)=> {value.handleCheckPrice(e)}}className='refinement-item refinement-card'>
                                                         <div className='refinement-price custom-control custom-radio custom-radio-large'>
-                                                            <input type='radio' id='price10000' className='custom-control-input refinement-input' autocomplete='off'/>
+                                                            <input type='checkbox' value='10000'id='price10000' className='custom-control-input refinement-input' autoComplete='off'/>
                                                                 <label className='custom-control-label refinement-label price' htmlFor='price10000'>
                                                                     <span className='price'>Ksh 8000 - 10000</span>
                                                                 </label>                                                      
@@ -256,58 +259,29 @@ export class ProductList extends React.Component {
                                     </div>
                                 </div>
                         </div>
+                    )}
+                </ProductConsumer>
                     </div>
+                    
                     {/*product listing */}
                     <div className='col-sm-12 col-xl-8 mx-auto product_list-container'>
                         <ProductConsumer>
                             {value => (
 
                             <Titlebackground>
-                                <div>
+                                <div className='mb-5'>
                                     <Title name='' title={value.categoryPage}/>
                                 </div>
                             </Titlebackground>
                             )}
                         </ProductConsumer>
-                            <div className="row product_list-sortby_filter mt-3">
-                                <div className='col-6 d-xl-none product_list-filter_wrapper'>
-                                    <button type='button' className='btn btn-outline-light d-none filter-results col-12
-                                    product_list-filter_button text-capitalize'>
-                                        "
-                                        Filter
-
-                                        "
-                                        <span className='icon product_list-filter_icon'>
-                                            <i className='fa fa sliders'></i>
-                                        </span>
-                                    </button>
-                                </div>
-                                <htmlForm className='col-6 col-xl-4 product_list-sortby_wrapper' autocomplete='off'>
-                                    <div className='product_list-sortby_title d-none d-xl-block'>
-                                        Sort By:
-                                    </div>
-                                    <select name='sort-order' className='custom-select product_list-sortby_dropdown'>
-                                        <option>Featured</option>
-                                        <option>New Arrivals</option>
-                                        <option>Price (high to low)</option>
-                                        <option>Price (low to high)</option>
-                                    </select>
-                                </htmlForm>
-                                <div className='col-12 col-xl-4 product_list-container_header'>
-                                    <div className='result-count product_list-result_count col-12 col-sm-12'>
-                                        <span>
-                                            {filterResult} Product(s)
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
                            
                             <div className='row'>
                                     
                                     
                                         <ProductConsumer>
                                             {value => {
-                                                return value.products.map( product => {
+                                                return value.filters.map( product => {
                                                     return <Product key={product.id} product={product}/>;
                                                 });
                                                 
@@ -357,37 +331,7 @@ padding:0 !important;
  padding-bottom: 36px;
  margin-top: 150px;
 }    
-.product_list-filter_wrapper {
-    padding-right: 5px;
-}
-.product_list-filter_button {
-    padding-left: .5rem;
-    text-align: left;
-}
-button {
-    appearance: button;
-    -webkit-writing-mode: horizontal-tb !important;
-    text-rendering: auto;
-    color: -internal-light-dark(black, white);
-    letter-spacing: normal;
-    word-spacing: normal;
-    text-transhtmlForm: none;
-    text-indent: 0px;
-    text-shadow: none;
-    display: inline-block;
-    text-align: center;
-    align-items: flex-start;
-    cursor: default;
-    background-color: -internal-light-dark(rgb(239, 239, 239), rgb(59, 59, 59));
-    box-sizing: border-box;
-    margin: 0em;
-    font: 400 13.3333px Arial;
-    padding: 1px 6px;
-    border-width: 2px;
-    border-style: outset;
-    border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
-    border-image: initial;
-}
+
 .icon {
     -ms-flex-negative: 0;
     flex-shrink: 0;
@@ -395,11 +339,6 @@ button {
     height: 20px;
     pointer-events: none;
     fill: currentColor;
-}
-.product_list-filter_icon {
-    position: absolute;
-    right: 10px;
-    height: 21px;
 }
 
 .product_list-sortby_wrapper {
