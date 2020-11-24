@@ -2,6 +2,7 @@ import React from 'react';
 import {Product} from './Product';
 import Title from './Title';
 import {ProductConsumer} from '../context.js/context';
+import { ButtonContainer } from './Button';
 import styled from 'styled-components';
 
 export class ProductList extends React.Component {
@@ -156,7 +157,7 @@ export class ProductList extends React.Component {
                                                         <span className='icon nav-arrow-icon refinements_modal-arrow_icon'>
                                                             <i className='fa fa-chevron-right'></i>
                                                         </span>
-                                                        <span className='refinement-header'>Price</span>
+                                                        <span className='refinement-header'>Size</span>
                                                     </span>
                                                     <span className='refinement-clear d-none'>
                                                         <span className='refinement-clear_text'>clear</span>
@@ -170,7 +171,7 @@ export class ProductList extends React.Component {
                                             <div className='refinement-selected_values d-none'></div>
                                             <div className='refinement-scroll_body refinement_wrapper-size'>
                                                     <div className='refinement-item refinement-card'>
-                                                        <div className='custom-control custom-checkbox custom-checkbox--dark'>
+                                                        <div onChange={(e)=> {value.handleCheckSize(e)}}className='custom-control custom-checkbox custom-checkbox--dark'>
                                                             <input type='checkbox' value='L'id='size_l' className='custom-control-input refinement-input' autoComplete='off'/>
                                                             <label className='custom-control-label refinement-label' htmlFor='size_l'>
                                                                 <span className='size'>Large</span>
@@ -178,7 +179,7 @@ export class ProductList extends React.Component {
                                                         </div>
                                                     </div>
                                                     <div className='refinement-item refinement-card'>
-                                                        <div className='custom-control custom-checkbox custom-checkbox--dark'>
+                                                        <div onChange={(e)=> {value.handleCheckSize(e)}}className='custom-control custom-checkbox custom-checkbox--dark'>
                                                             <input type='checkbox' value='M' id='size_m' className='custom-control-input refinement-input' autoComplete='off'/>
                                                             <label className='custom-control-label refinement-label' htmlFor='size_m'>
                                                                 <span className='size'>Medium</span>
@@ -186,7 +187,7 @@ export class ProductList extends React.Component {
                                                         </div>
                                                     </div>
                                                     <div className='refinement-item refinement-card'>
-                                                        <div className='custom-control custom-checkbox custom-checkbox--dark'>
+                                                        <div onChange={(e)=> {value.handleCheckSize(e)}}className='custom-control custom-checkbox custom-checkbox--dark'>
                                                             <input type='checkbox' value='S' id='size_s' className='custom-control-input refinement-input' autoComplete='off'/>
                                                             <label className='custom-control-label refinement-label' htmlFor='size_s'>
                                                                 <span className='size'>Small</span>
@@ -194,7 +195,7 @@ export class ProductList extends React.Component {
                                                         </div>
                                                     </div>
                                                     <div className='refinement-item refinement-card'>
-                                                        <div className='custom-control custom-checkbox custom-checkbox--dark'>
+                                                        <div onChange={(e)=> {value.handleCheckSize(e)}} className='custom-control custom-checkbox custom-checkbox--dark'>
                                                             <input type='checkbox' value='XS' id='size_xs' className='custom-control-input refinement-input' autoComplete='off'/>
                                                             <label className='custom-control-label refinement-label' htmlFor='size_xs'>
                                                                 <span className='size'>XS</span>
@@ -221,9 +222,9 @@ export class ProductList extends React.Component {
                                                     </span>
                                                 </div>
                                                 <div className='refinement-selected_values d-none'></div>
-                                                <div className='refinement-scroll_body refinement_wrapper-price'>
+                                                <div onChange={(e)=> {value.handleCheckPrice(e)}}className='refinement-scroll_body refinement_wrapper-price'>
                                                     <div className='refinement-item refinement-card'>
-                                                        <div onChange={(e)=> {value.handleCheckPrice(e)}} className='refinement-price custom-control custom-radio custom-radio-large'>
+                                                        <div  className='refinement-price custom-control custom-radio custom-radio-large'>
                                                             <input type='checkbox' value='2000'id='price2000' className='custom-control-input refinement-input' autoComplete='off'/>
                                                                 <label className='custom-control-label refinement-label price' htmlFor='price2000'>
                                                                     <span className='price'>Ksh 0 - 2000</span>
@@ -258,6 +259,7 @@ export class ProductList extends React.Component {
                                         </div>                                    
                                     </div>
                                 </div>
+                                <ButtonContainer onClick={()=>{value.handleClearFilters()}}>Clear filters</ButtonContainer>
                         </div>
                     )}
                 </ProductConsumer>
@@ -281,7 +283,7 @@ export class ProductList extends React.Component {
                                     
                                         <ProductConsumer>
                                             {value => {
-                                                return value.filters.map( product => {
+                                                return value.products.map( product => {
                                                     return <Product key={product.id} product={product}/>;
                                                 });
                                                 

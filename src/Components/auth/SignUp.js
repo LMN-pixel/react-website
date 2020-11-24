@@ -20,17 +20,18 @@ export default function SignUp(){
 
      const submit = async (e) => {
         e.preventDefault();
+        
 
         try {
             const newUser = { email, password, passwordCheck, firstName, lastName};
-            let loginRes = await Axios.post('http://localhost:3000/users/', {
+            let loginRes = await Axios.post('/users/', {
                 newUser
             });
            setUserData({
                 token: loginRes.data.token,
                 user: loginRes.data.user,
             });
-            //localStorage.setItem('auth-token', loginRes.data.token);
+            localStorage.setItem('auth-token', loginRes.data.token);
             history.push('/');
         } catch (err) {
             console.log(err)
@@ -44,35 +45,41 @@ export default function SignUp(){
 
                 <div className="form-group">
                     <label htmlFor='first-name'>First name</label>
-                    <input id='first-name' type="text" className="form-control" placeholder="First name" 
+                    <input id='first-name' type="text" className="form-control required" placeholder="First name" 
                     onChange={(e) => setFirstName(e.target.value)}/>
                 </div>
 
                 <div className="form-group">
                     <label htmlFor='last-name'>Last name</label>
-                    <input id='last-name' type="text"  className="form-control" placeholder="Last name" 
+                    <input id='last-name' type="text"  className="form-control required" placeholder="Last name" 
                      onChange={(e) => setLastName(e.target.value)}/>
                 </div>
 
                 <div className="form-group">
                     <label htmlFor='signup-email'>Email address</label>
-                    <input id='signup-email' type="email" className="form-control" placeholder="Enter email" 
+                    <input id='signup-email' type="email" className="form-control required" placeholder="Enter email" 
                      onChange={(e) => setEmail(e.target.value)}/>
                 </div>
 
                 <div className="form-group">
                     <label htmlFor='signin2-password'>Password</label>
-                    <input id='signin2-password' type="password" className="form-control" placeholder="Enter password" 
+                    <input id='signin2-password' type="password" className="form-control required" placeholder="Enter password" 
                      onChange={(e) => setPassword(e.target.value)}/>
                 </div>
 
+                
+
                 <div className="form-group">
                     <label htmlFor='signin-password'>Password</label>
-                    <input id='signin-password' type="password" className="form-control" placeholder="Enter password" 
+                    <input id='signin-password' type="password" className="form-control required" placeholder="Enter password" 
                      onChange={(e) => setPasswordCheck(e.target.value)}/>
                 </div> 
 
+                {password !== passwordCheck ? (<p>Passwords do not match</p>) : (
+
                 <ButtonContainer type="submit" className="sign_btn text-center btn btn-block">Sign Up</ButtonContainer>
+                )}
+
                 
             </form>
             </SignUpWrapper>

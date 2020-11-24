@@ -26,11 +26,13 @@ export default class UserModal extends React.Component {
                             //</div>
 
                             //else
-                         
-                            <div id='modal'style={{position: 'absolute',backgroundColor:'white', top:'50%', right:'50%', width:'25%', minWidth:'300px', transform:'translate(50%, -50%)', maxHeight: '350px', border: '0.05px solid #ccc', padding: '5px 10px', fontSize:'.8em', zIndex:'3005'}}>
+                       
+
+                            <div onMouseLeave={()=>value.closeModal()}id='modal'style={{position: 'absolute',backgroundColor:'white', top:'50%', right:'50%', width:'25%', minWidth:'300px', transform:'translate(50%, -50%)', maxHeight: '350px', border: '0.05px solid #ccc', padding: '5px 10px', fontSize:'.8em', zIndex:'3005'}}>
                                 <LogIn />
                                 
                             </div>
+                      
                         );
                     }
                }

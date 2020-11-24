@@ -2,11 +2,11 @@ export const storeProducts = [
     {
         id: 15,
         title: "Chanel 1 - red",
-        img: [
-         'img/product.jpg',
-         'img/landing-secondary.jpg',
-         'img/landing-secondary2.jpg'
-        ],    
+        
+        img1: 'img/product.jpg',
+        img2: 'img/landing-secondary.jpg',
+        img3: 'img/landing-secondary2.jpg',
+            
         price: 2000,
         category: 'Handbags',
         color: "red",
@@ -23,11 +23,11 @@ export const storeProducts = [
     {
         id: 25,
         title: "Gucci - brown",
-        img: [
-         'img/product.jpg',
-         'img/landing-secondary.jpg',
-         'img/landing-secondary2.jpg'
-        ],    
+        
+        img1: 'img/product.jpg',
+        img2: 'img/landing-secondary.jpg',
+        img3: 'img/landing-secondary2.jpg',
+            
         price: 3000,
         category: 'Handbags',
         color: "brown",
@@ -62,11 +62,11 @@ export const storeProducts = [
     {
         id: 4,
         title: "Chanel 1 - red",
-        img: [
-         'img/product.jpg',
-         'img/landing-secondary.jpg',
-         'img/landing-secondary2.jpg'
-        ],    
+        
+        img1: 'img/product.jpg',
+        img2: 'img/landing-secondary.jpg',
+        img3: 'img/landing-secondary2.jpg',
+            
         price: 2000,
         category: 'Clutches',
         color: "red",
@@ -83,11 +83,11 @@ export const storeProducts = [
     {
         id: 5,
         title: "Gucci - brown",
-        img: [
-         'img/product.jpg',
-         'img/landing-secondary.jpg',
-         'img/landing-secondary2.jpg'
-        ],    
+        
+        img1: 'img/product.jpg',
+        img2: 'img/landing-secondary.jpg',
+        img3: 'img/landing-secondary2.jpg',
+            
         price: 3000,
         category: 'Clutches',
         color: "brown",
@@ -103,11 +103,11 @@ export const storeProducts = [
     {
         id: 6,
         title: "Gucci - pink",
-        img: [
-         'img/product.jpg',
-         'img/landing-secondary.jpg',
-         'img/landing-secondary2.jpg'
-        ],    
+        
+        img1: 'img/product.jpg',
+        img2: 'img/landing-secondary.jpg',
+        img3: 'img/landing-secondary2.jpg',
+            
         price: 2500,
         category: 'Clutches',
         color: "pink",
@@ -122,11 +122,11 @@ export const storeProducts = [
     {
         id: 7,
         title: "Chanel 1 - red",
-        img: [
-         'img/product.jpg',
-         'img/landing-secondary.jpg',
-         'img/landing-secondary2.jpg'
-        ],    
+        
+        img1: 'img/product.jpg',
+        img2: 'img/landing-secondary.jpg',
+        img3: 'img/landing-secondary2.jpg',
+            
         price: 2000,
         category: 'New Arrivals',
         color: "red",
@@ -143,11 +143,11 @@ export const storeProducts = [
     {
         id: 8,
         title: "Gucci - brown",
-        img: [
-         'img/product.jpg',
-         'img/landing-secondary.jpg',
-         'img/landing-secondary2.jpg'
-        ],    
+        
+        img1: 'img/product.jpg',
+        img2: 'img/landing-secondary.jpg',
+        img3: 'img/landing-secondary2.jpg',
+            
         price: 3000,
         category: 'New Arrivals',
         color: "brown",
@@ -163,11 +163,11 @@ export const storeProducts = [
     {
         id: 9,
         title: "Gucci - pink",
-        img: [
-         'img/product.jpg',
-         'img/landing-secondary.jpg',
-         'img/landing-secondary2.jpg'
-        ],    
+        
+        img1: 'img/product.jpg',
+        img2: 'img/landing-secondary.jpg',
+        img3: 'img/landing-secondary2.jpg',
+            
         price: 2500,
         category: 'New Arrivals',
         color: "pink",

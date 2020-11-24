@@ -5,14 +5,14 @@ import { ButtonContainer } from '../Button';
 
 export default function WishList_list({value}) {
 
-    const {cart, clearCart} = value;
+    const {wishlist, clearWishlist} = value;
     
 
 
     return (
     <div>
         <div className='container-fluid w-100'>
-            {cart.map(item => {
+            {wishlist.map(item => {
                 return (
                 <WishlistItem 
                 key={item.id} 
@@ -28,7 +28,7 @@ export default function WishList_list({value}) {
                             <ButtonContainer 
                                 
                                 type='button'
-                                onClick={() => clearCart()}
+                                onClick={() => clearWishlist()}
                             >
                                 clear
                             </ButtonContainer>

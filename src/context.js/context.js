@@ -1,8 +1,6 @@
 import React from 'react';
-import {storeProducts, detailProduct} from '../data';
 import notify from '../Components/Notification';
 import axios from 'axios';
-import API from '../baseapi';
 
 const ProductContext = React.createContext();
 //Provider
@@ -13,7 +11,7 @@ class ProductProvider extends React.Component {
     state = {
         products: [],
         filters: [],
-        detailProduct:detailProduct,
+        detailProduct:0,
         categoryPage: 'Shop',
         cart: [],
         wishlist:[],
@@ -32,18 +30,20 @@ class ProductProvider extends React.Component {
 
     setProducts = async () => {
         let tempProducts = [];
-       /* try {
-            let res = await axios.get('http://localhost:3000/storeProducts/');
+        try {
+            let res = await axios.get('/products/');
             tempProducts = res.data;
 
                 this.setState( () => {
-                    return {products:tempProducts}
+                    return {
+                        products:tempProducts,
+                    }
                 });
            
         }  catch(err) {
                 console.log(err);
-            }*/
-        storeProducts.forEach(item => {
+            }
+        /*storeProducts.forEach(item => {
             const singleItem = {...item};
             tempProducts = [...tempProducts,singleItem];
         });
@@ -52,7 +52,7 @@ class ProductProvider extends React.Component {
                 products:tempProducts,
                 filters:tempProducts
             }
-        });
+        }); */
     };
 
     getItem = (id) => {
@@ -60,28 +60,38 @@ class ProductProvider extends React.Component {
             return product;
     };
 
-    changeCategory = (e) => {
+    changeCategory = async (e) => {
         const categoryTitle = e.target.innerText;
-        this.setState(() => {
+        console.log(categoryTitle);
+         this.setState(() => {
             return {
                 categoryPage: categoryTitle
             }
-        });
-        this.categoryFilter();
-    };
+        }, () => {this.categoryFilter()}
+         )};
 
-    categoryFilter = () => {
-        let tempProducts = [...this.state.products];
-        tempProducts = tempProducts.filter(item => 
-            item.category.includes(this.state.categoryPage)
-        );
+    categoryFilter = async () => {
+       
+        let categ = this.state.categoryPage;
+       let res = await axios.get('/products');
+        let tempProducts = res.data;
+       console.log(res.data);
+       
+       this.setState(()=>{
+           return {
+               products:tempProducts.filter(prod => prod.category[0] === categ[0])
+           }
+       })
+    };
+        /*let tempProducts = [...this.state.products];
+       
+        let filteredProducts = tempProducts.filter(prod => prod.category == this.state.categoryPage);
         this.setState(() => {
             return {
-               
-                filters: [...tempProducts]
-
+                products: [...filteredProducts]
             }
         });
+        };*/
         /*let tempProducts = axios.get('http://localhost:3000/storeProducts/')
         .then(res => {
             this.setState( {tempProducts : res.data })
@@ -90,7 +100,7 @@ class ProductProvider extends React.Component {
             });
 
         })*/
-    };
+ 
 
     handleDetail = (id) => {
        const product = this.getItem(id);
@@ -141,31 +151,20 @@ class ProductProvider extends React.Component {
 
     openModal = () => {
         this.setState(() => {
-           return { modalOpen: true }},() =>{
-               document.addEventListener('click', this.closeModal);
-           })
+           return { modalOpen: true }
+        })
            
             
         };
-        
+ 
     
-    
-    
-   /* openModal = id => {
-        const product = this.getItem(id);
-        this.setState(() => {
-            return {
-                modalProduct:product,
-                modalOpen : true }
-        })
-    }*/
+
 
     closeModal = () => {
         this.setState(() => {
-            return { modalOpen: false }}, () =>{
-                document.removeEventListener('click', this.closeModal);
-            });
-        
+            return { 
+                modalOpen: false
+          }})
             
         };
     
@@ -290,8 +289,6 @@ class ProductProvider extends React.Component {
     addTotals = () => {
         let subTotal = 0;
         this.state.cart.map(item => {return subTotal += item.total});
-        //const tempShipping = 300;
-        //const shipping = tempShipping;
         const shipping = this.state.cartShipping;
         const total = subTotal + shipping;
         this.setState(() => {
@@ -348,7 +345,6 @@ class ProductProvider extends React.Component {
     
 
      handleCheck = (e) => {
-         
 
              let filtered = e.target.value;
              console.log(filtered);
@@ -356,14 +352,14 @@ class ProductProvider extends React.Component {
         
      };
 
-     checkFilterColor = (filtered) => {
+     checkFilterColor = async(filtered) => {
+        
          let TempProducts = [...this.state.products];
 
-        
+         TempProducts = TempProducts.filter(prod => prod.color === filtered);        
         this.setState(() => {
             return {
-             filters: TempProducts.filter(item => 
-                item.color.includes(filtered)) 
+             products: [...TempProducts] 
             }
                 
          })
@@ -378,17 +374,67 @@ class ProductProvider extends React.Component {
    
 };
     
-     checkFilterPrice = (filtered) => {
-         let TempProducts = [...this.state.products];
+     checkFilterPrice = async (filtered) => {
+         let res = await axios.get('/products');
+         let TempProducts = res.data;
 
          this.setState(() => {
              return {
-                 filters: TempProducts.filter(item => 
-                    item.price < filtered
+                 products: TempProducts.filter(item => 
+                    item.price <= filtered
                     )
              }
          });
      };
+
+     handleCheckSize = (e) => {
+         
+
+        let filtered = e.target.value;
+        console.log(filtered);
+        this.checkFilterSize(filtered);
+   
+};
+    
+     checkFilterSize = async (filtered) => {
+         let res = await axios.get('/products');
+         let TempProducts = res.data;
+
+         this.setState(() => {
+             return {
+                 products: TempProducts.filter(item => 
+                    item.size === filtered
+                    )
+             }
+         });
+     };
+
+     handleClearFilters = () => {
+         
+         this.setProducts();
+     }
+
+     searchHandler = async (e) => {
+         let search = e.target.value;
+         let res = await axios.get('/products');
+         let TempProducts = res.data;
+
+         TempProducts = TempProducts.filter(prod => prod.title.toLowerCase().includes(search.toLowerCase()));
+
+         this.setState(()=> {
+            
+             if (search='' ){
+                 return {
+                     products: res.data
+                 } 
+                 
+             } else {
+                 return {
+                     products: TempProducts
+                 }
+             }
+         })
+     }
 
 
 
@@ -420,6 +466,11 @@ class ProductProvider extends React.Component {
                 handleCheckPrice: this.handleCheckPrice,
                 checkFilterColor: this.checkFilterColor,
                 checkFilterPrice: this.checkFilterPrice,
+                handleCheckSize: this.handleCheckSize,
+                checkFilterSize: this.checkFilterSize,
+                handleClearFilters: this.handleClearFilters,
+                searchHandler: this.searchHandler,
+                dontcloseModal: this.dontcloseModal,
                 changeCostTzs: this.changeCostTzs
             }}>
                 {this.props.children}

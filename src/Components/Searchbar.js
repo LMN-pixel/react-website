@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { ProductConsumer } from '../context.js/context';
 
 export default class SearchBar extends React.Component {
 
@@ -10,7 +11,10 @@ export default class SearchBar extends React.Component {
         return (
             <SearchWrapper>
                 <div className='search search_bar'>
-                <form>
+                    <ProductConsumer>
+                        {(value) => (
+
+                <form onChange={(e)=>{value.searchHandler(e)}}>
                     <div className='icon header_search-icon'><i className='fa fa-search'></i></div>
                     <input className='header_search-field search-field' type='text' placeholder='Search' autoComplete='off'/>
                     <span className='site_nav_search-clear'>
@@ -20,6 +24,8 @@ export default class SearchBar extends React.Component {
                     </span>
 
                 </form>
+                        )}
+                    </ProductConsumer>
                 </div>
             </SearchWrapper>
         )

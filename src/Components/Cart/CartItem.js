@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export default function CartItem({item,value}) {
 
-    const {id,title,img,price, total,count,color} = item;
+    const {id,title,img1,price, total,count,color} = item;
     const {increment, decrement, removeItem, currency} = value;
 
 return  (
@@ -11,7 +11,7 @@ return  (
     <div className='product_card d-flex flex-row'>
         <div className='product_card-img'>
             <img 
-               src={img[0]} 
+               src={img1} 
                className='product_card-photo'
                alt={title} 
             />

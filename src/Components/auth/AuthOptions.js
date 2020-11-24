@@ -6,31 +6,28 @@ import LogIn from './SignIn';
 
 export default function AuthOptions() {
 
-    /*const { userData, setUserData } = useContext(UserContext)
+    const { userData, setUserData } = useContext(UserContext)
 
     const history = useHistory();
 
 
-   // const register = () => history.push('/signup');
+    
     const logout = () => {
         setUserData({
 
             token: undefined,
             user: undefined,
         });
-        //localStorage.setItem("auth-token", "");
-    };*/
+        localStorage.setItem("auth-token", "");
+    };
 
     return (
-        //<>
-       // {//userData.user ? (
-         //   <p>name</p>
-           // ) : (
-            //<p onClick={register} >Sign In</p>
-
+        <>
+        {userData.user ? (
+            <p>name</p>
+            ) : (
             <p>Sign In</p>
-       // )
-   //
-    //</>
+        )}
+        </>
     );
 }

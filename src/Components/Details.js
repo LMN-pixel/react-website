@@ -13,7 +13,10 @@ export class Details extends React.Component {
                   const {
                     id,
                     company,
-                    img,
+                    img1,
+                    img2,
+                    img3,
+                   
                     info,
                     color,
                     price,
@@ -35,10 +38,10 @@ export class Details extends React.Component {
                                <div className='col-12 mx-auto col-md-7 
                                my-3'>
                                    <Carousel style={{maxHeight:'300px'}}>
-                                       <img src={img[0]} alt=''/>
-                                       <img src={img[1]} alt=''/>
-                                       <img src={img[2]} alt=''/>
-                                       <img src={img[3]} alt=''/>
+                                       <img src={img1} alt=''/>
+                                       <img src={img2} alt=''/>
+                                       <img src={img3} alt=''/>
+                                      
                                    </Carousel>
                                    
                                </div>

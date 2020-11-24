@@ -11,7 +11,7 @@ export class Product extends React.Component {
 
     render() {
 
-        const {id, title, img, price, inCart, inWishlist} = this.props.product;      
+        const {id, title, img1, price, inCart, inWishlist} = this.props.product;      
     
         return (
         
@@ -30,7 +30,7 @@ export class Product extends React.Component {
                       }}>
 
                           <Link to='/details'>
-                              <img src={img[0]} alt='product' className='card-img-top' />
+                              <img src={img1} alt='product' className='card-img-top' />
                           </Link>
 
                       {/* wishlist button */}

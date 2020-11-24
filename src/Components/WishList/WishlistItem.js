@@ -5,7 +5,7 @@ import styled  from 'styled-components';
 
 export default function WishlistItem ({item,value}) {
 
-const {id,title,img,price,color} = item;
+const {id,title,img1,price,color} = item;
 const {removeItemWishlist, addToCart, currency} = value;
 
         return(
@@ -14,7 +14,7 @@ const {removeItemWishlist, addToCart, currency} = value;
             <div className='product_card d-flex flex-row'>
                 <div className='product_card-img'>
                     <img 
-                    src={img[0]} 
+                    src={img1} 
                    className='product_card-photo'
                     alt={title} 
                     />

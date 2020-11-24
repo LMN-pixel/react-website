@@ -5,10 +5,13 @@ import Axios from 'axios';
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
 import { ButtonContainer } from "../Button";
+import { ProductConsumer } from "../../context.js/context";
 
-export default function Login() {
+export default function Login(value) {
 
-    /*const [email, setEmail] = useState();
+    const { closeModal } = value
+
+    const [email, setEmail] = useState();
     const [password, setPassword] = useState();
     
     
@@ -20,7 +23,7 @@ export default function Login() {
         try {
             const loginUser = { email, password };
             const loginRes = await Axios.post(
-                'http://localhost:3000/users/',
+                '/users/',
                 loginUser
             );
             setUserData({
@@ -28,12 +31,12 @@ export default function Login() {
                 user: loginRes.data.user,
             });
             console.log(loginRes.data.token);
-            //localStorage.setItem('auth-token', loginRes.data.token);
+            localStorage.setItem('auth-token', loginRes.data.token);
             history.push('/');
         } catch(err) {
             console.log(err);
         }
-    };*/
+    };
        
         return ( 
            /* <SignInWrapper>
@@ -72,19 +75,19 @@ export default function Login() {
             </form>
             </SignInWrapper>*/
 
-            <form //onSubmit={submit}
+            <form onSubmit={submit,closeModal}
             >
                 <h6 className='text-center mb-3'>Sign In</h6>
 
                 <div className="form-group">
                     <input id='signin-email' type="email" className="form-control required" style={{height: '25px', margin:'0'}}placeholder="Enter email" name='email'
-                    //onChange={(e) => setEmail(e.target.value)} 
+                    onChange={(e) => setEmail(e.target.value)} 
                     />
                 </div>
 
                 <div className="form-group">
                     <input id='signin-password' type="password" className="form-control required" style={{height: '25px' }} placeholder="Enter password" name='password'
-                    //onChange={(e) => setPassword(e.target.value)}
+                    onChange={(e) => setPassword(e.target.value)}
                     />
                 </div>
 
@@ -97,11 +100,16 @@ export default function Login() {
                      <a href="#">Forgot password?</a>
                     </p>
                 </div>
-
+                <ProductConsumer>
+                    {value => (
+                        <>
                 <ButtonContainer type="submit" style={{ fontSize:'.9em', padding:'0'}}className="btn btn-block ">Sign In</ButtonContainer>
                 <p className="forgot-password text-center">
-                    <Link to='/signup'><ButtonContainer style={{ fontSize:'.9em', padding:'0'}} className='text-center btn btn-block'>Create Account</ButtonContainer></Link>
+                    <Link to='/signup'><ButtonContainer onClick={()=>{value.closeModal()}}style={{ fontSize:'.9em', padding:'0'}} className='text-center btn btn-block'>Create Account</ButtonContainer></Link>
                 </p>
+                </>
+                    )}
+                </ProductConsumer>
             </form>
         );
    

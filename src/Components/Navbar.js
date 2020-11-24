@@ -48,7 +48,7 @@ export class Navbar extends React.Component {
                                         <span className='dis'>
                                             <p 
                                             onClick={()=>{value.openModal()}}
-                                            >Sign In</p>
+                                            ><AuthOptions /></p>
                                         </span>
                                         </a>
                                         

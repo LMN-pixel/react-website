@@ -17,29 +17,30 @@ export default class Checkout extends React.Component{
         document.getElementById('changeaddress').style.display = 'block';
     }
 
-   // const [phoneNum, setPhoneNum] = useState();
-    //const [email, setEmail] = useState();
-    //const [address, setAddress] = useState();
-    //const [name, setName] = useState();
-    //const [addInfo, setAddInfo] = useState();
+    
 
-    //const { setUserData } = useContext(UserContext);
+  /* const [phoneNum, setPhoneNum] = useState();
+   const [email, setEmail] = useState();
+   const [address, setAddress] = useState();
+   const [name, setName] = useState();
+   const [addInfo, setAddInfo] = useState();
 
-    {/*const submit = async (e) => {
+    const { setUserData } = useContext(UserContext);
+
+    const submit = async (e) => {
         e.preventDefault();
         try {
 
             const checkoutUser = {name, email, phoneNum, address, addInfo};
-            const checkoutUserRes = await API.post('user/checkout', checkoutUser);
-            console.log(checkoutUserRes.data.name);
-            console.log(checkoutUserRes.data.phoneNum);
+            const checkoutUserRes = await API.put('/user/1000', checkoutUser);
+          
 
            
         } catch(err){
             console.log(err);
         }
 
-    };*/}
+    };*/
         return (
                     
             <main className="mt-5 pt-4">
@@ -76,7 +77,7 @@ export default class Checkout extends React.Component{
                                         <div className="md-form mb-4">                                  
                                                 <label for="firstName" className="">Full Name</label>
                                                 <input type="text" id="firstName" className="form-control"
-                                                //onChange={(e) => setName(e.target.value)}
+                                               // onChange={(e) => setName(e.target.value)}
                                                 />                        
                                         </div>                           
                                                                                          
@@ -159,7 +160,7 @@ export default class Checkout extends React.Component{
                                 <div id='useraddress' className="d-block mb-3 mt-5" style={{border:'0.05px solid #ccc', borderRadius:'10px',padding:'2px 0 3px 10px'}}>
                                             <h6 className='font-weight-bold text-uppercase my-3 pb-2' style={{borderBottom:'0.05px solid #ccc'}}>Payment Method</h6>
                                             <div>
-                                                <div  className="custom-control custom-radio">
+                                                <div className="custom-control custom-radio">
                                                     <input id="mpesa" name="paymentMethod" type="radio" className="custom-control-input" required/>
                                                     <label className="custom-control-label" htmlFor="mpesa">Mpesa</label>
                                                 </div>

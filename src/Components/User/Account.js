@@ -1,10 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { ButtonContainer } from '../Button';
 import SideBar from './Accountsidemenu';
+import UserContext from '../../context.js/UserContext';
+import Axios from 'axios';
 
 
 export function UserAccount(){
+
+    const [firstName, setFirstName] = useState();
+    const [lastName, setLastName] = useState();
+    const [email, setEmail] = useState();
+    const [phoneNumber, setPhoneNumber] = useState();
+    const [country, setCountry] = useState();
+    const [town, setTown] = useState();
+    const [address, setAddress] = useState();
+
+    const submit = async(e) => {
+        e.preventDefault();
+        
+            const user = {firstName, lastName,email,phoneNumber,country,town,address};
+           // const userData = await Axios.put(`/user/`, user);
+        
+    };
 
     return (
         <AccountWrap>
