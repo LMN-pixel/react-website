@@ -108,11 +108,11 @@ export default class Footer extends React.Component {
                                             <h3 className='payment_methods_part-title'>ACCEPTED PAYMENT METHODS</h3>
                                             <div className='payment_methods_part-img'>
                                                 <img alt='Mastercard' className='payment_icon' src='img/Mastercard.jpg' style={{maxWidth:'30px'}}/>
-                                                <img alt='Mpesa' className='payment_icon' src='img/MPesa.jpg' style={{maxWidth:'30px'}}/>
+                                                <img alt='Mpesa' className='payment_icon' src='img/MPesa.jpeg' style={{maxWidth:'30px'}}/>
                                                 <img alt='Visa' className='payment_icon' src='img/Visa.jpg' style={{maxWidth:'30px'}}/>
-                                                <img alt='Paypal' className='payment_icon' src='img/Paypal.png' style={{maxWidth:'30px'}}/>
+                                                <img alt='Paypal' className='payment_icon' src='img/Paypal.jpeg' style={{maxWidth:'30px'}}/>
                                             </div>
-                                        </div>
+                                        </div> 
                                     </div>
                                 </div>
                             </div>
@@ -137,6 +137,7 @@ export default class Footer extends React.Component {
 
 const FooterWrapper = styled.div `
 margin-top: 20px;
+.fa {color:white;}
 .page_footer {
     padding: 0 5px;
     background-color: #333;

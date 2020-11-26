@@ -1,7 +1,7 @@
-import React, { useState, useContext } from 'react';
-import UserContext from '../context.js/UserContext';
+import React from 'react';
+import { UserConsumer, UserProvider } from '../context.js/UserContext';
 import {ButtonContainer} from './Button';
-import API from '../baseapi';
+
 import { ProductConsumer } from '../context.js/context';
 import CartTotals from './Cart/CartTotals';
 
@@ -10,24 +10,19 @@ import CartTotals from './Cart/CartTotals';
 
 export default class Checkout extends React.Component{
 
+    
+
     render() {
+
+      //const { country, address } = this.props.user;
     
     const handleClick = () => {
         document.getElementById('useraddress').style.display = 'none';
         document.getElementById('changeaddress').style.display = 'block';
     }
 
-    
 
-  /* const [phoneNum, setPhoneNum] = useState();
-   const [email, setEmail] = useState();
-   const [address, setAddress] = useState();
-   const [name, setName] = useState();
-   const [addInfo, setAddInfo] = useState();
-
-    const { setUserData } = useContext(UserContext);
-
-    const submit = async (e) => {
+    /*const submit = async (e) => {
         e.preventDefault();
         try {
 
@@ -42,7 +37,8 @@ export default class Checkout extends React.Component{
 
     };*/
         return (
-                    
+              <UserProvider>
+
             <main className="mt-5 pt-4">
                 <div className="container">              
                     <h2 className="my-5 mt-5 pt-5 h2 text-center">Checkout</h2>
@@ -55,8 +51,8 @@ export default class Checkout extends React.Component{
                                             <h6 className='text-uppercase font-weight-bold my-3 pb-2' style={{borderBottom:'0.05px solid #ccc'}} >Default Address</h6>
                                     <div >
                                         <article >
-                                            <p>Country, Town</p>
-                                            <p>Estate/Area</p>
+                                            <p>Country</p>
+                                            <p>address</p>
                                         
                                         </article>
                                     </div>
@@ -66,36 +62,47 @@ export default class Checkout extends React.Component{
                                 <div id='changeaddress' style={{display:'none'}}className="row">
                                     <div className="mx-auto mb-4">
                                 
-
-                                    <form className="" //onSubmit={submit}
-                                    >
+                                <UserConsumer>
+                                    {(value) => (
+                                        
+                                        <form /// onSubmit={submit}
+                                        >
                                         <p classNameName='text-uppercase font-weight-bold mb-5'>
                                             Delivery Address
                                         </p>
                                                                            
-                        
-                                        <div className="md-form mb-4">                                  
-                                                <label for="firstName" className="">Full Name</label>
+                                        <div className='row'>
+
+                                            <div className="md-form mb-4">                                  
+                                                <label for="firstName" className="">First Name</label>
                                                 <input type="text" id="firstName" className="form-control"
-                                               // onChange={(e) => setName(e.target.value)}
-                                                />                        
-                                        </div>                           
+                                                    onChange={(e)=>{value.handleFirstName(e)}}
+                                                    />                        
+                                            </div> 
+
+                                            <div className="md-form mb-4">                                  
+                                                <label for="firstName" className="">Last Name</label>
+                                                <input type="text" id="firstName" className="form-control"
+                                                    onChange={(e)=>{value.handleLastName(e)}}
+                                                    />                        
+                                            </div>                          
+                                        </div>
                                                                                          
                                          
                       
                                         <div className="md-form mb-4">
                                             <label for="email" className="">Email</label>
                                             <input type="text" id="email" className="form-control" placeholder="youremail@example.com"
-                                            //onChange={(e) => setEmail(e.target.value)}
-                                            />
+                                                onChange={(e)=>{value.handleEmail(e)}}
+                                                />
                                             
                                         </div>
 
                                      
                                         <div className="md-form mb-4">
                                             <label for="tel-no" className="">Phone Number</label>
-                                            <input type="tel" id="tel-no" className="form-control" placeholder="712345678"
-                                            //onChange={(e) => setPhoneNum(e.target.value)}
+                                            <input type="tel" id="tel-no" className="form-control" 
+                                            onChange={(e)=>{value.handlePhoneNum(e)}}
                                             />
                                         </div> 
                              
@@ -104,7 +111,7 @@ export default class Checkout extends React.Component{
                               
                                             <div className="col-lg-4 col-md-12 mb-4">        
                                                 <label for="country">Country</label>
-                                                <select className="custom-select d-block w-100" id="country" required>
+                                                <select onChange={(e)=>{value.handleCountry(e)}} className="custom-select d-block w-100" id="country" required>
                                                     <option value='Kenya'>Kenya</option>
                                                     <option value='Uganda'>Uganda</option>
                                                     <option value='Tanzania'>Tanzania</option>
@@ -139,27 +146,33 @@ export default class Checkout extends React.Component{
                                         <div className="md-form mb-5">
                                             <label for="address" className="">Estate/Area</label>
                                             <input type="text" id="address" className="form-control" placeholder="1234 Main St"
-                                             //onChange={(e) => setAddress(e.target.value)}
-                                             />
+                                                onChange={(e)=>{value.handleAddress(e)}}
+                                                />
                                             
                                         </div>  
 
                                         <div className="md-form mb-5">
                                             <label for="address-2" className="">Additional information</label>
                                             <textarea cols='50' rows='6' id="address-2" className="form-control" placeholder="Additional information"
-                                            //onChange={(e) => setAddInfo(e.target.value)}
-                                            />
+                                                onChange={(e)=>{value.handleAddInfo(e)}}
+                                                />
                                         </div>  
                                         <ButtonContainer>Update Address</ButtonContainer>      
                                     </form>
+                                            )}
+                                </UserConsumer>
+
                                 </div>                 
                                                                                                                   
                              </div>
                             
-                    
-                                <div id='useraddress' className="d-block mb-3 mt-5" style={{border:'0.05px solid #ccc', borderRadius:'10px',padding:'2px 0 3px 10px'}}>
+                                <UserConsumer>
+                                    {(value) => (
+                                        
+                                        <div id='useraddress' className="d-block mb-3 mt-5" style={{border:'0.05px solid #ccc', borderRadius:'10px',padding:'2px 0 3px 10px'}}>
                                             <h6 className='font-weight-bold text-uppercase my-3 pb-2' style={{borderBottom:'0.05px solid #ccc'}}>Payment Method</h6>
-                                            <div>
+                                            
+                                            <div onChange={(e)=>{value.handlePaymentMethod(e)}}>
                                                 <div className="custom-control custom-radio">
                                                     <input id="mpesa" name="paymentMethod" type="radio" className="custom-control-input" required/>
                                                     <label className="custom-control-label" htmlFor="mpesa">Mpesa</label>
@@ -177,15 +190,17 @@ export default class Checkout extends React.Component{
                                             
                                         </ButtonContainer>
                                     </div>
+                                        )}
+                                </UserConsumer>
                                 </div>
 
                                
                                 <div className='col-12 col-md-4'>
                                     <ProductConsumer>
                                         {(value) => (
-                                        
+                                            
                                             <CartTotals value={value} />
-                                        )}
+                                            )}
                                     </ProductConsumer>
                                 </div>
                         </div>
@@ -196,7 +211,8 @@ export default class Checkout extends React.Component{
             </main>
             
             
-            )        
+        </UserProvider>      
+            );  
         
     
 }

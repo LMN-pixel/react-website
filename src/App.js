@@ -13,7 +13,6 @@ import Landing from './Components/LandingPage.js/landing'
 import SignUp from './Components/auth/SignUp';
 import Checkout from './Components/Checkout';
 import {WishList} from './Components/WishList/WishList';
-import UserContext from './context.js/UserContext';
 import UserModal from './Components/User/UserModal';
 import { UserAccount } from './Components/User/Account';
 import UserOrders from './Components/User/Orders';
@@ -64,7 +63,6 @@ checkLoggedIn();
 
   return (
     <React.Fragment>
-     <UserContext.Provider value={{ userData, setUserData }}>
         <Navbar />
          <Switch>
           <Route exact path='/' component={Landing}></Route>
@@ -76,17 +74,10 @@ checkLoggedIn();
           <Route path='/wishlist' component={WishList}></Route>
           <Route path='/account' component={UserAccount}></Route>
           <Route path='/orders' component={UserOrders}></Route>
-          <Route path='/admin' component={AdminPage}></Route>
           <Route component={Default}></Route>
         </Switch>
         <Footer />
-      <UserModal />
-
-  </UserContext.Provider> 
-
-  
-
-
+  <UserModal />
     </React.Fragment>
   );
 

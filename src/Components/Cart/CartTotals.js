@@ -19,7 +19,7 @@ export default function CartTotals({value}) {
                             
                             <div className='summary_subtotal'>
                                 <span className='title_label'>
-                                   subtotal : 
+                                   Subtotal : 
                                 </span>
                                 <span className='title_value'>
                                     {currency} {cartSubTotal} 
@@ -28,7 +28,7 @@ export default function CartTotals({value}) {
 
                             <div className='summary_subtotal shipping_cost'>
                                 <span className='title_label'>
-                                   shipping : 
+                                   Shipping : 
                                  </span>
                                 <span className='title_value'>
                                     {currency} {cartShipping} 

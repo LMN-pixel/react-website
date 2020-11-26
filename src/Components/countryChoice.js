@@ -11,9 +11,9 @@ export default class CountrySelect extends React.Component {
                <ProductConsumer>
                    {(value) => (
                     <select style={{border:'none', backgroundColor:'white'}} onChange={(e) => {value.changeCurrency(e)}}>
-                        <option value='Ksh'>Kenya, KES</option>
-                        <option value='Tzs'>Tanzania, TZS</option>
-                        <option value='Ugx'>Uganda, UGX</option>
+                        <option value='Ksh'> KES</option>
+                        <option value='Tzs'> TZS</option>
+                        <option value='Ugx'> UGX</option>
                     </select>
 
                    )}
@@ -27,8 +27,8 @@ export default class CountrySelect extends React.Component {
 const CountryWrap = styled.div `
 @media (min-width:1200px){
     position: absolute;
-    bottom: 32px;
-    left: 130px;
+   top: 35px;
+    right:10px;
     border: none;
     font-size: .8em;
 }

@@ -19,19 +19,17 @@ export class Navbar extends React.Component {
                 
                 <div className='container mb-0'>
                     <div className='row row1 navbar-header'>
-                        <div style={{position:'relative'}}>
+                        <div >
 
                             <Link to='/'>
                                 <img
                                 className='logo'
-                                src='img/logo.jpg' 
+                                src='img/logo.png' 
                                 alt = ' '
                                 />
                             </Link>
 
-                            <div className='d-none d-xl-inline-block'>
-                                <CountrySelect className='dis'/>
-                            </div>
+                            
                         </div>
 
                             <ul>
@@ -61,6 +59,7 @@ export class Navbar extends React.Component {
                                         </span>
                                     </Link>
                                 </li>
+
                                 <li>
                                     <Link to="/cart" className='link mr-3 position-relative'>
                                                 <i className="fas fa-shopping-basket fa-fw"/>
@@ -74,6 +73,10 @@ export class Navbar extends React.Component {
                                             
                                     </Link>
                                 </li>
+                                <div className='d-none d-xl-inline-block'>
+                                    <CountrySelect className='dis'/>
+                                </div>
+                                
                             </ul>
                         </div> 
                     </div>

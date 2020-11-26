@@ -3,8 +3,9 @@ import axios from 'axios';
 import styled from 'styled-components';
 
 
-export default function OrderItem() {
+export default function OrderItem(item) {
     
+    const {id,title,img1} = item;
 
 
     return(
@@ -13,14 +14,14 @@ export default function OrderItem() {
 
             <div className='row'>
                 <div className='col-4 col-lg-2'>
-                    <img src='img/product.jpg' alt=''/>
+                    <img alt={title} src={img1}/>
                 </div>
                 <div className='col-4 col-lg-6 order_text'>
                     <div>
-                        <p>Gucci-brown</p>
+                        <p>{title}</p>
                     </div>
                     <div className='text-muted order_text'>
-                        <p>Id id</p>
+                        <p>Id {id}</p>
                     </div>
                 </div>
                 <div className='col-lg-3'>

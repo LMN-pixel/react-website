@@ -6,7 +6,7 @@ import { ButtonContainer } from '../Button';
 export default function CartList({value}) {
 
     const {cart, clearCart} = value;
-    console.log(value,cart);
+  
 
 
     return (

@@ -1,33 +1,29 @@
 import React, { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
-import UserContext from '../../context.js/UserContext';
-import LogIn from './SignIn';
+import {UserConsumer, UserProvider } from '../../context.js/UserContext';
+
 
 
 export default function AuthOptions() {
 
-    const { userData, setUserData } = useContext(UserContext)
-
     const history = useHistory();
 
-
-    
-    const logout = () => {
-        setUserData({
-
-            token: undefined,
-            user: undefined,
-        });
-        localStorage.setItem("auth-token", "");
-    };
-
     return (
-        <>
-        {userData.user ? (
-            <p>name</p>
-            ) : (
-            <p>Sign In</p>
-        )}
-        </>
+        <UserProvider>
+            <UserConsumer>
+                {user => (
+                    <>
+            {//userData.user 
+           // true ? (
+             //   <p>user.firstName</p>
+              //  ) : (
+                <p>Sign In</p>
+          //  )
+            }
+                </>
+                )}
+            </UserConsumer>
+        </UserProvider>
+        
     );
 }

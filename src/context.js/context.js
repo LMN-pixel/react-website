@@ -3,18 +3,17 @@ import notify from '../Components/Notification';
 import axios from 'axios';
 
 const ProductContext = React.createContext();
-//Provider
-//Consumer
+
 
 
 class ProductProvider extends React.Component {
     state = {
         products: [],
-        filters: [],
         detailProduct:0,
         categoryPage: 'Shop',
         cart: [],
         wishlist:[],
+        orders: [],
         modalOpen:false,
         currency: 'Ksh',
         cartSubTotal: 0,
@@ -110,7 +109,7 @@ class ProductProvider extends React.Component {
     };
 
     addToCart = (id) => {
-        
+        //post request to user.cart to add to their cart array
         let tempProducts = [...this.state.products];
         const index = tempProducts.indexOf(this.getItem(id));
         const product = tempProducts[index];
@@ -131,7 +130,8 @@ class ProductProvider extends React.Component {
     };
 
     addToWishlist = (id) => {
-        
+        //axios put request to add to wishlist,
+        //then get the new wishlisst list and replace the array
         let tempProducts = [...this.state.products];
         const index = tempProducts.indexOf(this.getItem(id));
         const product = tempProducts[index];
@@ -150,17 +150,19 @@ class ProductProvider extends React.Component {
     };
 
     openModal = () => {
+
+        document.querySelector('body').style.background = 'rgba(0,0,0,0.6)';
         this.setState(() => {
            return { modalOpen: true }
-        })
-           
-            
+        }) 
         };
  
     
 
 
     closeModal = () => {
+
+        document.querySelector('body').style.background = 'none';
         this.setState(() => {
             return { 
                 modalOpen: false
@@ -210,6 +212,7 @@ class ProductProvider extends React.Component {
         
     };
     removeItem = (id) => {
+        //delete request to user(id).cart(id)
         let tempProducts = [...this.state.products];
         let tempCart = [...this.state.cart];
 
@@ -235,6 +238,7 @@ class ProductProvider extends React.Component {
     };
 
     removeItemWishlist = (id) => {
+        //axios delete request to user(id).wishlist(id)
         let tempwishProducts = [...this.state.products];
         let tempWishlist = [...this.state.wishlist];
 
@@ -257,6 +261,7 @@ class ProductProvider extends React.Component {
 
     };
     clearCart = () => {
+        //axios delete request to user.cart to clear the cart
         this.setState(() => {
             return {
                 cart:[]
@@ -268,6 +273,7 @@ class ProductProvider extends React.Component {
     };
 
     clearWishlist = () => {
+        //delete request to user(id).wishlist
         this.setState(() => {
             return {
                 wishlist:[]
@@ -313,37 +319,25 @@ class ProductProvider extends React.Component {
         });
        
     };
-
-    /*changeCost = (id) => {
-        let tempProducts = [...this.state.products];
+    addToOrders= (id) => {
+        //only after selecting payment
+        //post request for user.orders,(to orders array) 
+        //post request to orders(for admin use) with user details.(cart,carttotals,country,address,number,name, email)
+        //if payment is mpesa, popup for whatever info is required
+        //if on delivery, show order complete, you will receive confirmation of your order soon
+        let tempProducts = [...this.state.orders];
         const index = tempProducts.indexOf(this.getItem(id));
         const product = tempProducts[index];
+ 
 
-        let defaultProductPrice = product.price;
-        let changingProductPrice = defaultProductPrice;
-        let tempProductPrice = changingProductPrice;
-       switch(this.state.currency) {
-
-        case 'Tzs':
-            tempProductPrice=changingProductPrice;
-            let TzPrice = tempProductPrice * 22;
-            product.price = TzPrice;
-            break;
-
-        case 'Ugx':
-            tempProductPrice=changingProductPrice;
-            let UgPrice = tempProductPrice * 34;
-            product.price = UgPrice;
-            break;
-        
-        default:
-            
-            break;
-       }
-
-    } */
+        this.setState(() => {
+            return {
+                
+                orders: [...this.state.orders, product]
+            };
+        });
+    };
     
-
      handleCheck = (e) => {
 
              let filtered = e.target.value;
@@ -470,8 +464,7 @@ class ProductProvider extends React.Component {
                 checkFilterSize: this.checkFilterSize,
                 handleClearFilters: this.handleClearFilters,
                 searchHandler: this.searchHandler,
-                dontcloseModal: this.dontcloseModal,
-                changeCostTzs: this.changeCostTzs
+                addToOrders: this.addToOrders,
             }}>
                 {this.props.children}
             </ProductContext.Provider>
