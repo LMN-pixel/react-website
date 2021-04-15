@@ -151,14 +151,7 @@ export class Navbar extends React.Component {
                                         className='nav-item link'>
                                             <Link to='/products'>Clutches
                                                 </Link></li>
-                                        <li 
-                                        id='side'
-                                         
-                                        onClick={(e) => { value.changeCategory(e); value.categoryFilter()  }} 
-                                        className='nav-item link'>
-                                            <Link to='/products'>Bucket Bags
-                                                </Link>
-                                        </li>
+                                       
                                         <li style={{fontSize:'1em'}} className='d-block d-lg-none w-100'>
                                             {/*if signed in display none*/}
                                             <AuthOptions />

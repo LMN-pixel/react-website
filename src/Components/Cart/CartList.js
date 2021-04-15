@@ -30,7 +30,7 @@ export default function CartList({value}) {
                                 type='button'
                                 onClick={() => clearCart()}
                             >
-                                clear cart
+                                Clear cart
                             </ButtonContainer>
                         </Link>
                     </div>

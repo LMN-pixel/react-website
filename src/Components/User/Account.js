@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { ButtonContainer } from '../Button';
 import SideBar from './Accountsidemenu';
 import UserContext, { UserConsumer, UserProvider } from '../../context.js/UserContext';
-import Axios from 'axios';
 
 
 export function UserAccount(){

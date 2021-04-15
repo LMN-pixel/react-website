@@ -64,7 +64,7 @@ checkLoggedIn();
   return (
     <React.Fragment>
         <Navbar />
-         <Switch>
+       <Switch>
           <Route exact path='/' component={Landing}></Route>
           <Route path="/products" component={ProductList}></Route>
           <Route path="/details" component={Details}></Route>
@@ -77,7 +77,8 @@ checkLoggedIn();
           <Route component={Default}></Route>
         </Switch>
         <Footer />
-  <UserModal />
+        <UserModal />
+  <UserAccount />
     </React.Fragment>
   );
 
